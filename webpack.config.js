@@ -19,5 +19,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Output Management'
         })
-    ]
+    ],
+    module: {
+        rules: [
+          {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+          },
+        ],
+      },
 }
