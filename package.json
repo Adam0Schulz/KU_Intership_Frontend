@@ -4,7 +4,9 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack-dev-server --entry ./js/api/calls.js --output-filename ./dist/bundle.js",
+    "build:prod": "webpack js/api/calls.js dist/bundle.js -p"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +14,9 @@
     "axios": "^1.4.0",
     "bootstrap": "3.3.7",
     "jquery": "3.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }
