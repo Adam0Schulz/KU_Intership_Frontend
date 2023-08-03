@@ -1,12 +1,11 @@
 {
   "name": "ku_intership_frontend",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack-dev-server --entry ./js/api/calls.js --output-filename ./dist/bundle.js",
-    "build:prod": "webpack js/api/calls.js dist/bundle.js -p"
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +15,7 @@
     "jquery": "3.1.0"
   },
   "devDependencies": {
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
   }
 }
