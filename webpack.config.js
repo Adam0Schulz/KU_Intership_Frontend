@@ -11,6 +11,16 @@ module.exports = {
     },
     devServer: {
         static: './dist',
+        proxy: {
+            '/api': {
+                target: 'https://cms.ku.dk',
+                changeOrigin: true,
+                secure: true,
+                pathRewrite: {
+                    '^/api': '/menu-spippets/eng-global-footer.html',
+                }
+            }
+        }
     },
     optimization: {
         runtimeChunk: 'single',
