@@ -1,1 +1,0 @@
-(self.webpackChunkku_intership_frontend=self.webpackChunkku_intership_frontend||[]).push([[179],{138:()=>{console.log("Hello World!")}},e=>{e(e.s=138)}]);
