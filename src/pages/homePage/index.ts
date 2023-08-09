@@ -1,5 +1,5 @@
-import {myData} from "./js/api/calls";
-import {api} from "./js/api/axios";
+import {myData} from "../../js/api/calls";
+import {api} from "../../js/api/axios";
 import $ from 'jquery';
 
 $(document).ready(function() {
@@ -9,6 +9,6 @@ $(document).ready(function() {
         console.log(res.data);
 
         // Select the div with the ID "myDiv" and set its HTML content
-        $('#myDiv').html(res.data);
+        $("footer").html(res.data);
     });   
 });
