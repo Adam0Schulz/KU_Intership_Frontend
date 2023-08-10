@@ -6,7 +6,14 @@ import BreadCrumbs from "../../components/BreadCrumbs"
 
 $(function() {
 
-    components()
+    components(
+        {searchSection: {
+            heading: "Find Apple Species",
+            subHeading: "Search for apples by name"
+
+            }
+        }
+    )
     BreadCrumbs([{ label: "Home", link: "", isActive: true }])
 
     $.get("http://localhost:8080/ku/footer", function(data) {

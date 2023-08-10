@@ -1,0 +1,33 @@
+.search--large-cont {
+    background-color: var(--COLOR-PRIMARY);
+    padding: 5em;
+    position: relative;
+    max-width: 45em;
+}
+
+.search--large__bg-img {
+    position: absolute;
+    top: auto;
+    right: 0.4em;
+    font-size: 10em;
+    text-align: center;
+}
+
+.search--large__bg-img::before,
+.search--large__heading,
+.search--large__subHeading {
+    color: white;
+}
+
+.search--large__heading {
+    margin-top: 0;
+}
+
+.search--large__input-group {
+    display: block;
+    margin: 3em 0 0 0;
+}
+
+.search--large__input {
+    max-width: 40ch;
+}
