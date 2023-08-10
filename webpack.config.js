@@ -60,6 +60,10 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.html$/,
+                use: 'html-loader',
+            },
         ],
     },
     resolve: {
