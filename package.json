@@ -19,6 +19,7 @@
     "@types/bootstrap": "^5.2.6",
     "@types/jquery": "^3.5.16",
     "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "http-proxy-middleware": "^2.0.6",
     "style-loader": "^3.3.3",
