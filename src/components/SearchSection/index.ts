@@ -1,5 +1,5 @@
 import HTML from "./component.html"
-import "./../../global.css"
+import "@gcss"
 import "./style.css"
 import $ from "jquery"
 

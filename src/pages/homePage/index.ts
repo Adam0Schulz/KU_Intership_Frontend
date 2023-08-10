@@ -1,22 +1,23 @@
-import {api} from "../../js/api/axios";
+import { api } from "@js/api/axios";
 import $ from 'jquery';
-import components from "../../js/components";
-import BreadCrumbs from "../../components/BreadCrumbs"
-    
+import components from "@js/components";
+import BreadCrumbs from "@components/BreadCrumbs"
 
-$(function() {
+
+$(function () {
 
     components(
-        {searchSection: {
-            heading: "Find Apple Species",
-            subHeading: "Search for apples by name"
+        {
+            searchSection: {
+                heading: "Find Apple Species",
+                subHeading: "Search for apples by name"
 
             }
         }
     )
     BreadCrumbs([{ label: "Home", link: "", isActive: true }])
 
-    $.get("http://localhost:8080/ku/footer", function(data) {
+    $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").html(data);
     });
 });
