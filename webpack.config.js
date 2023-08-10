@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode: "development",
     entry: {
-        index: './src/pages/homePage/index.ts',
+        home: './src/pages/homePage/index.ts',
         about: './src/pages/aboutPage/index.ts'
     },
     output: {
@@ -16,6 +16,14 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         static: './dist',
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/home$/, to: '/home.html' },
+                { from: /^\/$/, to: '/home.html' },
+                { from: /^\/about$/, to: '/about.html' },
+                { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
+            ]
+        },
         proxy: {
             '/ku': {
                 target: 'https://cms.ku.dk',
@@ -36,8 +44,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/pages/homePage/index.html',
-            filename: 'index.html',
-            chunks: ['index']
+            filename: 'home.html',
+            chunks: ['home']
         }),
         new HtmlWebpackPlugin({
             template: './src/pages/aboutPage/index.html',
