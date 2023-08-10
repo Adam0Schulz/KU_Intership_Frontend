@@ -1,14 +1,21 @@
-import {myData} from "../../js/api/calls";
 import {api} from "../../js/api/axios";
 import $ from 'jquery';
 
-$(document).ready(function() {
-    api.get("http://localhost:8080/api")
-    .then((res) => {
-
-        console.log(res.data);
-
-        // Select the div with the ID "myDiv" and set its HTML content
-        $("footer").html(res.data);
-    });   
+$(function() {
+    $.get("http://localhost:8080/ku/footer", function(data) {
+        $("footer").html(data);
+    });
 });
+// $(function() {
+//     $.get("http://localhost:8080/ku/header", function(data) {
+//         $("header").html(data);
+//         console.log(data);
+//     });
+// });
+//
+// $(function() {
+//     $.get("http://localhost:8080/ku/top2menu", function(data) {
+//         $("#myNav").html(data);
+//     });
+// });
+

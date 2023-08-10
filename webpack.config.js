@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: "development",
-    entry: './src/pages/homePage/index.ts',
+    entry: {
+        index: './src/pages/homePage/index.ts',
+        about: './src/pages/aboutPage/index.ts'
+    },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -14,14 +17,17 @@ module.exports = {
     devServer: {
         static: './dist',
         proxy: {
-            '/api': {
+            '/ku': {
                 target: 'https://cms.ku.dk',
                 changeOrigin: true,
                 secure: true,
                 pathRewrite: {
-                    '^/api': '/menu-spippets/eng-global-footer.html',
+                    '^/ku/footer': '/menu-spippets/global-footer.html',
+                    '^/ku/header': '/menu-spippets/global-topmenu.html',
+                    '^/ku/top2menu': '/menu-spippets/global-second-level-menu.html'
                 }
             }
+
         }
     },
     optimization: {
@@ -31,6 +37,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/pages/homePage/index.html',
             filename: 'index.html',
+            chunks: ['index']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/pages/aboutPage/index.html',
+            filename: 'about.html',
+            chunks: ['about']
         })
     ],
     module: {
