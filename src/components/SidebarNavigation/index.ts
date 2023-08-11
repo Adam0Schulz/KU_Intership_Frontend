@@ -1,7 +1,7 @@
 import HTML from './component.html';
 import $ from 'jquery';
 import './style.css';
-import {PageConfig} from "../../js/interfaces";
+import {PageConfig} from "@js/interfaces";
 
 export default (config: PageConfig) => {
     $('div[sidebar-navigation]').html(HTML);
