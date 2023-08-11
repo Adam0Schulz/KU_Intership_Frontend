@@ -12,7 +12,10 @@ $(function() {
                 heading: "Find Apple Species",
                 subHeading: "Search for apples by name"
 
-            }
+            },
+            branding: {
+                heading: "Apple database"
+            } 
         }
     )
     BreadCrumbs([{ label: "Home", link: "", isActive: true }])
