@@ -1,15 +1,17 @@
 .search--large-cont {
     background-color: var(--COLOR-PRIMARY);
-    padding: 5em;
+    padding: 5em 3em;
     position: relative;
-    max-width: 45em;
 }
 
 .search--large__bg-img {
     position: absolute;
     top: auto;
     right: 0.4em;
-    font-size: 10em;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    font-size: 8em;
     text-align: center;
 }
 
@@ -28,6 +30,15 @@
     margin: 3em 0 0 0;
 }
 
+.search--large__input-group {
+    display: block;
+    margin: 3em 0 0 0;
+}
+
+.search--large__input-group button {
+    margin-left: 0;
+}
+
 .search--large__input {
-    max-width: 40ch;
+    max-width: 35ch;
 }
