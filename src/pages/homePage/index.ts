@@ -13,7 +13,9 @@ $(function () {
                 subHeading: "Search for apples by name"
 
             },
-            brandingHeading: "Apple database"
+            branding: {
+                heading: "Apple database"
+            } 
         }
     )
     BreadCrumbs([{ label: "Home", link: "", isActive: true }])
