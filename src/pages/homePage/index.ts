@@ -48,6 +48,9 @@ $(function() {
         phone: 4535324261
     });
 
+    $("#page-heading").text("Some Heading")
+    $("#page-paragraph").text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ")
+
     $.get("http://localhost:8080/ku/footer", function(data) {
         $("footer").html(data);
     });
