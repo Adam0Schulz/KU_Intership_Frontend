@@ -1,7 +1,11 @@
 .info-cont {
     padding: 2em;
-    background-color: var(--COLOR-BACKGROUND3)
+    background-color: var(--COLOR-BACKGROUND3);
+    display: flex;
+    flex-direction: column;
 }
-.info__icon {
 
+.info__icon {
+    align-self: end;
+    font-size: 1.75em;
 }

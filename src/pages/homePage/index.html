@@ -8,29 +8,37 @@
 </head>
 
 <body class="has-scrollbar" style="--scroll-bar: 17px">
-    <div id="pagewrapper" class="mm-page mm-slideout">
-        <header top-menu></header>
-        <nav second-menu aria-label="Global navigation" class="navbar navbar-default navbar-static-top ku-nav"
-            id="kunav"></nav>
-        <main id="content">
-            <div branding></div>
-            <div class="container main-area" id="main-area">
-                <div class="row">
-                    <div sidebar-navigation class="col-xs-3 col-sm-4 col-md-3 ku-leftmenu"></div>
-                    <div class="col-xs-6 col-sm-8 col-md-6 main-content">
+<div id="pagewrapper" class="mm-page mm-slideout">
+    <header top-menu></header>
+    <nav second-menu aria-label="Global navigation" class="navbar navbar-default navbar-static-top ku-nav"
+         id="kunav"></nav>
+    <main id="content">
+        <div branding></div>
+        <div class="container main-area" id="main-area">
+            <div class="row">
+                <div sidebar-navigation class="col-xs-3 col-sm-4 col-md-3 ku-leftmenu"></div>
+                <div class="col-md-9 row">
+                    <div class="col-xs-8 col-sm-10 col-md-8 main-content">
                         <div bread-crumbs></div>
                         <div search-section></div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-4 right-side gridcontent" id="gridsidebar">
+                        <div info-comp></div>
+                    </div>
+                    <div class="col-md-8">
                         <h1 id="page-heading"></h1>
                         <p id="page-paragraph"></p>
                     </div>
-                    <div class="col-xs-12 col-sm-8 col-md-3 right-side gridcontent" id="gridsidebar">
-                        <div info-comp></div>
-                    </div>
                 </div>
+
+
             </div>
-        </main>
-        <footer></footer>
-    </div>
+
+        </div>
+    </main>
+    <footer></footer>
+</div>
 </body>
 
 </html>
