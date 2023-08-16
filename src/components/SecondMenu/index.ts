@@ -1,4 +1,4 @@
 import HTML from './component.html';
 import $ from 'jquery';
 
-export default () => {$('nav[second-menu]').html(HTML);}
+export default () => {$('nav[second-menu]').replaceWith(HTML);}

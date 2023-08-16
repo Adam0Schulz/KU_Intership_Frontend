@@ -1,8 +1,3 @@
-export interface Page {
-    pageTitle: string;
-    isActive: boolean;
-}
-
 export interface Address {
     country: string;
     city: string;
@@ -24,5 +19,21 @@ export interface Contact {
 
 export interface PageConfig {
     title: string;
-    pages: Page[];
+    pages: {
+        pageTitle: string;
+        isActive: boolean;
+    }[];
+}
+
+export interface Params {
+    searchSection?: SearchSection,
+    branding: { heading: string },
+    crumbsArray: { label: string, link: string, isActive: boolean }[],
+    pageConfig: PageConfig,
+    contact: Contact
+}
+
+export interface SearchSection {
+    heading: string,
+    subHeading: string
 }

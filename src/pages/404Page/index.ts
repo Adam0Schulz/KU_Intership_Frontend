@@ -7,17 +7,18 @@ $(function () {
     components(
         {
             branding: {
-                heading: "About"
+                heading: "404 - Not Found"
             },
             crumbsArray: [
-                {label: "About", link: "", isActive: true}
+                {label: "NotFound", link: "", isActive: true}
             ],
             pageConfig: {
-                title: "About",
+                title: "404 - Not Found",
                 pages: [
                     {pageTitle: 'Home', isActive: false},
                     {pageTitle: 'Browse', isActive: false},
-                    {pageTitle: 'About', isActive: true}
+                    {pageTitle: 'About', isActive: false},
+                    {pageTitle: '404', isActive: true}
                 ]
             },
             contact: {
@@ -38,10 +39,11 @@ $(function () {
             }
         }
     )
-    $('title').text("About us");
+
+    $('title').text("404 - Not Found");
     $('div[main-content]').replaceWith(HTML);
-    $("#page-heading").text("About us")
-    $("#page-paragraph").text("Here you can read about us")
+    $("#page-heading").text("404 - Not Found");
+    $("#page-paragraph").text("The page you are looking for is not found.");
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").html(data);
     });
