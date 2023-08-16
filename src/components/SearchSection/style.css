@@ -2,6 +2,10 @@
     background-color: var(--COLOR-PRIMARY);
     padding: 4em 3em;
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .search--large__bg-img {
@@ -27,7 +31,6 @@
 
 .search--large__input-group {
     display: block;
-    margin: 3em 0 0 0;
 }
 
 .search--large__input-group button {
@@ -43,7 +46,7 @@
 
 @media screen and (max-width: 768px) {
     .search--large-cont {
-        padding: 1.53em 2.5em 1.53em 2.5em;
+        padding: 3em 2.5em 3em 2.5em;
     }
     .search--large__bg-img {
         font-size: 4.5em;

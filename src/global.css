@@ -10,12 +10,6 @@ root {
     --COLOR-DIVIDER: rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 992px) {
-    .search-info-cont {
-        margin-top: 1em;
-    }
-}
-
 #btn_left {
-    margin-right: 1.32em;
+    margin-right: 1.32rem;
 }
