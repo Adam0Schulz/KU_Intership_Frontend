@@ -4,7 +4,7 @@ import './style.css';
 import {PageConfig} from "@js/interfaces";
 
 export default (config: PageConfig) => {
-    $('div[sidebar-navigation]').html(HTML);
+    $('div[sidebar-navigation]').replaceWith(HTML);
     $('.ku-navbar-header').html(`<a href="#">${config.title}</a>`)
     config.pages.forEach((page) => {
         $('.sidebar-nav').append(

@@ -1,11 +1,26 @@
 .info-cont {
-    padding: 2em;
+    padding: 1.65em 2.5em 1.65em 2.5em;
     background-color: var(--COLOR-BACKGROUND3);
     display: flex;
     flex-direction: column;
+    margin-inline-end: -2em;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.info-cont:hover {
+    cursor: pointer;
+    background-color: #d5d2d2;
 }
 
 .info__icon {
     align-self: end;
-    font-size: 1.75em;
+    font-size: 1.5em;
+}
+
+
+@media screen and (max-width: 992px){
+    .info-cont {
+        margin-inline-end: 0;
+        padding: 1.53em 2.5em 1.53em 2.5em;
+    }
 }

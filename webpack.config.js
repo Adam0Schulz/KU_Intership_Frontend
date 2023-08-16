@@ -6,7 +6,9 @@ module.exports = {
     mode: "development",
     entry: {
         home: './src/pages/homePage/index.ts',
-        about: './src/pages/aboutPage/index.ts'
+        about: './src/pages/aboutPage/index.ts',
+        browse: './src/pages/browsePage/index.ts',
+        404: './src/pages/404Page/index.ts'
     },
     output: {
         filename: '[name].bundle.js',
@@ -21,6 +23,7 @@ module.exports = {
                 { from: /^\/home$/, to: '/home.html' },
                 { from: /^\/$/, to: '/home.html' },
                 { from: /^\/about$/, to: '/about.html' },
+                { from: /^\/browse$/, to: '/browse.html' },
                 { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
             ]
         },
@@ -48,9 +51,19 @@ module.exports = {
             chunks: ['home']
         }),
         new HtmlWebpackPlugin({
-            template: './src/pages/aboutPage/index.html',
+            template: './src/templates/generalPageTemplate.html',
+            filename: '404.html',
+            chunks: ['404']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/generalPageTemplate.html',
             filename: 'about.html',
             chunks: ['about']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/generalPageTemplate.html',
+            filename: 'browse.html',
+            chunks: ['browse']
         })
     ],
     module: {

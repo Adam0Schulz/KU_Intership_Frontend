@@ -7,17 +7,17 @@ $(function () {
     components(
         {
             branding: {
-                heading: "About"
+                heading: "Browse"
             },
             crumbsArray: [
-                {label: "About", link: "", isActive: true}
+                {label: "Browse", link: "", isActive: true}
             ],
             pageConfig: {
-                title: "About",
+                title: "Browse",
                 pages: [
                     {pageTitle: 'Home', isActive: false},
-                    {pageTitle: 'Browse', isActive: false},
-                    {pageTitle: 'About', isActive: true}
+                    {pageTitle: 'Browse', isActive: true},
+                    {pageTitle: 'About', isActive: false}
                 ]
             },
             contact: {
@@ -38,10 +38,10 @@ $(function () {
             }
         }
     )
-    $('title').text("About us");
+    $('title').text("Browse");
     $('div[main-content]').replaceWith(HTML);
-    $("#page-heading").text("About us")
-    $("#page-paragraph").text("Here you can read about us")
+    $("#page-heading").text("Browse")
+    $("#page-paragraph").text("Here you can browse")
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").html(data);
     });
