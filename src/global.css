@@ -1,4 +1,5 @@
-*, root {
+*,
+root {
     --COLOR-PRIMARY: #901A1E;
     --COLOR-BACKGROUND1: #F9F8F9;
     --COLOR-BACKGROUND2: #FFFEFE;
@@ -6,6 +7,7 @@
     --COLOR-TEXT-BLACK: #252525;
     --COLOR-TEXT-GRAY: #747475;
     --COLOR-TEXT-WHITE: #FFFFFF;
+    --COLOR-DIVIDER: rgba(0, 0, 0, 0.1);
 }
 
 .grid-content {
@@ -14,4 +16,8 @@
     grid-template-rows: 1fr;
     grid-column-gap: 4px;
     min-width: auto;
+}
+
+#btn_left {
+    margin-right: 1.32em;
 }
