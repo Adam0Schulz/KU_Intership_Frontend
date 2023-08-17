@@ -1,9 +1,11 @@
 import $ from 'jquery';
 import './style.css'
 import components from "@js/components";
+import HTML from "../homePage/content.html";
 
 $(function () {
 
+    $('div[main-content]').replaceWith(HTML);
     components(
         {
             searchSection: {
@@ -43,6 +45,7 @@ $(function () {
         }
     )
 
+    $('title').text("Home");
     $("#page-heading").text("Some Heading")
     $("#page-paragraph").text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ")
     $.get("http://localhost:8080/ku/footer", function (data) {

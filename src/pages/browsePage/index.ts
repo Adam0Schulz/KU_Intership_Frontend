@@ -4,6 +4,7 @@ import HTML from './content.html';
 
 $(function () {
 
+    $('div[main-content]').replaceWith(HTML);
     components(
         {
             branding: {
@@ -39,7 +40,6 @@ $(function () {
         }
     )
     $('title').text("Browse");
-    $('div[main-content]').replaceWith(HTML);
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
     $.get("http://localhost:8080/ku/footer", function (data) {

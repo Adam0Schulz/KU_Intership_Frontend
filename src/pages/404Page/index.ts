@@ -4,6 +4,7 @@ import HTML from './content.html';
 
 $(function () {
 
+    $('div[main-content]').replaceWith(HTML);
     components(
         {
             branding: {
@@ -41,7 +42,6 @@ $(function () {
     )
 
     $('title').text("404 - Not Found");
-    $('div[main-content]').replaceWith(HTML);
     $("#page-heading").text("404 - Not Found");
     $("#page-paragraph").text("The page you are looking for is not found.");
     $.get("http://localhost:8080/ku/footer", function (data) {
