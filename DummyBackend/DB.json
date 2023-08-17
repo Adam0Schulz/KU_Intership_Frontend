@@ -1,0 +1,48 @@
+{
+    "pometum": {
+        "meta": {
+            "pages": [
+                {
+                    "pageName": "Home",
+                    "other": "bla bla bla"
+                }
+            ]
+        },
+        "entity": {
+            "apples": [
+                {
+                    "id": 1,
+                    "name": "Basnæsæble",
+                    "placeOfOrigin": "Denmark, Basnæs ved Skælskør",
+                    "yearOfOrigin": 1820,
+                    "Season of apple": "early (last part of August)",
+                    "Usage of fruit": "Culinary",
+                    "images": [
+                        {
+                            "label": "some image",
+                            "url": "https://www.google.com"
+                        }, {
+                            "label": "some image",
+                            "url": "https://www.google.com"
+                        }
+                    ],
+                    "externalProperties": {
+                        "color": {
+
+                        }
+                    }
+                }
+            ],
+            "search": [
+                {}
+            ]
+        }
+    },
+    
+    "bornholm-words": [
+
+    ],
+    "sagas": [
+
+    ]
+}
