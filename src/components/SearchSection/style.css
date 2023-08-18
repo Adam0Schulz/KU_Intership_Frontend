@@ -36,7 +36,9 @@
 .search--large__input-group button {
     margin-left: 0;
     border: var(--COLOR-TEXT-GRAY) 1px solid;
-    padding-bottom:  5.5px;
+}
+.input-group-btn {
+    padding-bottom: 5.5px;
 }
 
 .search--large__input {

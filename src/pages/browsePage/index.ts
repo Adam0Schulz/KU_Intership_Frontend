@@ -43,7 +43,7 @@ $(function () {
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
     $.get("http://localhost:8080/ku/footer", function (data) {
-        $("footer").html(data);
+        $("footer").replaceWith(data);
     });
 });
 

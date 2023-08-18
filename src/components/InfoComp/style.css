@@ -12,6 +12,9 @@
     cursor: pointer;
     background-color: #d5d2d2;
 }
+.info-cont:focus {
+    outline: #252525 1px solid;
+}
 
 .info__icon {
     align-self: end;

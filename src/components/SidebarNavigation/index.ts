@@ -8,6 +8,6 @@ export default (config: PageConfig) => {
     $('.ku-navbar-header').html(`<a href="#">${config.title}</a>`)
     config.pages.forEach((page) => {
         $('.sidebar-nav').append(
-            `<li ${page.isActive ? 'class="active"' : ''}><a tabindex="-1" href="/${page.pageTitle.toLowerCase()}">${page.pageTitle}</a></li>`);
+            `<li ${page.isActive ? 'class="active"' : ''}><a tabindex="0" href="/${page.pageTitle.toLowerCase()}">${page.pageTitle}</a></li>`);
     })
 }

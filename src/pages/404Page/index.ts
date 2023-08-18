@@ -45,7 +45,7 @@ $(function () {
     $("#page-heading").text("404 - Not Found");
     $("#page-paragraph").text("The page you are looking for is not found.");
     $.get("http://localhost:8080/ku/footer", function (data) {
-        $("footer").html(data);
+        $("footer").replaceWith(data);
     });
 });
 
