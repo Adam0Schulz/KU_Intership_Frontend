@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import './style.css'
 import components from "@js/components";
+import { Address, PometumSite } from '@js/interfaces';
 
 $(function () {
 
@@ -14,14 +15,14 @@ $(function () {
                 heading: "Apple database"
             },
             crumbsArray: [
-                {label: "Home", link: "", isActive: true}
+                { label: "Home", link: "", isActive: true }
             ],
             pageConfig: {
                 title: "Denmark's Apples",
                 pages: [
-                    {pageTitle: 'Home', isActive: true},
-                    {pageTitle: 'Browse', isActive: false},
-                    {pageTitle: 'About', isActive: false}
+                    { pageTitle: 'Home', isActive: true },
+                    { pageTitle: 'Browse', isActive: false },
+                    { pageTitle: 'About', isActive: false }
                 ]
             },
             contact: {

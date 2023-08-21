@@ -1,0 +1,424 @@
+{
+    "meta": {
+        "database": "Bornholm Dictionary",
+        "pages": [
+            {
+                "type": "home",
+                "content": [
+                    {
+                        "title": "The Bornholm Dictionary",
+                        "body": {
+                            "heading": "",
+                            "body": "Bornholm Dictionary provides unified access to a number of Bornholm glossaries and other resources, including Bornholm-language texts. The dictionary belongs to the Institute of Nordic Studies and Linguistics (NorS) at the University of Copenhagen and has been created in collaboration with a large number of volunteers ( on the project and its history, see this page). The dictionary is a meta dictionary that combines a series of glossaries into one database, so that from one search you can look up all of them and get a complete result with relevant articles from all glossaries, which contains the keyword. The majority of the material has not been previously released"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "about",
+                "content": [
+                    {
+                        "title": "About us",
+                        "body": {
+                            "heading": "",
+                            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "content": {
+        "words": [
+            {
+                "word": "apple",
+                "definition": "A round fruit with red, green, or yellow skin and crisp white flesh.",
+                "wordClass": "noun"
+            },
+            {
+                "word": "quickly",
+                "definition": "At a fast speed; rapidly.",
+                "wordClass": "verb"
+            },
+            {
+                "word": "jump",
+                "definition": "To propel oneself upward or forward in a single motion.",
+                "wordClass": "adverb"
+            },
+            {
+                "word": "beautiful",
+                "definition": "Pleasing to the senses or mind; attractive.",
+                "wordClass": "adjective"
+            },
+            {
+                "word": "perro",
+                "definition": "A domesticated mammal of the species Canis lupus familiaris.",
+                "wordClass": "noun"
+            },
+            {
+                "word": "rápidamente",
+                "definition": "Con gran velocidad; de manera veloz.",
+                "wordClass": "adjective"
+            },
+            {
+                "word": "cantar",
+                "definition": "Producir sonidos melodiosos con la voz.",
+                "wordClass": "verb"
+            },
+            {
+                "word": "hermoso",
+                "definition": "De gran belleza o atractivo.",
+                "wordClass": "adjective"
+            },
+            {
+                "word": "chat",
+                "definition": "A small domesticated carnivore, Felis catus.",
+                "wordClass": "noun"
+            },
+            {
+                "word": "rapidement",
+                "definition": "At a high speed; quickly.",
+                "wordClass": "adjective"
+            },
+            {
+                "word": "lire",
+                "definition": "To look at and comprehend the meaning of written or printed matter.",
+                "wordClass": "noun"
+            },
+            {
+                "word": "beau",
+                "definition": "Pleasing to the eye or mind; attractive.",
+                "wordClass": "adverb"
+            },
+            {
+                "word": "Hund",
+                "definition": "A domesticated mammal of the species Canis lupus familiaris.",
+                "wordClass": "noun"
+            },
+            {
+                "word": "schnell",
+                "definition": "At a high speed; quickly.",
+                "wordClass": "adverb"
+            },
+            {
+                "word": "lesen",
+                "definition": "To look at and comprehend the meaning of written or printed matter.",
+                "wordClass": "verb"
+            },
+            {
+                "word": "schön",
+                "definition": "Pleasing to the eye or mind; attractive.",
+                "wordClass": "adjective"
+            }
+        ],
+        "dictionaries": [
+            {
+                "title": "English Dictionary",
+                "authors": ["John Smith", "Jane Doe"],
+                "words": [
+                    {
+                        "word": "apple",
+                        "definition": "A round fruit with red, green, or yellow skin and crisp white flesh.",
+                        "wordClass": "noun"
+                    },
+                    {
+                        "word": "quickly",
+                        "definition": "At a fast speed; rapidly.",
+                        "wordClass": "verb"
+                    },
+                    {
+                        "word": "jump",
+                        "definition": "To propel oneself upward or forward in a single motion.",
+                        "wordClass": "adverb"
+                    },
+                    {
+                        "word": "beautiful",
+                        "definition": "Pleasing to the senses or mind; attractive.",
+                        "wordClass": "adjective"
+                    }
+                ]
+            },
+            {
+                "title": "Spanish-English Dictionary",
+                "authors": ["Maria Garcia", "David Johnson"],
+                "words": [
+                    {
+                        "word": "perro",
+                        "definition": "A domesticated mammal of the species Canis lupus familiaris.",
+                        "wordClass": "noun"
+                    },
+                    {
+                        "word": "rápidamente",
+                        "definition": "Con gran velocidad; de manera veloz.",
+                        "wordClass": "adjective"
+                    },
+                    {
+                        "word": "cantar",
+                        "definition": "Producir sonidos melodiosos con la voz.",
+                        "wordClass": "verb"
+                    },
+                    {
+                        "word": "hermoso",
+                        "definition": "De gran belleza o atractivo.",
+                        "wordClass": "adjective"
+                    }
+                ]
+            },
+            {
+                "title": "French-English Dictionary",
+                "authors": ["Sophie Leblanc", "William Smith"],
+                "words": [
+                    {
+                        "word": "chat",
+                        "definition": "A small domesticated carnivore, Felis catus.",
+                        "wordClass": "noun"
+                    },
+                    {
+                        "word": "rapidement",
+                        "definition": "At a high speed; quickly.",
+                        "wordClass": "adjective"
+                    },
+                    {
+                        "word": "lire",
+                        "definition": "To look at and comprehend the meaning of written or printed matter.",
+                        "wordClass": "noun"
+                    },
+                    {
+                        "word": "beau",
+                        "definition": "Pleasing to the eye or mind; attractive.",
+                        "wordClass": "adverb"
+                    }
+                ]
+            },
+            {
+                "title": "German-English Dictionary",
+                "authors": ["Hans Müller", "Emily Johnson"],
+                "words": [
+                    {
+                        "word": "Hund",
+                        "definition": "A domesticated mammal of the species Canis lupus familiaris.",
+                        "wordClass": "noun"
+                    },
+                    {
+                        "word": "schnell",
+                        "definition": "At a high speed; quickly.",
+                        "wordClass": "adverb"
+                    },
+                    {
+                        "word": "lesen",
+                        "definition": "To look at and comprehend the meaning of written or printed matter.",
+                        "wordClass": "verb"
+                    },
+                    {
+                        "word": "schön",
+                        "definition": "Pleasing to the eye or mind; attractive.",
+                        "wordClass": "adjective"
+                    }
+                ]
+            }
+                
+        ],
+        "materials": [
+            {
+                "title": "Introduction to Physics",
+                "authors": ["Alice Johnson", "Bob Smith"],
+                "shelfMark": "PHYS-101",
+                "content": [
+                    {
+                        "title": "Fundamentals of Mechanics",
+                        "body": [
+                            {
+                                "heading": "Newton's Laws of Motion",
+                                "body": "Newton's laws describe the relationship between a body and the forces acting upon it."
+                            },
+                            {
+                                "heading": "Kinematics",
+                                "body": "Kinematics deals with the motion of objects without considering the forces causing the motion."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Waves and Optics",
+                        "body": [
+                            {
+                                "heading": "Properties of Waves",
+                                "body": "Waves exhibit properties like amplitude, frequency, and wavelength."
+                            },
+                            {
+                                "heading": "Geometrical Optics",
+                                "body": "Geometrical optics studies light propagation using the laws of reflection and refraction."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "History of Ancient Civilizations",
+                "authors": ["Emily White", "David Brown"],
+                "content": [
+                    {
+                        "title": "Mesopotamia: Cradle of Civilization",
+                        "body": [
+                            {
+                                "heading": "Sumerians and City-States",
+                                "body": "The Sumerians developed the concept of city-states and made significant advancements in writing."
+                            },
+                            {
+                                "heading": "Babylon and Hammurabi's Code",
+                                "body": "Babylon became a major power under Hammurabi, known for his famous legal code."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Ancient Egypt: Land of Pharaohs",
+                        "body": [
+                            {
+                                "heading": "Nile River and Agriculture",
+                                "body": "The Nile River played a crucial role in the development of Egyptian agriculture and culture."
+                            },
+                            {
+                                "heading": "Pyramids and Pharaohs",
+                                "body": "Pyramids were monumental tombs built for pharaohs and symbolized their power."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Introduction to Programming",
+                "authors": ["Alex Johnson", "Emma Smith"],
+                "content": [
+                    {
+                        "title": "Programming Basics",
+                        "body": [
+                            {
+                                "heading": "Variables and Data Types",
+                                "body": "Variables store data, and data types define the nature of that data."
+                            },
+                            {
+                                "heading": "Control Structures",
+                                "body": "Control structures like loops and conditionals govern the flow of a program."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Object-Oriented Programming",
+                        "body": [
+                            {
+                                "heading": "Classes and Objects",
+                                "body": "Classes define the structure of objects, which are instances of a class."
+                            },
+                            {
+                                "heading": "Inheritance and Polymorphism",
+                                "body": "Inheritance allows new classes to inherit attributes and methods from existing classes."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Introduction to Psychology",
+                "authors": ["Sophia Davis", "Michael Johnson"],
+                "content": [
+                    {
+                        "title": "Understanding the Mind",
+                        "body": [
+                            {
+                                "heading": "The Mind-Body Connection",
+                                "body": "Psychology explores the intricate relationship between the mind and the body."
+                            },
+                            {
+                                "heading": "Conscious vs. Unconscious Mind",
+                                "body": "Psychologists study the interplay between conscious and unconscious mental processes."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Theories of Personality",
+                        "body": [
+                            {
+                                "heading": "Psychoanalytic Theory",
+                                "body": "Sigmund Freud's psychoanalytic theory delves into the subconscious aspects of personality."
+                            },
+                            {
+                                "heading": "Humanistic Approach",
+                                "body": "Humanistic psychologists focus on personal growth, self-actualization, and fulfillment."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Environmental Science",
+                "authors": ["Daniel Thompson", "Olivia Green"],
+                "content": [
+                    {
+                        "title": "Ecosystems and Biodiversity",
+                        "body": [
+                            {
+                                "heading": "Ecological Relationships",
+                                "body": "Ecosystems are comprised of various organisms that interact in complex ways."
+                            },
+                            {
+                                "heading": "Conservation of Biodiversity",
+                                "body": "Preserving biodiversity is crucial for ecological stability and human well-being."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Climate Change and Sustainability",
+                        "body": [
+                            {
+                                "heading": "Global Warming and Greenhouse Gases",
+                                "body": "Human activities have led to an increase in greenhouse gases, contributing to climate change."
+                            },
+                            {
+                                "heading": "Sustainable Practices",
+                                "body": "Promoting sustainability involves adopting practices that minimize environmental impact."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Literary Classics",
+                "authors": ["William Johnson", "Elizabeth White"],
+                "content": [
+                    {
+                        "title": "Pride and Prejudice",
+                        "body": [
+                            {
+                                "heading": "Elizabeth Bennet and Mr. Darcy",
+                                "body": "Jane Austen's novel follows the evolving relationship between Elizabeth and Mr. Darcy."
+                            },
+                            {
+                                "heading": "Society and Marriage",
+                                "body": "The novel explores societal norms and expectations surrounding marriage."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Great Expectations",
+                        "body": [
+                            {
+                                "heading": "Pip's Journey",
+                                "body": "Charles Dickens' story traces Pip's transformation from a humble boy to a gentleman."
+                            },
+                            {
+                                "heading": "Social Class and Identity",
+                                "body": "The novel examines the impact of social class on characters' identities and destinies."
+                            }
+                        ]
+                    }
+                ]
+            }
+    
+            
+            
+            
+            
+            
+            
+        ]
+    }
+}

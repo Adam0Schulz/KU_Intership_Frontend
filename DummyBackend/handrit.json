@@ -1,0 +1,177 @@
+{
+    "meta": {
+        "database": "Handrit Database",
+        "pages": [
+            {
+                "type": "home",
+                "content": [
+                    {
+                        "title": "Handrit",
+                        "body": {
+                            "heading": "",
+                            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "about",
+                "content": [
+                    {
+                        "title": "About us",
+                        "body": {
+                            "heading": "",
+                            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "content": {
+        "institutions": [
+            {
+                "name": "Oxford University",
+                "country": "United Kingdom"
+            },
+            {
+                "name": "Harvard University",
+                "country": "United States"
+            },
+            {
+                "name": "Sorbonne University",
+                "country": "France"
+            },
+            {
+                "name": "Tokyo University",
+                "country": "Japan"
+            },
+            {
+                "name": "University of Sydney",
+                "country": "Australia"
+            },
+            {
+                "name": "National University of Singapore",
+                "country": "Singapore"
+            }
+        ],
+        "sagas": [
+            {
+                "title": "Harry Potter and the Philosopher's Stone",
+                "authors": ["J.K. Rowling"],
+                "shelfMark": "FIC-001",
+                "language": "English",
+                "translators": ["Maria Garcia"],
+                "storageInstitution": {
+                    "name": "Oxford University",
+                    "country": "United Kingdom"
+                },
+                "origin": "United Kingdom",
+                "year": 1997,
+                "isDigitalized": true,
+                "images": [
+                    {
+                        "label": "Cover",
+                        "url": "https://example.com/harry_potter_cover.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "The Lord of the Rings",
+                "authors": ["J.R.R. Tolkien"],
+                "language": "English",
+                "translators": ["Alex Johnson"],
+                "storageInstitution": {
+                    "name": "Harvard University",
+                    "country": "United States"
+                },
+                "origin": "United Kingdom",
+                "year": 1954,
+                "isDigitalized": true,
+                "images": [
+                    {
+                        "label": "Cover",
+                        "url": "https://example.com/lotr_cover.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "Les Misérables",
+                "authors": ["Victor Hugo"],
+                "language": "French",
+                "translators": ["Sophie Leblanc"],
+                "storageInstitution": {
+                    "name": "Sorbonne University",
+                    "country": "France"
+                },
+                "origin": "France",
+                "year": 1862,
+                "isDigitalized": false,
+                "images": [
+                    {
+                        "label": "Cover",
+                        "url": "https://example.com/les_miserables_cover.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "One Hundred Years of Solitude",
+                "authors": ["Gabriel García Márquez"],
+                "language": "Spanish",
+                "translators": ["Elena Martinez"],
+                "storageInstitution": {
+                    "name": "National University of Singapore",
+                    "country": "Singapore"
+                },
+                "origin": "Colombia",
+                "year": 1967,
+                "isDigitalized": true,
+                "images": [
+                    {
+                        "label": "Cover",
+                        "url": "https://example.com/100_years_of_solitude_cover.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "The Tale of Genji",
+                "authors": ["Murasaki Shikibu"],
+                "language": "Japanese",
+                "translators": ["Hiroshi Tanaka"],
+                "storageInstitution": {
+                    "name": "Tokyo University",
+                    "country": "Japan"
+                },
+                "origin": "Japan",
+                "year": 1008,
+                "isDigitalized": false,
+                "images": [
+                    {
+                        "label": "Cover",
+                        "url": "https://example.com/genji_cover.jpg"
+                    }
+                ]
+            },
+            {
+                "title": "The Book Thief",
+                "authors": ["Markus Zusak"],
+                "language": "English",
+                "translators": ["Emily White"],
+                "storageInstitution": {
+                    "name": "University of Sydney",
+                    "country": "Australia"
+                },
+                "origin": "Australia",
+                "year": 2005,
+                "isDigitalized": true,
+                "images": [
+                    {
+                        "label": "Cover",
+                        "url": "https://example.com/book_thief_cover.jpg"
+                    }
+                ]
+            }
+        ]
+        
+    }
+}
