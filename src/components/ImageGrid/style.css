@@ -1,0 +1,19 @@
+.image-grid, .image-grid-2 {
+    display: grid;
+    gap: 0.5em;
+    place-items: center;
+    margin-bottom: 0.5em;
+    grid-template-rows: 10em;
+}
+
+.image-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-area img:hover {
+    cursor: pointer;
+    filter: brightness(90%) blur(0);
+}
+

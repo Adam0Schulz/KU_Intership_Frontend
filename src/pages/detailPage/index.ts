@@ -1,25 +1,27 @@
 import $ from 'jquery';
+import './style.css'
 import components from "@js/components";
 import HTML from './content.html';
+import ImageGrid from "@components/ImageGrid";
 
 $(function () {
-
     $('div[main-content]').replaceWith(HTML);
+    ImageGrid();
     components(
         {
             branding: {
-                heading: "Browse"
+                heading: "Detail"
             },
             crumbsArray: [
-                {label: "Browse", link: "", isActive: true}
+                {label: "Detail", link: "", isActive: true}
             ],
             pageConfig: {
-                title: "Browse",
+                title: "Detail",
                 pages: [
                     {pageTitle: 'Home', isActive: false},
-                    {pageTitle: 'Browse', isActive: true},
+                    {pageTitle: 'Browse', isActive: false},
                     {pageTitle: 'About', isActive: false},
-                    {pageTitle: 'Detail', isActive: false}
+                    {pageTitle: 'Detail', isActive: true}
                 ]
             },
             contact: {
@@ -40,12 +42,13 @@ $(function () {
             }
         }
     )
-    $('title').text("Browse");
-    $("#page-heading").text("Browse")
-    $("#page-paragraph").text("Here you can browse")
+    $('title').text("Detail");
+    $("#page-heading").text("Detail");
+    $("#page-paragraph").text("Lorem ipsum sit dolorum");
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
+    //$('body').append('<div class="popup"></div>');
 });
 
 

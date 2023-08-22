@@ -8,7 +8,8 @@ module.exports = {
         home: './src/pages/homePage/index.ts',
         about: './src/pages/aboutPage/index.ts',
         browse: './src/pages/browsePage/index.ts',
-        404: './src/pages/404Page/index.ts'
+        404: './src/pages/404Page/index.ts',
+        detail: './src/pages/detailPage/index.ts'
     },
     output: {
         filename: '[name].bundle.js',
@@ -24,6 +25,7 @@ module.exports = {
                 { from: /^\/$/, to: '/home.html' },
                 { from: /^\/about$/, to: '/about.html' },
                 { from: /^\/browse$/, to: '/browse.html' },
+                { from: /^\/detail$/, to: '/detail.html' },
                 { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
             ]
         },
@@ -64,6 +66,11 @@ module.exports = {
             template: './src/templates/generalPageTemplate.html',
             filename: 'browse.html',
             chunks: ['browse']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/generalPageTemplate.html',
+            filename: 'detail.html',
+            chunks: ['detail']
         })
     ],
     module: {
@@ -93,7 +100,8 @@ module.exports = {
             '@components': path.resolve(__dirname, './src/components'),
             '@js': path.resolve(__dirname, './src/js'),
             '@gcss': path.resolve(__dirname, './src/global.css'),
-            '@assets': path.resolve(__dirname, './src/assets')
+            '@assets': path.resolve(__dirname, './src/assets'),
+            '@img' : path.resolve(__dirname, './src/00test_img')
         },
     }
 }

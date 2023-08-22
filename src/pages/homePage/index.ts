@@ -23,7 +23,8 @@ $(function () {
                 pages: [
                     {pageTitle: 'Home', isActive: true},
                     {pageTitle: 'Browse', isActive: false},
-                    {pageTitle: 'About', isActive: false}
+                    {pageTitle: 'About', isActive: false},
+                    {pageTitle: 'Detail', isActive: false}
                 ]
             },
             contact: {
