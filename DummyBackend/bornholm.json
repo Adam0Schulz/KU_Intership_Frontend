@@ -26,7 +26,24 @@
                     }
                 ]
             }
-        ]
+        ],
+        "contact": {
+            "institution": "University of Copenhagen",
+            "institutionWeb": "https://www.ku.dk",
+            "department": "Web",
+            "departmentWeb": "https://www.ku.dk/web",
+            "team": "Web Development team",
+            "email": "ku@ku.dk",
+            "phone": 25457889,
+            "address": {
+                "country": "Denmark",
+                "city": "Copenhagen",
+                "district": "Copenhagen 5",
+                "postalCode": 2600,
+                "addressDetail": "address detail goes here"
+            }
+        },
+        "mainEntity": "Words in Bornholm Dialect"
     },
     "content": {
         "words": [
