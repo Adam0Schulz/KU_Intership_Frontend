@@ -8,7 +8,6 @@ import {Params} from "@js/interfaces";
 import SidebarNavigation from "@components/SidebarNavigation";
 import InfoComp from "@components/InfoComp";
 import LocalFooter from "@components/LocalFooter";
-
 import MobileMenu from "@components/MobileMenu"
 
 export default (params: Params) => {

@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import components from "@js/components";
 import HTML from './content.html';
+import ItemCardList from '@components/ItemCardList';
 
 $(function () {
-
+    
     components(
         {
             branding: {
@@ -42,6 +43,46 @@ $(function () {
     $('div[main-content]').replaceWith(HTML);
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
+    ItemCardList(
+        {cards: [
+            {
+                image: {
+                    url: "https://picsum.photos/500/500",
+                    label: "bla bla bla"
+                },
+                title: "bla bla bal"
+            },
+            {
+                image: {
+                    url: "https://picsum.photos/700/500",
+                    label: "bla bla bla"
+                },
+                title: "bla bla bal"
+            },
+            {
+                image: {
+                    url: "https://picsum.photos/500/200",
+                    label: "bla bla bla"
+                },
+                title: "bla bla bal"
+            },
+            {
+                image: {
+                    url: "https://picsum.photos/400/500",
+                    label: "bla bla bla"
+                },
+                title: "kokokot"
+            },
+            {
+                image: {
+                    url: "https://picsum.photos/500/500",
+                    label: "bla bla bla"
+                },
+                title: "bla bla bal"
+            }
+        ]
+        }
+    )
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").html(data);
     });
