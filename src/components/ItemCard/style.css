@@ -1,8 +1,15 @@
 .item-card {
     aspect-ratio: 1/1; /* maintains the ratio (usage due to parent having grid)*/
-    max-height: 15em;
     position: relative;
     cursor: pointer;
+}
+
+.item-card--imageless {
+    aspect-ratio: unset;
+    width: 100%;
+    border-top: 1px solid var(--COLOR-DIVIDER);
+    border-bottom: 1px solid var(--COLOR-DIVIDER);
+    position: relative;
 }
 
 .item-card__bg-img {
@@ -24,6 +31,10 @@
     transition: background-color 0.2s ease-out;
 }
 
+.item-card--imageless::after {
+    display: none;
+}
+
 .item-card:hover::after {
     background-color: rgba(0, 0, 0, 0.2)
 }
@@ -39,6 +50,12 @@
     padding: 0 1em;
     z-index: 100;
     color: white;
+}
+
+.item-card--imageless .item-card__text-overlay {
+    position: static;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
 }
 
 .item-card__text-overlay h4 {}

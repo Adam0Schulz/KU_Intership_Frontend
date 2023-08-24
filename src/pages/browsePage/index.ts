@@ -44,7 +44,9 @@ $(function () {
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
     ItemCardList(
-        {cards: [
+        {
+            
+            cards: [
             {
                 image: {
                     url: "https://picsum.photos/500/500",
@@ -80,7 +82,8 @@ $(function () {
                 },
                 title: "bla bla bal"
             }
-        ]
+        ],
+        isImageless: true,
         }
     )
     $.get("http://localhost:8080/ku/footer", function (data) {

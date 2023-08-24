@@ -15,10 +15,17 @@ export default () => {
         const imageUrl = $(element).attr("image-url")
         const imageLabel = $(element).attr("image-label")
         const title = $(element).attr("title")
+        const imageless = $(element).attr("imageless")
 
         $(element).html(HTML)
         $(element).find('.item-card__text').text(title)
-        $(element).find('.item-card__bg-img').attr("src", imageUrl).attr("alt", imageLabel)
+        if(!imageless) {
+            $(element).find('.item-card__bg-img').remove()
+            $(element).find('.item-card').addClass('item-card--imageless')
+        } else {
+            $(element).find('.item-card__bg-img').attr("src", imageUrl).attr("alt", imageLabel)
+        }
+        
 
     })
 
