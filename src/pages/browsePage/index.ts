@@ -2,6 +2,7 @@ import $ from 'jquery';
 import components from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
+import AlphabeticalFilter from '@components/AlphabeticalFilter';
 
 $(function () {
     
@@ -43,6 +44,8 @@ $(function () {
     $('div[main-content]').replaceWith(HTML);
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
+
+    AlphabeticalFilter()
     ItemCardList(
         {
             
