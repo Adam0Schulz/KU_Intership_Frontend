@@ -21,6 +21,7 @@ module.exports = {
         static: './dist',
         historyApiFallback: {
             rewrites: [
+                { from: /^\/pometum\/home$/, to: '/home.html' },
                 { from: /^\/home$/, to: '/home.html' },
                 { from: /^\/$/, to: '/home.html' },
                 { from: /^\/about$/, to: '/about.html' },

@@ -52,5 +52,6 @@ $(function () {
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
+    console.log(window.location.pathname);
 });
 

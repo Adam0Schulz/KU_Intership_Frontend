@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import './style.css'
 import components from "@js/components";
 import HTML from './content.html';
 import ImageGrid from "@components/ImageGrid";
@@ -48,7 +47,6 @@ $(function () {
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
-    //$('body').append('<div class="popup"></div>');
 });
 
 

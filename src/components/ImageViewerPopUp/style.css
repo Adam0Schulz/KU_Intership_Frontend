@@ -1,0 +1,82 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(37, 37, 37, 0.95);
+    height: 100%;
+    width: 100%;
+    z-index: 1999;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+}
+.popup button {
+    position: fixed;
+    background-color: transparent;
+    border: none;
+    z-index: 999;
+}
+.close__btn {
+    right: 1em;
+    top: 1em;
+}
+.left__btn {
+    left: 1em;
+}
+.right__btn {
+    right: 1em;
+}
+.control__icon:hover {
+    cursor: pointer;
+    color: var(--COLOR-PRIMARY);
+}
+
+.control__icon {
+    font-size: 2em;
+    color: var(--COLOR-TEXT-WHITE)
+}
+
+.body-background {
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-view__large {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8em;
+}
+
+.image-view__large img {
+    height: 40em;
+}
+
+.image-view__small {
+    display: flex;
+}
+
+.image-view__small img {
+    height: 8em;
+    width: 12em;
+    object-fit: cover;
+    filter: brightness(45%);
+    margin: 0 1em 0 1em;
+}
+.image-view__small img:hover {
+    filter: none;
+    cursor: pointer;
+}
+
+.image__active {
+    filter: none !important;
+}
+.hidden-arrow {
+    display: none;
+}
+#progress{
+    color: var(--COLOR-TEXT-WHITE);
+    font-weight: bold;
+    font-size: 1.5em;
+}
