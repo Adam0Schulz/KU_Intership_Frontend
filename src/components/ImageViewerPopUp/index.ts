@@ -83,7 +83,6 @@ export default (index: number) => {
     let mid = false;
     $('.right__btn').on('click', next)
     $(document).on('keydown', (e) => {
-        e.preventDefault();
         if (e.keyCode === 39 && !mid) {
             mid = true;
             next();
