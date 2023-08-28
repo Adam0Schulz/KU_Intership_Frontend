@@ -3,6 +3,7 @@ import components from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
+import Pagination from '@components/Pagination';
 
 $(function () {
 
@@ -46,6 +47,7 @@ $(function () {
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
 
+    Pagination({numOfPages: 10})
     AlphabeticalFilter()
     ItemCardList(
         {
