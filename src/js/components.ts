@@ -25,5 +25,51 @@ export default (params: Params) => {
     SidebarNavigation(params.pageConfig);
     BreadCrumbs(params.crumbsArray);
     LocalFooter(params.contact);
-    MobileMenu()
+
+
+
+    MobileMenu({
+        primaryMenu: {
+            options: [
+                {
+                    label: "ahha",
+                    url: "www.google.com"
+                }
+            ]
+        },
+        secondaryMenu: {
+            options: [
+                {
+                    label: "ahha",
+                    url: "www.google.com"
+                },
+                {
+                    heading: "multi-level-menu",
+                    subOptions: [
+                        {
+                            label: "ahhah",
+                            url: "www.google.com"
+                        },
+                        {
+                            label: "ahhah",
+                            url: "www.google.com"
+                        },
+                        {
+                            label: "ahhah",
+                            url: "www.google.com"
+                        }
+                    ]
+                }
+            ]
+        },
+        ternaryMenu: {
+            options: [
+                {
+                    label: "ahha",
+                    url: "www.google.com"
+                }
+            ]
+        }
+        
+    })
 }

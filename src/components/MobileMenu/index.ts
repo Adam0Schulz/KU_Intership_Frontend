@@ -2,6 +2,8 @@ import HTML from "./component.html"
 import "@gcss"
 import "./style.css"
 import $ from "jquery"
+import { Link } from "@js/interfaces"
+import subOption, {Props as subMenu} from "./subOption"
 
 export const toggleMobileMenu = () => {
     $(".mobile-menu").toggleClass("mobile-menu--hidden")
@@ -49,8 +51,35 @@ const expadingSubmenu = () => {
     })
 }
 
-export default () => {
+const insertMenu = (menu: Menu, typeOfMenu: 'primary' | 'secondary' | 'ternary') => {
+    const elementQuery = `#mobile-menu__level-${typeOfMenu} .mobile-menu__content ul`
+    menu.options.map((option) => {
+        if('url' in option) {
+            $(elementQuery).append($(`<li class="mobile-menu__item"><a href="${option.url}">${option.label}</a></li>`))
+        } else {
+            $(elementQuery).append(subOption(option))
+            
+        }
+    })
+}
+
+interface Menu {
+     options: (Link | subMenu)[]
+}
+
+interface Props {
+    primaryMenu: Menu,
+    secondaryMenu: Menu,
+    ternaryMenu: Menu
+}
+
+export default (props: Props) => {
     $("div[mobile-menu]").html(HTML)
+
+    insertMenu(props.primaryMenu, "primary")
+    insertMenu(props.secondaryMenu, "secondary")
+    insertMenu(props.ternaryMenu, "ternary")
+
     mobileMenuLevels()
     expadingSubmenu()
 
