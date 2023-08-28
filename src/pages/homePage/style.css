@@ -3,6 +3,10 @@
     padding-right: 0; 
 }
 
+.home-content {
+    padding-left: 0;
+}
+
 .search-info-cont {
     display: grid;
     grid-template-columns: 2fr 1fr;
