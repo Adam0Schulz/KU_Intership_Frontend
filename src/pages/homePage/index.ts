@@ -3,7 +3,10 @@ import './style.css'
 import components from "@js/components";
 import HTML from "../homePage/content.html";
 
-import { getMeta } from '@js/api/calls';
+import {getMeta} from '@js/api/calls';
+import SearchSection from "@components/SearchSection";
+import InfoComp from "@components/InfoComp";
+
 const meta = getMeta().then(res => res.data)
 meta.then(res => console.log(res))
 
@@ -12,15 +15,11 @@ $(async function () {
     $('div[main-content]').replaceWith(HTML);
     components(
         {
-            searchSection: {
-                heading: "Find " + (await meta).mainEntity,
-                subHeading: "Search for " + (await meta).mainEntity
-            },
             branding: {
                 heading: (await meta).database
             },
             crumbsArray: [
-                { label: "Home", link: "", isActive: true }
+                {label: "Home", link: "", isActive: true}
             ],
             pageConfig: {
                 title: (await meta).database,
@@ -34,6 +33,10 @@ $(async function () {
             contact: (await meta).contact
         }
     )
+    SearchSection("Find " + (await meta).mainEntity,
+        "Search for " + (await meta).mainEntity
+    );
+    InfoComp();
 
     $('title').text("Home");
     $("#page-heading").text("Some Heading")

@@ -24,15 +24,6 @@ export interface PageConfig {
         isActive: boolean;
     }[];
 }
-
-export interface Params {
-    searchSection?: SearchSection,
-    branding: { heading: string },
-    crumbsArray: { label: string, link: string, isActive: boolean }[],
-    pageConfig: PageConfig,
-    contact: Contact
-}
-
 export interface SearchSection {
     heading: string,
     subHeading: string
