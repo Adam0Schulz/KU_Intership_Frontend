@@ -3,23 +3,27 @@ import './style.css'
 import components from "@js/components";
 import HTML from "../homePage/content.html";
 
-$(function () {
+import { getMeta } from '@js/api/calls';
+const meta = getMeta().then(res => res.data)
+meta.then(res => console.log(res))
+
+$(async function () {
 
     $('div[main-content]').replaceWith(HTML);
     components(
         {
             searchSection: {
-                heading: "Find Apple Species",
-                subHeading: "Search for apples by name"
+                heading: "Find " + (await meta).mainEntity,
+                subHeading: "Search for " + (await meta).mainEntity
             },
             branding: {
-                heading: "Apple database"
+                heading: (await meta).database
             },
             crumbsArray: [
-                {label: "Home", link: "", isActive: true}
+                { label: "Home", link: "", isActive: true }
             ],
             pageConfig: {
-                title: "Denmark's Apples",
+                title: (await meta).database,
                 pages: [
                     {pageTitle: 'Home', isActive: true},
                     {pageTitle: 'Browse', isActive: false},
@@ -27,22 +31,7 @@ $(function () {
                     {pageTitle: 'Detail', isActive: false}
                 ]
             },
-            contact: {
-                institution: 'Københavns Universitet',
-                institutionWeb: 'http://www.kommunikation.ku.dk',
-                department: 'Kommunikation',
-                departmentWeb: 'http://www.kommunikation.ku.dk',
-                address: {
-                    country: 'Denmark',
-                    city: 'København',
-                    district: 'K',
-                    postalCode: 1165,
-                    addressDetail: 'Nørregade 10'
-                },
-                team: 'Web Team',
-                email: 'FA-webredaktor@adm.ku.dk',
-                phone: 4535324261
-            }
+            contact: (await meta).contact
         }
     )
 
