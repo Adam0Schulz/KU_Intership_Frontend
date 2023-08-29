@@ -19,7 +19,7 @@ export default () => {
 
         $(element).html(HTML)
         $(element).find('.item-card__text').text(title)
-        if(!imageless) {
+        if(imageless) {
             $(element).find('.item-card__bg-img').remove()
             $(element).find('.item-card').addClass('item-card--imageless')
         } else {

@@ -4,6 +4,8 @@ import './style.css'
 import TextInput from "@components/Input/Text"
 import SelectInput from "@components/Input/Select"
 import CheckboxInput from "@components/Input/Checkbox"
+import InfoComp from "@components/InfoComp"
+import InfoIcon from "@components/Input/InfoIcon"
 
 export interface Props {
     
@@ -15,4 +17,15 @@ export default (props: Props) => {
     TextInput()
     SelectInput()
     CheckboxInput()
+    InfoComp(
+        {
+            heading: "Apple browse guide", 
+            body: "Get detailed information about all the search parameters by clicking here or click on the information icon next to each specific parameter",
+            link: {
+                label: "",
+                url: ""
+            }
+        }
+    )
+    InfoIcon()
 }

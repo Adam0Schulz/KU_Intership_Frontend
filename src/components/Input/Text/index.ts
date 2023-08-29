@@ -1,5 +1,7 @@
+import InfoIcon from '../InfoIcon'
 import HTML from './component.html'
 import $ from 'jquery'
+import './style.css'
 
 export default () => {
     $('div[input-text]').each((index, element) => {
@@ -11,4 +13,6 @@ export default () => {
         $(element).find('input').attr("placeholder", placeholder)
 
     })
+
+    InfoIcon()
 }    

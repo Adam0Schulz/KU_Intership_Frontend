@@ -60,38 +60,37 @@ $(function () {
                     url: "https://picsum.photos/500/500",
                     label: "bla bla bla"
                 },
-                title: "bla bla bal"
+                title: "option"
             },
             {
                 image: {
                     url: "https://picsum.photos/700/500",
                     label: "bla bla bla"
                 },
-                title: "bla bla bal"
+                title: "option"
             },
             {
                 image: {
                     url: "https://picsum.photos/500/200",
                     label: "bla bla bla"
                 },
-                title: "bla bla bal"
+                title: "option"
             },
             {
                 image: {
                     url: "https://picsum.photos/400/500",
                     label: "bla bla bla"
                 },
-                title: "kokokot"
+                title: "option"
             },
             {
                 image: {
                     url: "https://picsum.photos/500/500",
                     label: "bla bla bla"
                 },
-                title: "bla bla bal"
+                title: "option"
             }
-        ],
-        isImageless: true,
+        ]
         }
     )
     $.get("http://localhost:8080/ku/footer", function (data) {

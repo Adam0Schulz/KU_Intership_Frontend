@@ -1,0 +1,12 @@
+.input-text {
+    position: relative;
+}
+
+.input-text .info-icon {
+    top: 0;
+}
+
+.input-text .input-group-btn button {
+    border: 1px solid var(--COLOR-TEXT-GRAY);
+
+}

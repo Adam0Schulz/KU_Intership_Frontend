@@ -5,7 +5,6 @@ import './style.css'
 export const numOfDisplayedPages = 5   // to do: link with the same variable in css
 
 interface Props {
-    displayResults?: boolean,
     numOfPages: number,
 }
 
@@ -23,7 +22,9 @@ export default (props: Props) => {
     const page = Number(params.get("page"))
 
     $(".pagination-cont .page-results").text(props.numOfPages + " Results")
-    if (props.displayResults) $(".custom-pagination .page-results").remove()
+    $("div[pagination]").each((_i, e) => {
+        if($(e).attr("no-results")) $(e).find(".page-results").remove()
+    })
 
     renderArray(page, props.numOfPages)
 

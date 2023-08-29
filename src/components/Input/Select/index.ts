@@ -1,6 +1,7 @@
 import HTML from './component.html'
 import $ from 'jquery'
 import './style.css'
+import InfoIcon from '../InfoIcon'
 
 export default () => {
     $("div[input-select]").each((_index, element) => {
@@ -14,4 +15,6 @@ export default () => {
             $(element).find(".dropdown-menu").append(item)
         })
     })
+
+    InfoIcon()
 }

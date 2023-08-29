@@ -14,3 +14,11 @@ root {
 #btn_left {
     margin-right: 1.32rem;
 }
+
+.no-right-padding {
+    padding-right: 0;
+}
+
+.no-left-padding {
+    padding-left: 0;
+}

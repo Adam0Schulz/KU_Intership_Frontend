@@ -1,3 +1,7 @@
 .filter-bar > * {
     margin-bottom: 2em;
 }
+
+.filter-bar .info-cont {
+    padding: 1em;
+}

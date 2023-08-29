@@ -36,7 +36,14 @@ $(async function () {
     SearchSection("Find " + (await meta).mainEntity,
         "Search for " + (await meta).mainEntity
     );
-    InfoComp();
+    InfoComp({
+        heading: "Advanced Search",
+        body: "Do you need a more specific search with the option to search for each attribute separately?",
+        link: {
+            label: "",
+            url: ""
+        }
+    });
 
     $('title').text("Home");
     $("#page-heading").text("Some Heading")
