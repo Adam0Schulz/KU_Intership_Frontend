@@ -1,0 +1,16 @@
+.input-checkbox input[type="text"] {
+    user-select: none;
+    cursor: default;
+    font-weight: 600;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0.75em;
+}
+
+.input-checkbox input[type="text"]:focus {
+    box-shadow: none;
+    border-color: var(--COLOR-TEXT-GRAY);
+}
