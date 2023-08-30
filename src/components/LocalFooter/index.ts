@@ -4,15 +4,7 @@ import {Contact} from "@js/interfaces";
 
 export default (contact: Contact) => {
     $('#content').append(HTML);
-    let numberString = contact.phone.toString();
-    let spacedNumber = '+';
 
-    for (let i = 0; i < numberString.length; i++) {
-        spacedNumber += numberString[i];
-        if ((i + 1) % 2 === 0 && i !== numberString.length) {
-            spacedNumber += ' ';
-        }
-    }
     $('.footer-address').html(`
         <address>       
            <a href="${contact.departmentWeb}">${contact.department}</a><br>
@@ -26,7 +18,20 @@ export default (contact: Contact) => {
         <address>
             ${contact.department}<br>
             E-mail: <a href="${contact.email}">${contact.team}</a><br>
-            <abbr title="Tlf.">Tlf:</abbr> <a href="tel:+${contact.phone}">${spacedNumber}</a>
+            <abbr title="Tlf.">Tlf:</abbr> <a href="tel:+${contact.phone}">${spaceTelephoneNumber(contact.phone)}</a>
         </address>
     `);
+}
+
+export const spaceTelephoneNumber = (phone: number)=> {
+    const numberString = phone.toString();
+    let spacedNumber = '+';
+
+    for (let i = 0; i < numberString.length; i++) {
+        spacedNumber += numberString[i];
+        if ((i + 1) % 2 === 0 && i !== numberString.length) {
+            spacedNumber += ' ';
+        }
+    }
+    return spacedNumber;
 }
