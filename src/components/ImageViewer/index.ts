@@ -2,6 +2,7 @@ import HTML from './component.html';
 import $ from 'jquery';
 import './style.css';
 import {imageElements} from "@components/ImageGrid";
+import Popup from '@components/Popup';
 
 export default (index: number) => {
 
@@ -74,10 +75,7 @@ export default (index: number) => {
             selected.setValue(selected.getValue() - 1)
         }
     }
-    const close = () => {
-        $('.popup').remove();
-        $('body').removeClass('body-background');
-    }
+    
 
     //click & key events & preventing the keys from firing multiple times
     let mid = false;
@@ -95,15 +93,6 @@ export default (index: number) => {
         if (e.keyCode === 37 && !mid) {
             mid = true;
             previous();
-            mid = false;
-        }
-    });
-    $('.close__btn').on('click', close);
-    $(document).on('keydown', (e) => {
-        e.preventDefault();
-        if (e.keyCode === 27 && !mid) {
-            mid = true;
-            close();
             mid = false;
         }
     });
@@ -127,6 +116,9 @@ function hideArrows(position: number) {
     if (position === imageElements.length - 1) {
         right.addClass('hidden-arrow');
     }
+
+    //apply popup
+    Popup()
 }
 
 

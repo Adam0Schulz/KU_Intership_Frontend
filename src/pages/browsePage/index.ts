@@ -90,7 +90,8 @@ $(function () {
                 },
                 title: "option"
             }
-        ]
+        ],
+        isImageless: true
         }
     )
     $.get("http://localhost:8080/ku/footer", function (data) {
