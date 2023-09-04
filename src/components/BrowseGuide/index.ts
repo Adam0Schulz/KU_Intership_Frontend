@@ -5,6 +5,7 @@ import './style.css'
 import TableOfContents from '@components/TableOfContents'
 import Popup from '@components/Popup'
 import Checkbox from '@components/Input/Checkbox'
+import PillSection from '@components/PillSection'
 
 export default () => {
     $("div[browse-guide]").replaceWith(HTML)
@@ -106,4 +107,25 @@ export default () => {
         ]
     })
     Checkbox()
+    PillSection({
+        heading: "Selected filters",
+        pills: [
+            {
+                text: "something",
+                onChange: () => {}
+            },
+            {
+                text: "something2",
+                onChange: () => {}
+            },
+            {
+                text: "hello",
+                onChange: () => {}
+            },
+            {
+                text: "world",
+                onChange: () => {}
+            }
+        ]
+    })
 }
