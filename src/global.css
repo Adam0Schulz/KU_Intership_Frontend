@@ -10,6 +10,9 @@ root {
     --COLOR-TEXT-WHITE: #FFFFFF;
     --COLOR-DIVIDER: rgba(0, 0, 0, 0.1);
 }
+p {
+    margin: 0;
+}
 
 #btn_left {
     margin-right: 1.32rem;

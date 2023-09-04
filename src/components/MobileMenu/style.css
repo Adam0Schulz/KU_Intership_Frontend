@@ -1,8 +1,5 @@
-.row {
-    margin: 0;
-}
-
 .mobile-menu {
+    margin: 0;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
