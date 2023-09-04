@@ -5,8 +5,17 @@ import './style.css'
 export default () => {
     $("div[input-checkbox]").each((_index, element) => {
         const label = $(element).attr("label")
+        const imgUrl = $(element).attr("img-url")
 
         $(element).append(HTML)
-        $(element).find("input[type='text']").attr("value", label)
+    
+        if(imgUrl) {
+            $(element).find('input[type="text"]').replaceWith($(`<div class="form-control img-cont"><img src="${imgUrl}" alt="${label}"></div>`))
+        } else {
+            $(element).find('input[type="text"]').attr("value", label)
+        }
+
+        
+        
     })
 }

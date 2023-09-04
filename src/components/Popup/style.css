@@ -29,3 +29,8 @@
     color: var(--COLOR-PRIMARY);
 }
 
+.body-background {
+    height: 100%;
+    overflow: hidden;
+}
+

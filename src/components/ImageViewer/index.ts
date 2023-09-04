@@ -5,9 +5,7 @@ import {imageElements} from "@components/ImageGrid";
 import Popup from '@components/Popup';
 
 export default (index: number) => {
-
-    //apply background for the popup
-    $('body').append(HTML).addClass('body-background');
+    
     const thumbnails = $('.image-view__small');
     const cImage = $('.image-view__large');
     const length = imageElements.length;

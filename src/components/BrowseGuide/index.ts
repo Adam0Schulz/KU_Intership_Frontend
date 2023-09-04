@@ -4,6 +4,7 @@ import './style.css'
 
 import TableOfContents from '@components/TableOfContents'
 import Popup from '@components/Popup'
+import Checkbox from '@components/Input/Checkbox'
 
 export default () => {
     $("div[browse-guide]").replaceWith(HTML)
@@ -104,4 +105,5 @@ export default () => {
             },
         ]
     })
+    Checkbox()
 }

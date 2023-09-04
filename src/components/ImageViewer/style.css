@@ -14,11 +14,6 @@
     color: var(--COLOR-TEXT-WHITE)
 }
 
-.body-background {
-    height: 100%;
-    overflow: hidden;
-}
-
 .image-view__large {
     display: flex;
     align-items: center;
