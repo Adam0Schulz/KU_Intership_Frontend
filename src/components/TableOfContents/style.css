@@ -1,0 +1,59 @@
+.table-of-contents {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.table-of-contents h1,
+.table-of-contents h2,
+.table-of-contents h3,
+.table-of-contents h4,
+.table-of-contents h5,
+.table-of-contents h6 {
+    color: var(--COLOR-TEXT-GRAY);
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 1em 0;
+}
+
+.table-of-contents h1.active,
+.table-of-contents h2.active,
+.table-of-contents h3.active,
+.table-of-contents h4.active,
+.table-of-contents h5.active,
+.table-of-contents h6.active {
+    color: var(--COLOR-TEXT-BLACK);
+    font-weight: bold;
+
+}
+
+.table-of-contents h1 {
+    font-size: 16px;
+}
+
+.table-of-contents h2 {
+    margin-left: 1em
+}
+
+.table-of-contents h3 {
+    margin-left: 2em
+}
+
+.table-of-contents h4 {
+    margin-left: 3em
+}
+
+.table-of-contents h5 {
+    margin-left: 4em
+}
+
+.table-of-contents h6 {
+    margin-left: 5em
+}
+
+.table-of-contents__heading {
+    font-size: 16px !important;
+    margin-left: 0 !important;
+    color: var(--COLOR-TEXT-GRAY);
+    font-weight: bold !important;
+}

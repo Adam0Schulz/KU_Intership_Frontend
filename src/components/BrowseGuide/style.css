@@ -1,0 +1,12 @@
+.browse-guide {
+    background-color: white;
+    width: 70vw;
+    height: 80vh;
+    margin: auto;
+    padding: 2em;
+    position: relative;
+}
+
+.browse-guide > div {
+    height: 100%;
+}

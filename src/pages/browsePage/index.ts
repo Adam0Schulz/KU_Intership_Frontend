@@ -5,6 +5,7 @@ import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
 import Pagination from '@components/Pagination';
 import FilterSidebar from '@components/FilterSidebar';
+import BrowseGuide from '@components/BrowseGuide';
 
 $(function () {
 
@@ -94,6 +95,7 @@ $(function () {
         isImageless: true
         }
     )
+    BrowseGuide()
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
