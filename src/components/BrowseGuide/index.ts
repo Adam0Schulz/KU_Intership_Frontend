@@ -2,16 +2,29 @@ import HTML from './component.html'
 import $ from 'jquery'
 import './style.css'
 
-import TableOfContents from '@components/TableOfContents'
+import TableOfContents, { Heading } from '@components/TableOfContents'
 import Popup from '@components/Popup'
 import Checkbox from '@components/Input/Checkbox'
 import PillSection from '@components/PillSection'
 import { Link } from '@js/interfaces'
 
+
+
 interface FilterOption {
+    id?: string,
     text: string,
     image?: Link
 
+}
+
+function useState<T>(initialValue: T) {
+    let state = initialValue;
+
+    function setState(newValue: T) {
+        state = newValue;
+    }
+
+    return [state, setState];
 }
 
 interface Section {
@@ -37,132 +50,54 @@ export default (props: Props) => {
     })
 
 
+    $(".browse-guide").on("click", () => {
+        console.log("bum")
+        /* const pills = $('.browse-guide input[type="checkbox"]:checked').toArray().map((box) => { return { text: $(box.parentElement.parentElement.parentElement).find('input[type="text"]').attr("value") } })
+        PillSection({
+            heading: "Selected filters",
+            pills: pills
+        }) */
+    })
     Popup()
+    Checkbox()
     TableOfContents({
         heading: "Apple Browse Guide",
-        items: [
-            {
-                heading: "bla bla bla",
-                subHeadings: [
-                    {
-                        heading: 'hello',
-                        subHeadings: [
-                            {
-                                heading: "hello2",
-                                subHeadings: [
-                                    {
-                                        heading: "hello3",
-                                        subHeadings: [
-                                            {
-                                                heading: "hello4"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                heading: "hello2"
-                            },
-                            {
-                                heading: "hello2"
-                            }
-                        ]
-                    },
-                    {
-                        heading: "hello"
-                    },
-                    {
-                        heading: "hello"
-                    }
-                ]
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-            {
-                heading: "bla bla bla"
-            },
-        ]
+        items: extractHeadingsFromSections(props.content),
+        onSelect: (id: string) => { window.location.hash = "section-" + id }
     })
-    Checkbox()
-    PillSection({
-        heading: "Selected filters",
-        pills: [
-            {
-                text: "something",
-                onChange: () => { }
-            },
-            {
-                text: "something2",
-                onChange: () => { }
-            },
-            {
-                text: "hello",
-                onChange: () => { }
-            },
-            {
-                text: "world",
-                onChange: () => { }
-            }
-        ]
-    })
-
-
 }
 
-function extractHeadingsFromSections() {
+function generateRandomId(length: number = 10): string {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let randomId = '';
 
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomId += characters.charAt(randomIndex);
+    }
+
+    return randomId;
+}
+
+function idFilterOptions(filterOptions: FilterOption[]) {
+    return filterOptions.map((filterOption) => {
+        filterOption.id = generateRandomId()
+        return filterOption
+    })
+}
+
+function extractHeadingsFromSections(sections: Section[]): Heading[] {
+    return sections.filter((section) => section.id).map((section) => {
+        let heading: Heading = {
+            id: section.id,
+            heading: section.heading,
+        }
+        if (section.sections) {
+            heading.subHeadings = extractHeadingsFromSections(section.sections)
+
+        }
+        return heading
+    })
 }
 
 function idSections(sections: Section[], indexArr: number[]) {
@@ -184,7 +119,6 @@ function idSection(section: Section, indexArr: number[]) {
     return section
 }
 
-
 function renderSections(sections: Section[], level: number) {
     return sections.map((section) => {
         return renderSection(section, level)
@@ -203,9 +137,10 @@ function renderSection(section: Section, level: number): JQuery<HTMLElement> {
     }
 
     if (section.filterOptions) {
-        section.filterOptions.map((filterOption) => {
+        idFilterOptions(section.filterOptions).map((filterOption) => {
             const optionDiv = $(`<div input-checkbox></div>`)
             optionDiv.attr("label", filterOption.text)
+            optionDiv.attr("id", filterOption.id)
             if (filterOption.image) optionDiv.attr("img-url", filterOption.image.url)
             filterDiv.append(optionDiv)
 

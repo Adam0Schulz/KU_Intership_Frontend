@@ -4,7 +4,7 @@ import './style.css'
 
 export interface IPill {
     text: string,
-    onChange: () => void
+    onChange?: () => void
 }
 
 export default () => {
