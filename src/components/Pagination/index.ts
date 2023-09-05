@@ -19,7 +19,7 @@ export default (props: Props) => {
     }
 
     const params = new URLSearchParams(new URL(window.location.href).search)
-    const page = Number(params.get("page"))
+    const page = Number(params.get("page")) || 1
 
     $(".pagination-cont .page-results").text(props.numOfPages + " Results")
     $("div[pagination]").each((_i, e) => {

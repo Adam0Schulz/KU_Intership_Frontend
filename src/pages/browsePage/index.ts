@@ -5,6 +5,7 @@ import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
 import Pagination from '@components/Pagination';
 import FilterSidebar from '@components/FilterSidebar';
+import BrowseGuide from '@components/BrowseGuide';
 
 $(function () {
 
@@ -86,7 +87,7 @@ $(function () {
                     i3: "6Bornholms Ordbog"
                 }
             ]
-            
+
         //     cards: [
         //     {
         //         image: {
@@ -126,6 +127,7 @@ $(function () {
         // ]
         }
     )
+    BrowseGuide()
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });

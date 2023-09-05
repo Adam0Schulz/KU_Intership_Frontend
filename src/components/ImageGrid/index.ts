@@ -1,7 +1,7 @@
 import HTML from './component.html';
 import $ from 'jquery';
 import './style.css';
-import ImageViewerPopUp from "@components/ImageViewerPopUp";
+import ImageViewerPopUp from "@components/ImageViewer";
 import img1 from '@img/a1.jpg'
 import img2 from '@img/a2.jpg'
 import img3 from '@img/a3.jpg'
