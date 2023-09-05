@@ -16,15 +16,15 @@ $(function () {
                 heading: "Browse"
             },
             crumbsArray: [
-                {label: "Browse", link: "", isActive: true}
+                { label: "Browse", link: "", isActive: true }
             ],
             pageConfig: {
                 title: "Browse",
                 pages: [
-                    {pageTitle: 'Home', isActive: false},
-                    {pageTitle: 'Browse', isActive: true},
-                    {pageTitle: 'About', isActive: false},
-                    {pageTitle: 'Detail', isActive: false}
+                    { pageTitle: 'Home', isActive: false },
+                    { pageTitle: 'Browse', isActive: true },
+                    { pageTitle: 'About', isActive: false },
+                    { pageTitle: 'Detail', isActive: false }
                 ]
             },
             contact: {
@@ -50,52 +50,120 @@ $(function () {
     $("#page-paragraph").text("Here you can browse")
 
     FilterSidebar({})
-    Pagination({numOfPages: 10})
+    Pagination({ numOfPages: 10 })
     AlphabeticalFilter()
     ItemCardList(
         {
-            
+
             cards: [
-            {
-                image: {
-                    url: "https://picsum.photos/500/500",
-                    label: "bla bla bla"
+                {
+                    image: {
+                        url: "https://picsum.photos/500/500",
+                        label: "bla bla bla"
+                    },
+                    title: "option"
                 },
-                title: "option"
-            },
-            {
-                image: {
-                    url: "https://picsum.photos/700/500",
-                    label: "bla bla bla"
+                {
+                    image: {
+                        url: "https://picsum.photos/700/500",
+                        label: "bla bla bla"
+                    },
+                    title: "option"
                 },
-                title: "option"
-            },
-            {
-                image: {
-                    url: "https://picsum.photos/500/200",
-                    label: "bla bla bla"
+                {
+                    image: {
+                        url: "https://picsum.photos/500/200",
+                        label: "bla bla bla"
+                    },
+                    title: "option"
                 },
-                title: "option"
-            },
-            {
-                image: {
-                    url: "https://picsum.photos/400/500",
-                    label: "bla bla bla"
+                {
+                    image: {
+                        url: "https://picsum.photos/400/500",
+                        label: "bla bla bla"
+                    },
+                    title: "option"
                 },
-                title: "option"
-            },
-            {
-                image: {
-                    url: "https://picsum.photos/500/500",
-                    label: "bla bla bla"
-                },
-                title: "option"
-            }
-        ],
-        isImageless: true
+                {
+                    image: {
+                        url: "https://picsum.photos/500/500",
+                        label: "bla bla bla"
+                    },
+                    title: "option"
+                }
+            ],
+            isImageless: true
         }
     )
-    BrowseGuide()
+    BrowseGuide({
+        content: [
+            {
+                heading: "Section",
+                sections: [
+                    {
+                        heading: "Subsection",
+                        text: "Subsection content",
+                    },
+                    {
+                        heading: "Subsection",
+                        text: "Subsection content",
+                        image: {
+                            label: "Option",
+                            url: "https://picsum.photos/300/200"
+                        },
+                    },
+                ],
+            },
+            {
+                heading: "Section",
+                text: "Section content",
+                filterOptions: [
+                    {
+                        text: "Option",
+                        image: {
+                            label: "Option",
+                            url: "https://picsum.photos/300/200"
+                        },
+                    },
+                    {
+                        text: "Second Option",
+                        image: {
+                            label: "Second Option",
+                            url: "https://picsum.photos/500/200"
+                        },
+                    },
+                ],
+            },
+            {
+                heading: "Subsection",
+                sections: [
+                    {
+                        heading: "Subsection",
+                        text: "Subsection content",
+                        sections: [
+                            {
+                                heading: "Subsection ",
+                                text: "Subsection content",
+                                image: {
+                                    label: "Option",
+                                    url: "https://picsum.photos/300/200"
+                                },
+                            },
+                        ],
+                        image: {
+                            label: "Option",
+                            url: "https://picsum.photos/300/200"
+                        },
+                    },
+                ],
+                text: "Subsection content",
+                image: {
+                    label: "Option",
+                    url: "https://picsum.photos/300/200"
+                },
+            },
+        ],
+    })
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
