@@ -1,8 +1,0 @@
-#page-heading, #page-subtitle{
-    letter-spacing: 0.3em;
-    text-align: center;
-}
-#page-subtitle{
-    margin-bottom: 1.5em;
-    color: var(--COLOR-TEXT-GRAY);
-}

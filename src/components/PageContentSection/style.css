@@ -1,9 +1,17 @@
 .content-section {
     padding: 0.5em 0;
+}
+.content-section__footer {
+    display: block !important;
+    width: 100%;
     border-bottom: var(--COLOR-DIVIDER) 1px solid;
 }
 
-.content-section__subtitle {
-    margin-top: -1em;
+.main-heading, .subtitle{
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+.subtitle{
+    margin-bottom: 1.5em;
     color: var(--COLOR-TEXT-GRAY);
 }

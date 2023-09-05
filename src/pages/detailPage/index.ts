@@ -1,24 +1,65 @@
 import $ from 'jquery';
 import components from "@js/components";
 import HTML from './content.html';
-import ImageGrid from "@components/ImageGrid";
-import PageContentSection from "@components/PageContentSection";
+import PageContentSection, {ImageDisplay} from "@components/PageContentSection";
 import './style.css'
 
 $(function () {
     $('div[main-content]').replaceWith(HTML);
 
     PageContentSection({
-        //
-        dictionary: false,
-        resource: false,
-        headings:
-            ['Title'],
-        bodies:
-            ['Erik the red'],
-        footer: 'Saga Institute'
+        heading: 'Red Delicious',
+        subtitle: 'Aero, Denmark',
+        footer: '',
+        imgDisplay: ImageDisplay.FULL,
+        subsections: [{
+            heading: 'Origin',
+            body: 'Aero, Denmark'
+        }, {
+            heading: 'Color',
+            body: 'red'
+        }, {
+            heading: 'Usage',
+            body: 'everything'
+            }
+        ]
     });
-    ImageGrid(false, true);
+    // PageContentSection({
+    //     heading: 'Eric the red',
+    //     subtitle: 'Isafjordur, Iceland',
+    //     imgDisplay: ImageDisplay.SINGLE,
+    //     subsections: [{
+    //         heading: '',
+    //         footer: '',
+    //         subsections: [
+    //             {
+    //                 heading: 'Title',
+    //                 body: 'Eric the red'
+    //             },
+    //             {
+    //                 heading: 'Origin',
+    //                 body: 'Isafjordur, Iceland'
+    //             }
+    //         ]
+    //     }, {
+    //         heading: '',
+    //         footer: 'Contents',
+    //         subsections: [
+    //             {
+    //                 heading: 'Bibliography',
+    //                 body: 'Íslenskt fornbréfasafn VIII. nr. 80, bl. 85-86. Reykjavík 1906-1913'
+    //             },
+    //             {
+    //                 heading: 'Incipit',
+    //                 body: '„Jak Anders Hansson, Eric Arnulsson, Gunnar Ericsson, Anders Gudmundsson …“'
+    //             },
+    //             {
+    //                 heading: 'Explicit',
+    //                 body: '„… datum Bergis anno domini md sexto infra octauam epifanie.“'
+    //             }
+    //         ]
+    //     }]
+    // })
     components(
         {
             branding: {

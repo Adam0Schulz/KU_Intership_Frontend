@@ -10,6 +10,7 @@ import img5 from '@img/a5.jpg'
 import img6 from '@img/a6.jpg'
 import img7 from '@img/a7.jpg'
 import img8 from '@img/a8.jpg'
+import {ImageDisplay} from "@components/PageContentSection";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 export const imageElements: HTMLImageElement[] = [];
@@ -22,15 +23,15 @@ for (let i = 0; i < images.length && i < x; i++) {
     imageElements.push(img);
 }
 
-export default (imageless?: boolean, singleImage?: boolean) => {
-    if (imageless) {
+export default (imgDisplay: ImageDisplay) => {
+    if (imgDisplay === ImageDisplay.NONE || !imgDisplay) {
         return
     } else {
-        if (singleImage) {
+        if (imgDisplay === ImageDisplay.SINGLE) {
             x = 1;
             imageElements.splice(1);
         }
-
+        console.log('img!')
         $('div[image-grid]').replaceWith(HTML);
         const grid = $('#ig-1');
         if (x > 2) {
