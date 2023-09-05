@@ -2,10 +2,23 @@ import $ from 'jquery';
 import components from "@js/components";
 import HTML from './content.html';
 import ImageGrid from "@components/ImageGrid";
+import PageContentSection from "@components/PageContentSection";
+import './style.css'
 
 $(function () {
     $('div[main-content]').replaceWith(HTML);
-    ImageGrid();
+
+    PageContentSection({
+        //
+        dictionary: false,
+        resource: false,
+        headings:
+            ['Title'],
+        bodies:
+            ['Erik the red'],
+        footer: 'Saga Institute'
+    });
+    ImageGrid(false, true);
     components(
         {
             branding: {
@@ -42,8 +55,6 @@ $(function () {
         }
     )
     $('title').text("Detail");
-    $("#page-heading").text("Detail");
-    $("#page-paragraph").text("Lorem ipsum sit dolorum");
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });

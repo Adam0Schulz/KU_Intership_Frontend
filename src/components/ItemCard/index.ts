@@ -15,7 +15,7 @@ export interface ItemCardProps {
 }
 
 export default () => {
-    $('div[item-card]').each((index, element) => {
+    $('div[item-card]').each((_index, element) => {
 
         const imageless = $(element).attr("imageless")
 
