@@ -15,10 +15,15 @@
     border-color: var(--COLOR-TEXT-GRAY);
 }
 
+.input-checkbox {
+    height: 100%; /*for the browse guide popup image options*/
+}
+
 .input-checkbox .img-cont {
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1em;
+    height: 100%;
 }

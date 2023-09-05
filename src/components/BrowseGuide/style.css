@@ -7,6 +7,20 @@
     position: relative;
 }
 
-.browse-guide > div {
+.browse-guide>div {
     height: 100%;
+}
+
+.browse-guide__main {
+    overflow-y: scroll;
+}
+
+.browse-guide .filter-cont {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+}
+
+.browse-guide__section img {
+    width: 100%;
 }
