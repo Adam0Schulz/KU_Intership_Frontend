@@ -31,7 +31,6 @@ export default (imgDisplay: ImageDisplay) => {
             x = 1;
             imageElements.splice(1);
         }
-        console.log('img!')
         $('div[image-grid]').replaceWith(HTML);
         const grid = $('#ig-1');
         if (x > 2) {

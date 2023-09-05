@@ -7,11 +7,10 @@ import './style.css'
 $(function () {
     $('div[main-content]').replaceWith(HTML);
 
-    PageContentSection({
+    PageContentSection([{
         heading: 'Red Delicious',
         subtitle: 'Aero, Denmark',
         footer: '',
-        imgDisplay: ImageDisplay.FULL,
         subsections: [{
             heading: 'Origin',
             body: 'Aero, Denmark'
@@ -23,11 +22,10 @@ $(function () {
             body: 'everything'
             }
         ]
-    });
+    }], 2);
     // PageContentSection({
     //     heading: 'Eric the red',
     //     subtitle: 'Isafjordur, Iceland',
-    //     imgDisplay: ImageDisplay.SINGLE,
     //     subsections: [{
     //         heading: '',
     //         footer: '',
@@ -59,7 +57,7 @@ $(function () {
     //             }
     //         ]
     //     }]
-    // })
+    // }, 1)
     components(
         {
             branding: {

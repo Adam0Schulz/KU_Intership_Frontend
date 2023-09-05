@@ -8,7 +8,7 @@ import Checkbox from '@components/Input/Checkbox'
 import PillSection from '@components/PillSection'
 import { Link } from '@js/interfaces'
 
-interface FilterOption {
+export interface FilterOption {
     text: string,
     image?: Link
 
