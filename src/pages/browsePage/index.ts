@@ -112,6 +112,21 @@ $(function () {
                             url: "https://picsum.photos/300/200"
                         },
                     },
+                    {
+                        text: "Subsection content",
+                        image: {
+                            label: "Option",
+                            url: "https://picsum.photos/300/200"
+                        },
+                    },
+                    {
+                        heading: "Subsection",
+                        text: "Subsection content",
+                        image: {
+                            label: "Option",
+                            url: "https://picsum.photos/300/200"
+                        },
+                    },
                 ],
             },
             {

@@ -161,10 +161,17 @@ export default (props: Props) => {
 
 }
 
+function extractHeadingsFromSections() {
+
+}
+
 function idSections(sections: Section[], indexArr: number[]) {
-    return sections.map((section, index) => {
+    let index = 1
+    return sections.map((section) => {
+        if (!section.heading) return section
         const newIndexArr = indexArr.slice()
-        newIndexArr.push(index + 1)
+        newIndexArr.push(index)
+        index++
         return idSection(section, newIndexArr)
     })
 }
@@ -173,7 +180,6 @@ function idSection(section: Section, indexArr: number[]) {
     if (section.sections) {
         idSections(section.sections, indexArr)
     }
-
     section.id = indexArr.join(".")
     return section
 }
@@ -186,10 +192,11 @@ function renderSections(sections: Section[], level: number) {
 }
 
 function renderSection(section: Section, level: number): JQuery<HTMLElement> {
-    const baseDiv = $(`<div class="browse-guide__section" id="section-${section.id}"></div>`)
+    const baseDiv = $(`<div class="browse-guide__section" ${section.id ? `id="section-${section.id}"` : ``}></div>`)
     const sectionsDiv = $(`<div class="section-cont"></div>`)
     const filterDiv = $(`<div class="filter-cont"></div>`)
     if (section.sections) {
+
         renderSections(section.sections, level + 1).forEach((section) => {
             sectionsDiv.append(section)
         })
