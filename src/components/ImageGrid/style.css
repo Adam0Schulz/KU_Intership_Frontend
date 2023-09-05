@@ -12,8 +12,9 @@
     object-fit: cover;
 }
 
-.image-area img:hover {
+.image-area img:hover, .image-area img:focus {
     cursor: pointer;
     filter: brightness(90%) blur(0);
+    outline: #4f4f4f 1px solid;
 }
 

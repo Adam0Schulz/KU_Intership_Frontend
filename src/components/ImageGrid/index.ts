@@ -20,6 +20,7 @@ for (let i = 0; i < images.length && i < x; i++) {
     const img = new Image();
     img.alt = `img${i}`;
     img.src = images[i];
+    img.tabIndex = 0;
     imageElements.push(img);
 }
 

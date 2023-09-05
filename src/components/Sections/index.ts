@@ -15,14 +15,23 @@ export interface SectionData {
 }
 
 export function idSections(sections: SectionData[], indexArr: number[]) {
-    return sections.map((section, index) => {
+    let index = 1
+    return sections.map((section) => {
+        if (!section.heading) return section
         const newIndexArr = indexArr.slice()
-        newIndexArr.push(index + 1)
+        newIndexArr.push(index)
+        index++
         return idSection(section, newIndexArr)
     })
+    // return sections.map((section, index) => {
+    //     const newIndexArr = indexArr.slice()
+    //     newIndexArr.push(index + 1)
+    //     return idSection(section, newIndexArr)
+    // })
 }
 
 function idSection(section: SectionData, indexArr: number[]) {
+
     if (section.subsections) {
         idSections(section.subsections, indexArr)
     }
@@ -38,7 +47,8 @@ export function renderSections(sections: SectionData[], level: number, usage: st
 }
 
 function renderSection(section: SectionData, level: number, usage: string, numbered: boolean): JQuery<HTMLElement> {
-    const baseDiv = $(`<div class="${usage}__section" id="section-${section.id}"></div>`)
+    const baseDiv = $(`<div class="${usage}-guide__section" ${section.id ? `id="section-${section.id}"` : ``}></div>`)
+    //const baseDiv = $(`<div class="${usage}__section" id="section-${section.id}"></div>`)
     const sectionsDiv = $(`<div class="${usage}-section-cont"></div>`)
     const filterDiv = $(`<div class="filter-cont"></div>`)
     if (section.subsections) {
@@ -65,7 +75,7 @@ function renderSection(section: SectionData, level: number, usage: string, numbe
         level = 6
     }
 
-    if (section.heading) baseDiv.append(`<h${level} ${level === 1 ? 'class="main-heading"' : ''}>${numbered ? section.id : ''} ${section.heading}</h${level}>`)
+    if (section.heading) baseDiv.append(`<h${level}>${numbered ? section.id : ''}${section.heading}</h${level}>`)
 
     if(section.subtitle) baseDiv.append(`<p class="subtitle">${section.subtitle}</p>`)
 
@@ -73,7 +83,9 @@ function renderSection(section: SectionData, level: number, usage: string, numbe
 
     if (section.body) baseDiv.append(`<p>${section.body}</p>`)
 
+
     baseDiv.append(sectionsDiv)
+    section.footer !== undefined && baseDiv.append($(`<p class="content-section__footer">${section.footer}</p>`))
     section.filterOptions && baseDiv.append(filterDiv)
 
     return baseDiv

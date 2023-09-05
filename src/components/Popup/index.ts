@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default (/* props: Props */) => {
-    const children = $("div[popup]").children()
+    const children = $("div[popup]").children();
     $('body').addClass('body-background')
     $("div[popup]").replaceWith(HTML)
     $(".popup").append(children)

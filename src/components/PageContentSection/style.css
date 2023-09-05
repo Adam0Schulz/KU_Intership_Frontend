@@ -1,16 +1,20 @@
 .content-section {
     padding: 0.5em 0;
 }
-.content-section__footer {
-    display: block !important;
-    width: 100%;
-    border-bottom: var(--COLOR-DIVIDER) 1px solid;
-}
-
-.main-heading, .subtitle{
+.main-section-content h1, .subtitle{
     letter-spacing: 0.3em;
     text-align: center;
 }
+.content-section__footer {
+    margin-top: 2em;
+    margin-bottom: 4em;
+    display: block !important;
+    width: 100%;
+    border-bottom: var(--COLOR-DIVIDER) 1px solid;
+    color: var(--COLOR-TEXT-GRAY);
+    line-height: 1em;
+}
+
 .subtitle{
     margin-bottom: 1.5em;
     color: var(--COLOR-TEXT-GRAY);
