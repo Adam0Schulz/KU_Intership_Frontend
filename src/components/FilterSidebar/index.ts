@@ -8,15 +8,15 @@ import InfoComp from "@components/InfoComp"
 import InfoIcon from "@components/Input/InfoIcon"
 
 export interface Props {
-    
+    infoComp?: () => void
 }
 
 export default (props: Props) => {
     $("div[filter-sidebar]").replaceWith(HTML)
-    //$("div[input-select]").attr("options", JSON.stringify(["option", "option", "option"]))
     TextInput()
     SelectInput()
     CheckboxInput()
+    if (props.infoComp) {
     InfoComp(
         {
             heading: "Apple browse guide", 
@@ -24,8 +24,11 @@ export default (props: Props) => {
             link: {
                 label: "",
                 url: ""
-            }
+            },
+            onClick: async () => props.infoComp()
         }
     )
+    }
+
     InfoIcon()
 }

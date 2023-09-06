@@ -42,7 +42,8 @@ $(async function () {
         link: {
             label: "",
             url: ""
-        }
+        },
+        onClick: () => window.location.href = "browse"
     });
 
     $('title').text("Home");
