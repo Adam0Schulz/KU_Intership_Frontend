@@ -5,7 +5,8 @@ import {imageElements} from "@components/ImageGrid";
 import Popup from '@components/Popup';
 
 export default (index: number) => {
-    
+
+    $('body').append(HTML);
     const thumbnails = $('.image-view__small');
     const cImage = $('.image-view__large');
     const length = imageElements.length;

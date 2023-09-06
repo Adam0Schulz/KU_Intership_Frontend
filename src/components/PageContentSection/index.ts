@@ -19,6 +19,6 @@ export default (data: SectionData[], imgDisplay: ImageDisplay) => {
         component.find('.detail-section-cont').first().before($('<div image-grid></div>'))
     }
 
-    $('div[page-content]').replaceWith(component);
+    $('div[page-content-d]').replaceWith(component);
     ImageGrid(imgDisplay);
 }
