@@ -17,16 +17,6 @@ interface FilterOption {
 
 }
 
-function useState<T>(initialValue: T) {
-    let state = initialValue;
-
-    function setState(newValue: T) {
-        state = newValue;
-    }
-
-    return [state, setState];
-}
-
 interface Section {
     id?: string,
     heading?: string,
@@ -42,7 +32,8 @@ interface Props {
 }
 
 export default (props: Props) => {
-    $("div[browse-guide]").replaceWith(HTML)
+
+    $("body").append(HTML)
 
     idSections(props.content, [])
     renderSections(props.content, 1).forEach((section) => {
@@ -50,20 +41,33 @@ export default (props: Props) => {
     })
 
 
-    $(".browse-guide").on("click", () => {
-        console.log("bum")
-        /* const pills = $('.browse-guide input[type="checkbox"]:checked').toArray().map((box) => { return { text: $(box.parentElement.parentElement.parentElement).find('input[type="text"]').attr("value") } })
-        PillSection({
-            heading: "Selected filters",
-            pills: pills
-        }) */
-    })
     Popup()
     Checkbox()
     TableOfContents({
         heading: "Apple Browse Guide",
         items: extractHeadingsFromSections(props.content),
         onSelect: (id: string) => { window.location.hash = "section-" + id }
+    })
+
+    $(".browse-guide input[type='checkbox']").on("change", () => {
+        const pills = $('.browse-guide input[type="checkbox"]:checked')
+            .toArray()
+            .map((box) => {
+                return {
+                    id: $(box.parentElement.parentElement.parentElement).attr("id"),
+                    text: $(box.parentElement.parentElement.parentElement)
+                        .find('input[type="text"]')
+                        .attr("value")
+                }
+            })
+        $(".browse-guide .pill-section").remove()
+        PillSection({
+            heading: "Selected filters",
+            pills: pills,
+            onDelete: (deletedId) => $(`.browse-guide div[input-checkbox][id="${deletedId}"]`).find("input:checkbox").prop("checked", false)
+                
+        })
+        $(".browse-guide .right-side-bar").append($("<div pill-section></div>"))
     })
 }
 

@@ -49,7 +49,94 @@ $(function () {
     $("#page-heading").text("Browse")
     $("#page-paragraph").text("Here you can browse")
 
-    FilterSidebar({})
+    FilterSidebar({
+        infoComp: () => { 
+            BrowseGuide({
+                content: [
+                    {
+                        heading: "Section",
+                        sections: [
+                            {
+                                heading: "Subsection",
+                                text: "Subsection content",
+                            },
+                            {
+                                heading: "Subsection",
+                                text: "Subsection content",
+                                image: {
+                                    label: "Option",
+                                    url: "https://picsum.photos/300/200"
+                                },
+                            },
+                            {
+                                text: "Subsection content",
+                                image: {
+                                    label: "Option",
+                                    url: "https://picsum.photos/300/200"
+                                },
+                            },
+                            {
+                                heading: "Subsection",
+                                text: "Subsection content",
+                                image: {
+                                    label: "Option",
+                                    url: "https://picsum.photos/300/200"
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        heading: "Section",
+                        text: "Section content",
+                        filterOptions: [
+                            {
+                                text: "Option",
+                                image: {
+                                    label: "Option",
+                                    url: "https://picsum.photos/300/200"
+                                },
+                            },
+                            {
+                                text: "Second Option",
+                                image: {
+                                    label: "Second Option",
+                                    url: "https://picsum.photos/500/200"
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        heading: "Subsection",
+                        sections: [
+                            {
+                                heading: "Subsection",
+                                text: "Subsection content",
+                                sections: [
+                                    {
+                                        heading: "Subsection ",
+                                        text: "Subsection content",
+                                        image: {
+                                            label: "Option",
+                                            url: "https://picsum.photos/300/200"
+                                        },
+                                    },
+                                ],
+                                image: {
+                                    label: "Option",
+                                    url: "https://picsum.photos/300/200"
+                                },
+                            },
+                        ],
+                        text: "Subsection content",
+                        image: {
+                            label: "Option",
+                            url: "https://picsum.photos/300/200"
+                        },
+                    },
+                ],
+            })
+        }
+    })
     Pagination({ numOfPages: 10 })
     AlphabeticalFilter()
     ItemCardList(
@@ -95,90 +182,7 @@ $(function () {
             isImageless: true
         }
     )
-    BrowseGuide({
-        content: [
-            {
-                heading: "Section",
-                sections: [
-                    {
-                        heading: "Subsection",
-                        text: "Subsection content",
-                    },
-                    {
-                        heading: "Subsection",
-                        text: "Subsection content",
-                        image: {
-                            label: "Option",
-                            url: "https://picsum.photos/300/200"
-                        },
-                    },
-                    {
-                        text: "Subsection content",
-                        image: {
-                            label: "Option",
-                            url: "https://picsum.photos/300/200"
-                        },
-                    },
-                    {
-                        heading: "Subsection",
-                        text: "Subsection content",
-                        image: {
-                            label: "Option",
-                            url: "https://picsum.photos/300/200"
-                        },
-                    },
-                ],
-            },
-            {
-                heading: "Section",
-                text: "Section content",
-                filterOptions: [
-                    {
-                        text: "Option",
-                        image: {
-                            label: "Option",
-                            url: "https://picsum.photos/300/200"
-                        },
-                    },
-                    {
-                        text: "Second Option",
-                        image: {
-                            label: "Second Option",
-                            url: "https://picsum.photos/500/200"
-                        },
-                    },
-                ],
-            },
-            {
-                heading: "Subsection",
-                sections: [
-                    {
-                        heading: "Subsection",
-                        text: "Subsection content",
-                        sections: [
-                            {
-                                heading: "Subsection ",
-                                text: "Subsection content",
-                                image: {
-                                    label: "Option",
-                                    url: "https://picsum.photos/300/200"
-                                },
-                            },
-                        ],
-                        image: {
-                            label: "Option",
-                            url: "https://picsum.photos/300/200"
-                        },
-                    },
-                ],
-                text: "Subsection content",
-                image: {
-                    label: "Option",
-                    url: "https://picsum.photos/300/200"
-                },
-            },
-        ],
-    })
+    
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });

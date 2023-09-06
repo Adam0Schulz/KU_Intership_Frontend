@@ -13,7 +13,7 @@ export default () => {
 
         if (imgUrl) {
             $(element)
-            .find('input[type="text"]')
+            .find('input[type="text"]').attr("value", label)
             .css("display", "none")
             .after($(`<div class="form-control img-cont"><img src="${imgUrl}" alt="${label}"></div>`))
 
