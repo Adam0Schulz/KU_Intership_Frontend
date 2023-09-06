@@ -1,17 +1,52 @@
 import $ from "jquery";
-import {Link} from "@js/interfaces";
-import {FilterOption} from "@components/BrowseGuide";
+import { Link } from "@js/interfaces";
+import { FilterOption } from "@components/BrowseGuide";
+import { Heading } from "@components/TableOfContents";
 
 
 export interface SectionData {
     id?: string,
-    heading: string,
+    heading?: string,
     body?: string,
     subtitle?: string,
     footer?: string,
     subsections?: SectionData[],
     image?: Link,
     filterOptions?: FilterOption[]
+}
+
+export function extractHeadingsFromSections(sections: SectionData[]): Heading[] {
+    return sections.filter((section) => section.id).map((section) => {
+        let heading: Heading = {
+            id: section.id,
+            heading: section.heading,
+        }
+        if (section.subsections) {
+            heading.subHeadings = extractHeadingsFromSections(section.subsections)
+
+        }
+        return heading
+    })
+}
+
+export function generateRandomId(length: number): string {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let randomId = '';
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomId += characters.charAt(randomIndex);
+    }
+
+    return randomId;
+}
+
+export function idFilterOptions(filterOptions: FilterOption[]) {
+    return filterOptions.map((filterOption) => {
+        filterOption.id = generateRandomId(10)
+        console.log(filterOption.id)
+        return filterOption
+    })
 }
 
 export function idSections(sections: SectionData[], indexArr: number[]) {
@@ -40,14 +75,14 @@ function idSection(section: SectionData, indexArr: number[]) {
 }
 
 
-export function renderSections(sections: SectionData[], level: number, usage: string, numbered: boolean) {
+export function renderSections(sections: SectionData[], level: number, usage: string, numbered?: boolean) {
     return sections.map((section) => {
         return renderSection(section, level, usage, numbered)
     })
 }
 
-function renderSection(section: SectionData, level: number, usage: string, numbered: boolean): JQuery<HTMLElement> {
-    const baseDiv = $(`<div class="${usage}-guide__section" ${section.id ? `id="section-${section.id}"` : ``}></div>`)
+function renderSection(section: SectionData, level: number, usage: string, numbered?: boolean): JQuery<HTMLElement> {
+    const baseDiv = $(`<div class="${usage}__section" ${section.id ? `id="section-${section.id}"` : ``}></div>`)
     //const baseDiv = $(`<div class="${usage}__section" id="section-${section.id}"></div>`)
     const sectionsDiv = $(`<div class="${usage}-section-cont"></div>`)
     const filterDiv = $(`<div class="filter-cont"></div>`)
@@ -58,10 +93,10 @@ function renderSection(section: SectionData, level: number, usage: string, numbe
     }
 
     if (section.filterOptions) {
-        console.log("filter")
-        section.filterOptions.map((filterOption) => {
+        idFilterOptions(section.filterOptions).map((filterOption) => {
             const optionDiv = $(`<div input-checkbox></div>`)
             optionDiv.attr("label", filterOption.text)
+            optionDiv.attr("id", filterOption.id)
             if (filterOption.image) optionDiv.attr("img-url", filterOption.image.url)
             filterDiv.append(optionDiv)
 
@@ -75,9 +110,9 @@ function renderSection(section: SectionData, level: number, usage: string, numbe
         level = 6
     }
 
-    if (section.heading) baseDiv.append(`<h${level}>${numbered ? section.id : ''}${section.heading}</h${level}>`)
+    if (section.heading) baseDiv.append(`<h${level}>${numbered ? section.id + " " : ''}${section.heading}</h${level}>`)
 
-    if(section.subtitle) baseDiv.append(`<p class="subtitle">${section.subtitle}</p>`)
+    if (section.subtitle) baseDiv.append(`<p class="subtitle">${section.subtitle}</p>`)
 
     if (section.image) baseDiv.append(`<img src="${section.image.url}" alt="${section.image.label}">`)
 

@@ -7,6 +7,7 @@ import Popup from '@components/Popup'
 import Checkbox from '@components/Input/Checkbox'
 import PillSection from '@components/PillSection'
 import { Link } from '@js/interfaces'
+import { idSections, renderSections, extractHeadingsFromSections, SectionData } from '@components/Sections'
 
 
 
@@ -17,18 +18,8 @@ export interface FilterOption {
 
 }
 
-interface Section {
-    id?: string,
-    heading?: string,
-    sections?: Section[]
-    text?: string,
-    image?: Link,
-    filterOptions?: FilterOption[]
-
-}
-
 interface Props {
-    content: Section[]
+    content: SectionData[]
 }
 
 export default (props: Props) => {
@@ -36,7 +27,7 @@ export default (props: Props) => {
     $("body").append(HTML)
 
     idSections(props.content, [])
-    renderSections(props.content, 1).forEach((section) => {
+    renderSections(props.content, 1, "browse-guide", true).forEach((section) => {
         $(".browse-guide .col-md-6").append(section)
     })
 
@@ -71,7 +62,7 @@ export default (props: Props) => {
     })
 }
 
-function generateRandomId(length: number = 10): string {
+/* function generateRandomId(length: number = 10): string {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let randomId = '';
 
@@ -81,16 +72,16 @@ function generateRandomId(length: number = 10): string {
     }
 
     return randomId;
-}
+} */
 
-function idFilterOptions(filterOptions: FilterOption[]) {
+/* function idFilterOptions(filterOptions: FilterOption[]) {
     return filterOptions.map((filterOption) => {
         filterOption.id = generateRandomId()
         return filterOption
     })
-}
+} */
 
-function extractHeadingsFromSections(sections: Section[]): Heading[] {
+/* function extractHeadingsFromSections(sections: Section[]): Heading[] {
     return sections.filter((section) => section.id).map((section) => {
         let heading: Heading = {
             id: section.id,
@@ -102,9 +93,9 @@ function extractHeadingsFromSections(sections: Section[]): Heading[] {
         }
         return heading
     })
-}
+} */
 
-function idSections(sections: Section[], indexArr: number[]) {
+/* function idSections(sections: Section[], indexArr: number[]) {
     let index = 1
     return sections.map((section) => {
         if (!section.heading) return section
@@ -168,4 +159,4 @@ function renderSection(section: Section, level: number): JQuery<HTMLElement> {
     baseDiv.append(filterDiv)
 
     return baseDiv
-}
+} */

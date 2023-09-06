@@ -22,7 +22,4 @@ export default () => {
         }
     })
 
-    $('div[input-checkbox] input[type="checkbox"]').on("change", (e) => {
-        
-    })
 }

@@ -1,12 +1,12 @@
 import HTML from './component.html'
 import $ from 'jquery'
 import './style.css'
-import Pill, {IPill} from '@components/Pill'
+import Pill, { IPill } from '@components/Pill'
 
 interface Props {
     heading: string,
     pills: IPill[],
-    onDelete: (deletedId :string) => {}
+    onDelete: (deletedId: string) => {}
 }
 
 export default (props: Props) => {

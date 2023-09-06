@@ -55,21 +55,21 @@ $(function () {
                 content: [
                     {
                         heading: "Section",
-                        sections: [
+                        subsections: [
                             {
                                 heading: "Subsection",
-                                text: "Subsection content",
+                                body: "Subsection content",
                             },
                             {
                                 heading: "Subsection",
-                                text: "Subsection content",
+                                body: "Subsection content",
                                 image: {
                                     label: "Option",
                                     url: "https://picsum.photos/300/200"
                                 },
                             },
                             {
-                                text: "Subsection content",
+                                body: "Subsection content",
                                 image: {
                                     label: "Option",
                                     url: "https://picsum.photos/300/200"
@@ -77,7 +77,7 @@ $(function () {
                             },
                             {
                                 heading: "Subsection",
-                                text: "Subsection content",
+                                body: "Subsection content",
                                 image: {
                                     label: "Option",
                                     url: "https://picsum.photos/300/200"
@@ -87,7 +87,7 @@ $(function () {
                     },
                     {
                         heading: "Section",
-                        text: "Section content",
+                        body: "Section content",
                         filterOptions: [
                             {
                                 text: "Option",
@@ -107,14 +107,14 @@ $(function () {
                     },
                     {
                         heading: "Subsection",
-                        sections: [
+                        subsections: [
                             {
                                 heading: "Subsection",
-                                text: "Subsection content",
-                                sections: [
+                                body: "Subsection content",
+                                subsections: [
                                     {
                                         heading: "Subsection ",
-                                        text: "Subsection content",
+                                        body: "Subsection content",
                                         image: {
                                             label: "Option",
                                             url: "https://picsum.photos/300/200"
@@ -127,7 +127,7 @@ $(function () {
                                 },
                             },
                         ],
-                        text: "Subsection content",
+                        body: "Subsection content",
                         image: {
                             label: "Option",
                             url: "https://picsum.photos/300/200"
