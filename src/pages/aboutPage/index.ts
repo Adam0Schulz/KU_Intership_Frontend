@@ -60,7 +60,7 @@ $(function () {
     $('title').text("About us");
     $("#page-heading").text("About us")
     const img = 'https://science.ku.dk/kontakt/billeder/bulowsvejtopbillede.png';
-    img && $(`<img src="${img}" >`).insertBefore($('#page-heading'))
+    img && $(`<img src="${img}" alt="our team photo" >`).insertBefore($('#page-heading'))
     $("#page-paragraph").text("Here you can read about us")
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
