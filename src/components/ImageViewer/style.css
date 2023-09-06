@@ -10,7 +10,7 @@
 }
 
 .control__icon {
-    font-size: 2em;
+    font-size: 2rem;
     color: var(--COLOR-TEXT-WHITE)
 }
 
@@ -18,7 +18,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.8em;
 }
 
 .image-view__large img {
@@ -70,4 +69,5 @@
     color: var(--COLOR-TEXT-WHITE);
     font-weight: bold;
     font-size: 1.5em;
+    padding: 0.4em;
 }

@@ -10,7 +10,7 @@ import { Link } from '@js/interfaces'
 
 
 
-interface FilterOption {
+export interface FilterOption {
     id?: string,
     text: string,
     image?: Link
