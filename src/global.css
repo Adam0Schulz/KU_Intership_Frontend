@@ -10,6 +10,7 @@ root {
     --COLOR-TEXT-WHITE: #FFFFFF;
     --COLOR-DIVIDER: rgba(0, 0, 0, 0.1);
 }
+
 p {
     margin: 0;
 }
@@ -24,4 +25,18 @@ p {
 
 .no-left-padding {
     padding-left: 0;
+}
+
+.no-side-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width: 767px) {
+
+    .no-side-padding,
+    .no-side-padding-sm {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }

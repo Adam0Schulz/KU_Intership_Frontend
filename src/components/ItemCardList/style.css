@@ -9,3 +9,9 @@
     gap: 0;
 
 }
+
+@media screen and (max-width: 768px) {
+    .item-card-list {
+        grid-template-columns: 1fr
+    }
+}
