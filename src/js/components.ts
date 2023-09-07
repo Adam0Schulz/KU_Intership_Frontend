@@ -9,6 +9,7 @@ import MobileMenu from "@components/MobileMenu"
 import Footer from "@components/Footer";
 import $ from "jquery";
 import {getMeta} from "@js/api/calls-pometum";
+import EnterListener from "@components/EnterListener";
 
 export interface PageConfig {
     activePage?: ActivePage,
@@ -74,6 +75,7 @@ export default async (pageConfig: PageConfig) => {
         }
         
     })
+    EnterListener();
 }
 
 export const meta = getMeta().then(res => res.data)

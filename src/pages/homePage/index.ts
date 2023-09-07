@@ -5,7 +5,6 @@ import HTML from "../homePage/content.html";
 import SearchSection from "@components/SearchSection";
 import InfoComp from "@components/InfoComp";
 import PageContentSection from "@components/PageContentSection";
-import EnterListener from "@components/EnterListener";
 
 
 meta.then(res => console.log(res))
@@ -39,6 +38,6 @@ $(async function () {
         }
     ], 0, true)
     console.log(window.location.pathname);
-    EnterListener();
+
 });
 
