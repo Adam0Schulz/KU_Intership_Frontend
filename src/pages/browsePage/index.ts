@@ -50,7 +50,7 @@ $(function () {
     $("#page-paragraph").text("Here you can browse")
 
     FilterSidebar({
-        infoComp: () => { 
+        infoComp: () => {
             BrowseGuide({
                 content: [
                     {
@@ -181,41 +181,42 @@ $(function () {
             ],
         }
     )
-    // ItemCardList({
-    //     columns: ['Word', 'Class', 'Source'],
-    //     cards: [
-    //         {
-    //             i1: "æble",
-    //             i2: "sb.",
-    //             i3: "Bornholms Ordbog"
-    //         },
-    //         {
-    //             i1: "2æble",
-    //             i2: "2sb.",
-    //             i3: "2Bornholms Ordbog"
-    //         },
-    //         {
-    //             i1: "3æble",
-    //             i2: "3sb.",
-    //             i3: "3Bornholms Ordbog"
-    //         },
-    //         {
-    //             i1: "4æble",
-    //             i2: "4sb.",
-    //             i3: "4Bornholms Ordbog"
-    //         },
-    //         {
-    //             i1: "5æble",
-    //             i2: "5sb.",
-    //             i3: "5Bornholms Ordbog"
-    //         },
-    //         {
-    //             i1: "6æble",
-    //             i2: "6sb.",
-    //             i3: "6Bornholms Ordbog"
-    //         }
-    //     ]})
-    
+    /* ItemCardList({
+        columns: ['Word', 'Class', 'Source'],
+        cards: [
+            {
+                i1: "æble",
+                i2: "sb.",
+                i3: "Bornholms Ordbog"
+            },
+            {
+                i1: "2æble",
+                i2: "2sb.",
+                i3: "2Bornholms Ordbog"
+            },
+            {
+                i1: "3æble",
+                i2: "3sb.",
+                i3: "3Bornholms Ordbog"
+            },
+            {
+                i1: "4æble",
+                i2: "4sb.",
+                i3: "4Bornholms Ordbog"
+            },
+            {
+                i1: "5æble",
+                i2: "5sb.",
+                i3: "5Bornholms Ordbog"
+            },
+            {
+                i1: "6æble",
+                i2: "6sb.",
+                i3: "6Bornholms Ordbog"
+            }
+        ]
+    }) */
+
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
