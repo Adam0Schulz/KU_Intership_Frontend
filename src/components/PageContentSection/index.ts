@@ -9,7 +9,7 @@ export enum ImageDisplay {
     FULL
 }
 
-export default (data: SectionData[], imgDisplay: ImageDisplay) => {
+export default (data: SectionData[], imgDisplay: ImageDisplay, titleSpacing?: boolean) => {
     const component = $('<div class="main-section-content"></div>');
     idSections(data, []);
     renderSections(data, 1, "detail", false).forEach((section) => {
@@ -20,5 +20,6 @@ export default (data: SectionData[], imgDisplay: ImageDisplay) => {
     }
 
     $('div[page-content-d]').replaceWith(component);
+    titleSpacing && $('h1').css({'letter-spacing': 'normal', 'text-align': 'unset'})
     ImageGrid(imgDisplay);
 }

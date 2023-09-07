@@ -1,54 +1,30 @@
 import $ from 'jquery';
-import components from "@js/components";
+import components, {ActivePage} from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
 import Pagination from '@components/Pagination';
 import FilterSidebar from '@components/FilterSidebar';
 import BrowseGuide from '@components/BrowseGuide';
+import PageContentSection from "@components/PageContentSection";
 
 $(function () {
 
     $('div[main-content]').replaceWith(HTML);
     components(
         {
-            branding: {
-                heading: "Browse"
-            },
             crumbsArray: [
                 { label: "Browse", link: "", isActive: true }
             ],
-            pageConfig: {
-                title: "Browse",
-                pages: [
-                    { pageTitle: 'Home', isActive: false },
-                    { pageTitle: 'Browse', isActive: true },
-                    { pageTitle: 'About', isActive: false },
-                    { pageTitle: 'Detail', isActive: false }
-                ]
-            },
-            contact: {
-                institution: 'Københavns Universitet',
-                institutionWeb: 'http://www.kommunikation.ku.dk',
-                department: 'Kommunikation',
-                departmentWeb: 'http://www.kommunikation.ku.dk',
-                address: {
-                    country: 'Denmark',
-                    city: 'København',
-                    district: 'K',
-                    postalCode: 1165,
-                    addressDetail: 'Nørregade 10'
-                },
-                team: 'Web Team',
-                email: 'FA-webredaktor@adm.ku.dk',
-                phone: 4535324261
-            }
+            activePage: ActivePage.BROWSE
         }
     )
-    $('title').text("Browse");
-    $("#page-heading").text("Browse")
-    $("#page-paragraph").text("Here you can browse")
-
+    PageContentSection([
+        {
+            heading: 'Browse page heading',
+            body: 'Here you can browse amongs this beautiful pieces of data'
+        }
+    ], 0, true)
     FilterSidebar({
         infoComp: () => { 
             BrowseGuide({
@@ -215,10 +191,6 @@ $(function () {
     //             i3: "6Bornholms Ordbog"
     //         }
     //     ]})
-    
-    $.get("http://localhost:8080/ku/footer", function (data) {
-        $("footer").replaceWith(data);
-    });
 });
 
 

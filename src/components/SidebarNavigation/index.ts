@@ -1,13 +1,12 @@
 import HTML from './component.html';
 import $ from 'jquery';
 import './style.css';
-import {PageConfig} from "@js/interfaces";
+import {ActivePage} from "@js/components";
 
-export default (config: PageConfig) => {
+export default (siteTitle: string, activePage?: ActivePage) => {
+
     $('div[sidebar-navigation]').replaceWith(HTML);
-    $('.ku-navbar-header').html(`<a href="#">${config.title}</a>`)
-    config.pages.forEach((page) => {
-        $('.sidebar-nav').append(
-            `<li ${page.isActive ? 'class="active"' : ''}><a tabindex="0" href="/${page.pageTitle.toLowerCase()}">${page.pageTitle}</a></li>`);
-    })
+    $('.ku-navbar-header').html(`<a href="/">${siteTitle}</a>`)
+    $('li').removeClass('active');
+    activePage && $(`a[href="/${activePage.toLowerCase()}"]`).parent().addClass('active');
 }

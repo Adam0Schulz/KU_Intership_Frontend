@@ -1,70 +1,31 @@
 import $ from 'jquery';
-import components from "@js/components";
+import components, {ActivePage, meta} from "@js/components";
 import HTML from './content.html';
 import ContactSidebar from "@components/ContactSidebar";
+import PageContentSection from "@components/PageContentSection";
 
-$(function () {
+$(async function () {
 
     $('div[main-content]').replaceWith(HTML);
     components(
         {
-            branding: {
-                heading: "About"
-            },
             crumbsArray: [
                 {label: "About", link: "", isActive: true}
             ],
-            pageConfig: {
-                title: "About",
-                pages: [
-                    {pageTitle: 'Home', isActive: false},
-                    {pageTitle: 'Browse', isActive: false},
-                    {pageTitle: 'About', isActive: true},
-                    {pageTitle: 'Detail', isActive: false}
-                ]
-            },
-            contact: {
-                institution: 'Københavns Universitet',
-                institutionWeb: 'http://www.kommunikation.ku.dk',
-                department: 'Kommunikation',
-                departmentWeb: 'http://www.kommunikation.ku.dk',
-                address: {
-                    country: 'Denmark',
-                    city: 'København',
-                    district: 'K',
-                    postalCode: 1165,
-                    addressDetail: 'Nørregade 10'
-                },
-                team: 'Web Team',
-                email: 'FA-webredaktor@adm.ku.dk',
-                phone: 4535324261
-            }
+            activePage: ActivePage.ABOUT
         }
     );
-    ContactSidebar( {
-        institution: 'Københavns Universitet',
-            institutionWeb: 'http://www.kommunikation.ku.dk',
-            department: 'Kommunikation',
-            departmentWeb: 'http://www.kommunikation.ku.dk',
-            address: {
-            country: 'Denmark',
-                city: 'København',
-                district: 'K',
-                postalCode: 1165,
-                addressDetail: 'Nørregade 10'
-        },
-        team: 'Web Team',
-            email: 'FA-webredaktor@adm.ku.dk',
-            phone: 4535324261
-    });
-    $('title').text("About us");
-    $("#page-heading").text("About us")
-    const img = 'https://science.ku.dk/kontakt/billeder/bulowsvejtopbillede.png';
-    img && $(`<img src="${img}" alt="our team photo" >`).insertBefore($('#page-heading'))
-    $("#page-paragraph").text("Here you can read about us")
-    $.get("http://localhost:8080/ku/footer", function (data) {
-        $("footer").replaceWith(data);
-    });
+    ContactSidebar((await meta).contact);
+    PageContentSection([
+        {
+            heading: 'About us',
+            subsections: [
+                {
+                    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget neque nec ligula cursus ultricies. Vestibulum ac lorem arcu. Quisque interdum euismod justo non lacinia. Sed euismod ipsum ut neque consectetur, eget vestibulum ligula convallis. Sed eget tincidunt sapien. Praesent nec felis eu purus ultricies dignissim. Vivamus dapibus elit eu fringilla sodales. Maecenas in tristique orci. Nullam vel justo quis lectus auctor iaculis non eget justo.Suspendisse potenti. Integer auctor ipsum non est fermentum, vel gravida turpis bibendum. Duis congue sem sit amet libero posuere, eu fringilla justo consequat. Morbi vestibulum, arcu nec feugiat sodales, ipsum ipsum vehicula ex, ac bibendum enim nulla a ex. Etiam tristique nisl nec libero fringilla, non dapibus purus varius.'
+                }
+            ]
+        }
+    ], 1, true)
 });
 
 
