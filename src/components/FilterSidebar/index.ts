@@ -29,6 +29,9 @@ export default (props: Props) => {
         }
     )
     }
+    $(".filter-bar__header").on("click", (e) => {
+        $(e.currentTarget.parentElement).find(".filter-bar__expandable").toggleClass("expanded")
+    })
 
     InfoIcon()
 }

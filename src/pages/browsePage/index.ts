@@ -45,10 +45,6 @@ $(function () {
             }
         }
     )
-    $('title').text("Browse");
-    $("#page-heading").text("Browse")
-    $("#page-paragraph").text("Here you can browse")
-
     FilterSidebar({
         infoComp: () => {
             BrowseGuide({
@@ -217,10 +213,32 @@ $(function () {
         ]
     }) */
 
+    $('title').text("Browse");
+    $("#page-heading").text("Browse")
+    $("#page-paragraph").text("Here you can browse")
+    mediaQuery(() => $("#page-paragraph").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")) , 768)
+    mediaQuery(() => console.log($(".filter-bar__expandable").append($(".alpha-filter"))), () => $("#page-paragraph").after($(".alpha-filter")) , 768)
+    $(window).resize(() => {
+        mediaQuery(() => $("#page-paragraph").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")) , 768)
+        mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#page-paragraph").after($(".alpha-filter")) , 768)
+    });
+
     $.get("http://localhost:8080/ku/footer", function (data) {
         $("footer").replaceWith(data);
     });
 });
+
+function mediaQuery(smallerFunc: () => void, largerFunc: () => void, screenSize: number) {
+    var windowWidth = $(window).width();
+
+    if (windowWidth <= screenSize) {
+        smallerFunc()
+    } else {
+        largerFunc()
+    }
+    
+}
+
 
 
 
