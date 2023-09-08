@@ -22,7 +22,7 @@ $(function () {
     PageContentSection([
         {
             heading: 'Browse page heading',
-            body: 'Here you can browse amongs this beautiful pieces of data'
+            body: 'Here you can browse amongst these beautiful pieces of data'
         }
     ], 0, true)
     FilterSidebar({
