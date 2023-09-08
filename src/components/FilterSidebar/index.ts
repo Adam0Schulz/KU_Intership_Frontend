@@ -7,6 +7,7 @@ import CheckboxInput from "@components/Input/Checkbox"
 import InfoComp from "@components/InfoComp"
 import InfoIcon from "@components/Input/InfoIcon"
 import RemoveIcon from "@components/Input/RemoveIcon";
+import AddFilterButton from "@components/Input/AddFilterButton";
 
 export interface Props {
     infoComp?: () => void
@@ -32,5 +33,6 @@ export default (props: Props) => {
     }
     RemoveIcon()
     InfoIcon()
+    AddFilterButton(["color", "shape", "seeds"])
 
 }
