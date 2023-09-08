@@ -1,0 +1,6 @@
+.remove-icon {
+    cursor: pointer;
+}
+.remove-icon:hover {
+    color: var(--COLOR-PRIMARY);
+}

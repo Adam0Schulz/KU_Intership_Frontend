@@ -6,6 +6,7 @@ import SelectInput from "@components/Input/Select"
 import CheckboxInput from "@components/Input/Checkbox"
 import InfoComp from "@components/InfoComp"
 import InfoIcon from "@components/Input/InfoIcon"
+import RemoveIcon from "@components/Input/RemoveIcon";
 
 export interface Props {
     infoComp?: () => void
@@ -29,6 +30,7 @@ export default (props: Props) => {
         }
     )
     }
-
+    RemoveIcon()
     InfoIcon()
+
 }

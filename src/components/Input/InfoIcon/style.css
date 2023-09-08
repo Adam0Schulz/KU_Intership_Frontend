@@ -1,6 +1,8 @@
 .info-icon {
-    position: absolute;
-    top: -50%;
-    right: 0;
     cursor: pointer;
+}
+.icons {
+    position: absolute;
+    right: 0;
+    top: -55%;
 }

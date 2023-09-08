@@ -2,6 +2,7 @@ import HTML from './component.html'
 import $ from 'jquery'
 import './style.css'
 import InfoIcon from '../InfoIcon'
+import RemoveIcon from "@components/Input/RemoveIcon";
 
 export default () => {
     $("div[input-select]").each((_index, element) => {
@@ -16,5 +17,4 @@ export default () => {
         })
     })
 
-    InfoIcon()
 }
