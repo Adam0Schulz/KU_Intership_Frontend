@@ -13,7 +13,7 @@
     background-color: #d5d2d2;
 }
 .info-cont:focus {
-    outline: #252525 1px solid;
+    outline: #252525 1px dotted;
 }
 
 .info__icon {

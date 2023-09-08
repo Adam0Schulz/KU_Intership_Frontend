@@ -6,6 +6,6 @@ const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M
 
 export default () => {
     $('div[alpha-filter]').replaceWith(HTML)
-    alphabet.map(letter => $('.alpha-filter').append($(`<h6 class="alpha-filter__letter">${letter}</h6>`)))
+    alphabet.map(letter => $('.alpha-filter').append($(`<h6 class="alpha-filter__letter" tabindex="0">${letter}</h6>`)))
 
 }

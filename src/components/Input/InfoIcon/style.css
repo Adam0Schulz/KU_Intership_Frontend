@@ -1,6 +1,9 @@
 .info-icon {
     cursor: pointer;
 }
+.info-icon:focus {
+    outline: #252525 dotted 1px;
+}
 .icons {
     position: absolute;
     right: 0;

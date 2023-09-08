@@ -3,6 +3,10 @@
     position: relative;
     cursor: pointer;
 }
+
+.item-card:focus {
+    outline: #252525 1px dotted;
+}
 .item-card-list__heading{
     font-weight: 800;
 
