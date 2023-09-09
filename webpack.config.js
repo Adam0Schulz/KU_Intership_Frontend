@@ -102,7 +102,8 @@ module.exports = {
             '@js': path.resolve(__dirname, './src/js'),
             '@gcss': path.resolve(__dirname, './src/global.css'),
             '@assets': path.resolve(__dirname, './src/assets'),
-            '@img' : path.resolve(__dirname, './src/00test_img')
+            '@img' : path.resolve(__dirname, './src/00test_img'),
+            '@utils' : path.resolve(__dirname, "./src/utils.ts")
         },
     }
 }

@@ -7,7 +7,7 @@
     position: relative;
 }
 
-.browse-guide>div {
+.browse-guide > div {
     height: 100%;
 }
 
@@ -23,4 +23,22 @@
 
 .browse-guide__section img {
     width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .browse-guide {
+        overflow-y: scroll;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+    }
+
+    .popup__btn--close {
+        color: black !important;
+        background-color: white !important;
+    }
+
+    .browse-guide > div {
+        height: auto;
+    }
 }

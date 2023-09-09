@@ -57,3 +57,36 @@
     color: var(--COLOR-TEXT-GRAY);
     font-weight: bold !important;
 }
+
+@media screen and (max-width: 768px) {
+    .table-of-contents {
+        margin-top: 3rem;
+    }
+
+    .table-of-contents__level {
+        display: none;
+    }
+
+    .table-of-contents__header {
+        margin-top: 2em;
+        margin-bottom: 1em;
+        border: 1px solid var(--COLOR-DIVIDER);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background-color: var(--COLOR-BACKGROUND3);
+        padding: 0.5em 1em;
+
+    }
+
+    .table-of-contents__header h4 {
+        color: var(--COLOR-TEXT-BLACK);
+        margin: 0.5em 0;
+    }
+
+    .table-of-contents.expanded .table-of-contents__level {
+        display: block;
+
+    }
+}

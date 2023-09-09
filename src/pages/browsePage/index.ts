@@ -6,6 +6,7 @@ import AlphabeticalFilter from '@components/AlphabeticalFilter';
 import Pagination from '@components/Pagination';
 import FilterSidebar from '@components/FilterSidebar';
 import BrowseGuide from '@components/BrowseGuide';
+import { mediaQuery } from "@utils";
 
 $(function () {
 
@@ -228,16 +229,7 @@ $(function () {
     });
 });
 
-function mediaQuery(smallerFunc: () => void, largerFunc: () => void, screenSize: number) {
-    var windowWidth = $(window).width();
 
-    if (windowWidth <= screenSize) {
-        smallerFunc()
-    } else {
-        largerFunc()
-    }
-    
-}
 
 
 

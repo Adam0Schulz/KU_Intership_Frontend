@@ -2,6 +2,7 @@ import $ from "jquery";
 import { Link } from "@js/interfaces";
 import { FilterOption } from "@components/BrowseGuide";
 import { Heading } from "@components/TableOfContents";
+import { generateRandomId } from "@utils";
 
 
 export interface SectionData {
@@ -29,17 +30,6 @@ export function extractHeadingsFromSections(sections: SectionData[]): Heading[] 
     })
 }
 
-export function generateRandomId(length: number): string {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let randomId = '';
-
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        randomId += characters.charAt(randomIndex);
-    }
-
-    return randomId;
-}
 
 export function idFilterOptions(filterOptions: FilterOption[]) {
     return filterOptions.map((filterOption) => {

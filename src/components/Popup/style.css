@@ -19,10 +19,14 @@
     border: none;
     z-index: 999;
     color: var(--COLOR-TEXT-WHITE);
+    cursor: pointer;
 }
+
 .popup__btn--close {
-    right: 1em;
-    top: 1em;
+    padding: 0.05em 0.1em;
+    padding-bottom: 0;
+    right: 1rem;
+    top: 1rem;
     font-size: 1.75rem;
 }
 
@@ -34,4 +38,3 @@
     height: 100%;
     overflow: hidden;
 }
-

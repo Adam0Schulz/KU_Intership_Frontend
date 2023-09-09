@@ -17,6 +17,9 @@ interface Props {
 export default (props: Props) => {
     $("div[table-of-contents]").replaceWith(HTML)
     $(".table-of-contents__heading").text(props.heading)
+    $(".table-of-contents__header").on("click", (e) => {
+        $(e.currentTarget.parentElement).toggleClass("expanded")
+    })
 
     props.items.map((heading) => {
         const headingHtml = HeadingToHtml(heading, 1)

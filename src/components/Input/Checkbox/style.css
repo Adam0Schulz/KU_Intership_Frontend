@@ -27,3 +27,9 @@
     padding: 1em;
     height: 100%;
 }
+
+@media screen and (max-width: 768px) {
+    .input-checkbox .img-cont {
+        height: 100% !important;
+    }
+}
