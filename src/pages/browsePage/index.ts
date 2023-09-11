@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import components, {ActivePage} from "@js/components";
+import components, { ActivePage } from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
@@ -192,11 +192,11 @@ $(function () {
     //             i3: "6Bornholms Ordbog"
     //         }
     //     ]})
-    mediaQuery(() => $("#page-paragraph").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")) , 768)
-    mediaQuery(() => console.log($(".filter-bar__expandable").append($(".alpha-filter"))), () => $("#page-paragraph").after($(".alpha-filter")) , 768)
+    mediaQuery(() => $("#browse-main__content .main-section-content").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")), 768)
+    mediaQuery(() => console.log($(".filter-bar__expandable").append($(".alpha-filter"))), () => $("#page-paragraph").after($(".alpha-filter")), 768)
     $(window).resize(() => {
-        mediaQuery(() => $("#page-paragraph").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")) , 768)
-        mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#page-paragraph").after($(".alpha-filter")) , 768)
+        mediaQuery(() => $("#browse-main__content .main-section-content").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")), 768)
+        mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#page-paragraph").after($(".alpha-filter")), 768)
     });
 });
 
