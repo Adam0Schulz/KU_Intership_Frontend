@@ -2,24 +2,15 @@ import HTML from './component.html';
 import $ from 'jquery';
 import './style.css';
 import ImageViewerPopUp from "@components/ImageViewer";
-import img1 from '@img/a1.jpg'
-import img2 from '@img/a2.jpg'
-import img3 from '@img/a3.jpg'
-import img4 from '@img/a4.jpg'
-import img5 from '@img/a5.jpg'
-import img6 from '@img/a6.jpg'
-import img7 from '@img/a7.jpg'
-import img8 from '@img/a8.jpg'
 import {ImageDisplay} from "@components/PageContentSection";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 export const imageElements: HTMLImageElement[] = [];
 let x = Math.floor(Math.random() * 8) + 1;
 //const x = 3;
-for (let i = 0; i < images.length && i < x; i++) {
+for (let i = 0; i < x; i++) {
     const img = new Image();
     img.alt = `img${i}`;
-    img.src = images[i];
+    img.src = `https://picsum.photos/120${i}/80${i}`;
     img.tabIndex = 0;
     imageElements.push(img);
 }

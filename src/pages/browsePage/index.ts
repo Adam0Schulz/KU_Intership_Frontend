@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import components from "@js/components";
+import components, {ActivePage} from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
@@ -7,45 +7,25 @@ import Pagination from '@components/Pagination';
 import FilterSidebar from '@components/FilterSidebar';
 import BrowseGuide from '@components/BrowseGuide';
 import { mediaQuery } from "@utils";
+import PageContentSection from "@components/PageContentSection";
 
 $(function () {
 
     $('div[main-content]').replaceWith(HTML);
     components(
         {
-            branding: {
-                heading: "Browse"
-            },
             crumbsArray: [
                 { label: "Browse", link: "", isActive: true }
             ],
-            pageConfig: {
-                title: "Browse",
-                pages: [
-                    { pageTitle: 'Home', isActive: false },
-                    { pageTitle: 'Browse', isActive: true },
-                    { pageTitle: 'About', isActive: false },
-                    { pageTitle: 'Detail', isActive: false }
-                ]
-            },
-            contact: {
-                institution: 'Københavns Universitet',
-                institutionWeb: 'http://www.kommunikation.ku.dk',
-                department: 'Kommunikation',
-                departmentWeb: 'http://www.kommunikation.ku.dk',
-                address: {
-                    country: 'Denmark',
-                    city: 'København',
-                    district: 'K',
-                    postalCode: 1165,
-                    addressDetail: 'Nørregade 10'
-                },
-                team: 'Web Team',
-                email: 'FA-webredaktor@adm.ku.dk',
-                phone: 4535324261
-            }
+            activePage: ActivePage.BROWSE
         }
     )
+    PageContentSection([
+        {
+            heading: 'Browse page heading',
+            body: 'Here you can browse amongst these beautiful pieces of data'
+        }
+    ], 0, true)
     FilterSidebar({
         infoComp: () => {
             BrowseGuide({
@@ -178,54 +158,45 @@ $(function () {
             ],
         }
     )
-    /* ItemCardList({
-        columns: ['Word', 'Class', 'Source'],
-        cards: [
-            {
-                i1: "æble",
-                i2: "sb.",
-                i3: "Bornholms Ordbog"
-            },
-            {
-                i1: "2æble",
-                i2: "2sb.",
-                i3: "2Bornholms Ordbog"
-            },
-            {
-                i1: "3æble",
-                i2: "3sb.",
-                i3: "3Bornholms Ordbog"
-            },
-            {
-                i1: "4æble",
-                i2: "4sb.",
-                i3: "4Bornholms Ordbog"
-            },
-            {
-                i1: "5æble",
-                i2: "5sb.",
-                i3: "5Bornholms Ordbog"
-            },
-            {
-                i1: "6æble",
-                i2: "6sb.",
-                i3: "6Bornholms Ordbog"
-            }
-        ]
-    }) */
-
-    $('title').text("Browse");
-    $("#page-heading").text("Browse")
-    $("#page-paragraph").text("Here you can browse")
+    // ItemCardList({
+    //     columns: ['Word', 'Class', 'Source'],
+    //     cards: [
+    //         {
+    //             i1: "æble",
+    //             i2: "sb.",
+    //             i3: "Bornholms Ordbog"
+    //         },
+    //         {
+    //             i1: "2æble",
+    //             i2: "2sb.",
+    //             i3: "2Bornholms Ordbog"
+    //         },
+    //         {
+    //             i1: "3æble",
+    //             i2: "3sb.",
+    //             i3: "3Bornholms Ordbog"
+    //         },
+    //         {
+    //             i1: "4æble",
+    //             i2: "4sb.",
+    //             i3: "4Bornholms Ordbog"
+    //         },
+    //         {
+    //             i1: "5æble",
+    //             i2: "5sb.",
+    //             i3: "5Bornholms Ordbog"
+    //         },
+    //         {
+    //             i1: "6æble",
+    //             i2: "6sb.",
+    //             i3: "6Bornholms Ordbog"
+    //         }
+    //     ]})
     mediaQuery(() => $("#page-paragraph").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")) , 768)
     mediaQuery(() => console.log($(".filter-bar__expandable").append($(".alpha-filter"))), () => $("#page-paragraph").after($(".alpha-filter")) , 768)
     $(window).resize(() => {
         mediaQuery(() => $("#page-paragraph").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")) , 768)
         mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#page-paragraph").after($(".alpha-filter")) , 768)
-    });
-
-    $.get("http://localhost:8080/ku/footer", function (data) {
-        $("footer").replaceWith(data);
     });
 });
 

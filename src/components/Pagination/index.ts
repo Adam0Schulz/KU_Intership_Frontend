@@ -59,7 +59,7 @@ function renderArray(selectedNum: number, numOfPages: number) {
         return formula
     }
     const subArray = getSubArray(array as [], numOfDisplayedPages, offset())
-    subArray.map(number => $('.custom-pagination__pages-cont').append($(`<h6 class="custom-pagination__cell ${selectedNum == number ? "selected" : ""}">${number}</h6>`)))
+    subArray.map(number => $('.custom-pagination__pages-cont').append($(`<h6 class="custom-pagination__cell ${selectedNum == number ? "selected" : ""}" tabindex="0">${number}</h6>`)))
 }
 
 function generateNumberArray(count: number) {

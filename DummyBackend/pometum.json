@@ -30,7 +30,7 @@
         "contact": {
             "institution": "University of Copenhagen",
             "institutionWeb": "https://www.ku.dk",
-            "department": "Web",
+            "department": "Department of Communication",
             "departmentWeb": "https://www.ku.dk/web",
             "team": "Web Development team",
             "email": "ku@ku.dk",
@@ -38,9 +38,9 @@
             "address": {
                 "country": "Denmark",
                 "city": "Copenhagen",
-                "district": "Copenhagen 5",
-                "postalCode": 2600,
-                "addressDetail": "address detail goes here"
+                "district": "K",
+                "postalCode": 1165,
+                "addressDetail": "Nørregade 10"
             }
         },
         "mainEntity": "Apple Species"

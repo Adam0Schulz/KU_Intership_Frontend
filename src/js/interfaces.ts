@@ -17,13 +17,7 @@ export interface Contact {
     address: Address;
 }
 
-export interface PageConfig {
-    title: string;
-    pages: {
-        pageTitle: string;
-        isActive: boolean;
-    }[];
-}
+
 export interface SearchSection {
     heading: string,
     subHeading: string

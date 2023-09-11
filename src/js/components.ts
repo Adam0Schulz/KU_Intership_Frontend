@@ -1,33 +1,36 @@
 // Here you import components
-import SearchSection from "@components/SearchSection"
 import Branding from "@components/Branding"
 import TopMenu from "@components/TopMenu";
 import SecondMenu from "@components/SecondMenu";
 import BreadCrumbs from "@components/BreadCrumbs";
-import {Contact, PageConfig, SearchSection as ISearchSection} from "@js/interfaces";
 import SidebarNavigation from "@components/SidebarNavigation";
-import InfoComp from "@components/InfoComp";
 import LocalFooter from "@components/LocalFooter";
 import MobileMenu from "@components/MobileMenu"
+import Footer from "@components/Footer";
+import $ from "jquery";
+import {getMeta} from "@js/api/calls-pometum";
+import EnterListener from "@components/EnterListener";
 
-export interface Params {
-    searchSection?: ISearchSection,
-    branding: { heading: string },
+export interface PageConfig {
+    activePage?: ActivePage,
     crumbsArray: { label: string, link: string, isActive: boolean }[],
-    pageConfig: PageConfig,
-    contact: Contact
 }
-export default (params: Params) => {
+export enum ActivePage {
+    BROWSE = 'Browse',
+    ABOUT = 'About',
+    DETAIL = 'Detail'
+}
+
+export default async (pageConfig: PageConfig) => {
     // And here you execute them
+    $('title').text(pageConfig.activePage && pageConfig.activePage.toString() || (await meta).database);
     TopMenu();
     SecondMenu();
-    Branding(params.branding?.heading);
-    SidebarNavigation(params.pageConfig);
-    BreadCrumbs(params.crumbsArray);
-    LocalFooter(params.contact);
-
-
-
+    Footer();
+    Branding((await meta).database);
+    SidebarNavigation((await meta).database, pageConfig.activePage);
+    BreadCrumbs(pageConfig.crumbsArray);
+    LocalFooter((await meta).contact);
     MobileMenu({
         primaryMenu: {
             options: [
@@ -72,4 +75,7 @@ export default (params: Params) => {
         }
         
     })
+    EnterListener();
 }
+
+export const meta = getMeta().then(res => res.data)

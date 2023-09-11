@@ -6,6 +6,8 @@ import SelectInput from "@components/Input/Select"
 import CheckboxInput from "@components/Input/Checkbox"
 import InfoComp from "@components/InfoComp"
 import InfoIcon from "@components/Input/InfoIcon"
+import RemoveIcon from "@components/Input/RemoveIcon";
+import AddFilterButton from "@components/Input/AddFilterButton";
 
 export interface Props {
     infoComp?: () => void
@@ -33,5 +35,8 @@ export default (props: Props) => {
         $(e.currentTarget.parentElement).find(".filter-bar__expandable").toggleClass("expanded")
     })
 
+    RemoveIcon()
     InfoIcon()
+    AddFilterButton(["color", "shape", "seeds"])
+
 }

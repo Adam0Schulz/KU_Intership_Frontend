@@ -2,9 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: 2em 0;
-
-
-
 }
 
 .alpha-filter__letter {
@@ -19,5 +16,8 @@
 
 .alpha-filter__letter:hover {
     background-color: #BCBCBC;
-
+}
+.alpha-filter__letter:focus {
+    outline: #252525 dotted 1px;
+    z-index: 999;
 }

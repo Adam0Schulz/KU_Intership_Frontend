@@ -1,11 +1,11 @@
 import HTML from "./component.html"
 import $ from "jquery"
 
-export default (heading?: string) => {
+export default (siteTitle?: string) => {
     $("div[branding]").replaceWith(HTML)
 
-    $(".branding__img-link").attr("title", heading)
-    $(".branding__heading").text(heading)
+    $(".branding__img-link").attr("title", siteTitle)
+    $(".branding__heading").text(siteTitle)
 
 }
 

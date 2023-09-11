@@ -30,19 +30,18 @@ module.exports = {
                 { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
             ]
         },
-        proxy: {
-            '/ku': {
-                target: 'https://cms.ku.dk',
-                changeOrigin: true,
-                secure: true,
-                pathRewrite: {
-                    '^/ku/footer': '/menu-spippets/global-footer.html',
-                    '^/ku/header': '/menu-spippets/global-topmenu.html',
-                    '^/ku/top2menu': '/menu-spippets/global-second-level-menu.html'
-                }
-            }
-
-        }
+        // proxy: {
+        //     '/ku': {
+        //         target: 'https://cms.ku.dk',
+        //         changeOrigin: true,
+        //         secure: true,
+        //         pathRewrite: {
+        //             '^/ku/footer': '/menu-spippets/global-footer.html',
+        //             '^/ku/header': '/menu-spippets/global-topmenu.html',
+        //             '^/ku/top2menu': '/menu-spippets/global-second-level-menu.html'
+        //         }
+        //     }
+        // }
     },
     optimization: {
         runtimeChunk: 'single',
