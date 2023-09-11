@@ -8,4 +8,9 @@ export default (options: string[])=> {
         component.find('.dropdown-menu').append(`<li><a href="#">${option.toUpperCase()}</a></li>`);
     })
     $('div[add-filter-button]').replaceWith(component);
+    $('#add-filter-comp').on('click', 'li a', (e)=> {
+        console.log(e.currentTarget)
+        console.log('clicked menu')
+    })
+
 }
