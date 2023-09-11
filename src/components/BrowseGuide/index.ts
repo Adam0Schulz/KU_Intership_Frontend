@@ -46,8 +46,8 @@ export default (props: Props) => {
             .toArray()
             .map((box) => {
                 return {
-                    id: $(box.parentElement.parentElement.parentElement).attr("id"),
-                    text: $(box.parentElement.parentElement.parentElement)
+                    id: $(box.parentElement.parentElement).attr("id"),
+                    text: $(box.parentElement.parentElement)
                         .find('input[type="text"]')
                         .attr("value")
                 }
@@ -56,7 +56,7 @@ export default (props: Props) => {
         PillSection({
             heading: "Selected filters",
             pills: pills,
-            onDelete: (deletedId) => $(`.browse-guide div[input-checkbox][id="${deletedId}"]`).find("input:checkbox").prop("checked", false)
+            onDelete: (deletedId) => $(`.browse-guide .input-checkbox[id="${deletedId}"]`).find("input:checkbox").prop("checked", false)
 
         })
         $(".browse-guide .right-side-bar").append($("<div pill-section></div>"))

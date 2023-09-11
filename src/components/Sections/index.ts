@@ -34,7 +34,6 @@ export function extractHeadingsFromSections(sections: SectionData[]): Heading[] 
 export function idFilterOptions(filterOptions: FilterOption[]) {
     return filterOptions.map((filterOption) => {
         filterOption.id = generateRandomId(10)
-        console.log(filterOption.id)
         return filterOption
     })
 }

@@ -58,7 +58,12 @@
     font-weight: bold !important;
 }
 
+.table-of-contents__header span {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
+
     .table-of-contents {
         margin-top: 3rem;
     }
@@ -83,6 +88,10 @@
     .table-of-contents__header h4 {
         color: var(--COLOR-TEXT-BLACK);
         margin: 0.5em 0;
+    }
+
+    .table-of-contents__header span {
+        display: block;
     }
 
     .table-of-contents.expanded .table-of-contents__level {

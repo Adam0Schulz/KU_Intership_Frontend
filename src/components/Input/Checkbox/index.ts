@@ -8,18 +8,26 @@ export default () => {
     $("div[input-checkbox]").each((_index, element) => {
         const label = $(element).attr("label")
         const imgUrl = $(element).attr("img-url")
-
-        $(element).append(HTML)
+        const id = $(element).attr("id")
+        console.log("checkbox id: ", id)
+        const $html = $(HTML)
 
         if (imgUrl) {
-            $(element)
-            .find('input[type="text"]').attr("value", label)
-            .css("display", "none")
-            .after($(`<div class="form-control img-cont"><img src="${imgUrl}" alt="${label}"></div>`))
+            $html
+                .find('input[type="text"]').attr("value", label)
+                .css("display", "none")
+                .after($(`<div class="form-control img-cont"><img src="${imgUrl}" alt="${label}"></div>`))
+
 
         } else {
-            $(element).find('input[type="text"]').attr("value", label)
+            $html.find('input[type="text"]').attr("value", label)
         }
+
+        $html.attr("id", id)
+        console.log("checkbox html: ", $html)
+        console.log("checkbox html id: ", $html.attr("id"))
+
+        $(element).replaceWith($html)
     })
 
 }
