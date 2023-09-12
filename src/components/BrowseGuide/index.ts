@@ -41,7 +41,20 @@ export default (props: Props) => {
         onSelect: (id: string) => { window.location.hash = "section-" + id }
     })
 
-    $(".browse-guide input[type='checkbox']").on("change", () => {
+    
+    checkboxChange()
+    $(".browse-guide input[type='checkbox']").on("change", () => checkboxChange())
+
+    mediaQuery(() => $(".left-side-bar").after($(".right-side-bar")),
+        () => $(".browse-guide__main").after($(".right-side-bar"))
+        , 768
+    )
+    $(window).resize(() => mediaQuery(() => $(".left-side-bar").after($(".right-side-bar")),
+        () => $(".browse-guide__main").after($(".right-side-bar"))
+        , 768
+    ))
+
+    function checkboxChange() {
         const pills = $('.browse-guide input[type="checkbox"]:checked')
             .toArray()
             .map((box) => {
@@ -60,15 +73,6 @@ export default (props: Props) => {
 
         })
         $(".browse-guide .right-side-bar").append($("<div pill-section></div>"))
-    })
-
-    mediaQuery(() => $(".left-side-bar").after($(".right-side-bar")),
-        () => $(".browse-guide__main").after($(".right-side-bar"))
-        , 768
-    )
-    $(window).resize(() => mediaQuery(() => $(".left-side-bar").after($(".right-side-bar")),
-        () => $(".browse-guide__main").after($(".right-side-bar"))
-        , 768
-    ))
+    }
 
 }
