@@ -6,21 +6,21 @@ import PageContentSection from "@components/PageContentSection";
 $(function () {
     $('div[main-content]').replaceWith(HTML);
 
-    PageContentSection([{
-        heading: 'Red Delicious',
-        subtitle: 'Aero, Denmark',
-        subsections: [{
-            heading: 'Origin',
-            body: 'Aero, Denmark'
-        }, {
-            heading: 'Color',
-            body: 'red'
-        }, {
-            heading: 'Usage',
-            body: 'everything'
-            }
-        ]
-    }], 2);
+    // PageContentSection([{
+    //     heading: 'Red Delicious',
+    //     subtitle: 'Aero, Denmark',
+    //     subsections: [{
+    //         heading: 'Origin',
+    //         body: 'Aero, Denmark'
+    //     }, {
+    //         heading: 'Color',
+    //         body: 'red'
+    //     }, {
+    //         heading: 'Usage',
+    //         body: 'everything'
+    //         }
+    //     ]
+    // }], 2);
 
     // PageContentSection([{
     //     heading: 'Eric the red',
@@ -88,6 +88,23 @@ $(function () {
     //             footer: 'Teinnæs’ måloptegnelser'
     //         }
     //     ], 0)
+
+    PageContentSection([{
+        heading: 'Resource',
+        subtitle: 'Aero, Denmark',
+        subsections: [{
+            heading: 'Origin',
+            body: 'Aero, Denmark'
+        }, {
+            heading: 'Color',
+            body: 'red'
+        }, {
+            heading: 'Usage',
+            body: 'everything'
+            }
+        ]
+    }], 0, false, true);
+    
     components(
         {
             crumbsArray: [

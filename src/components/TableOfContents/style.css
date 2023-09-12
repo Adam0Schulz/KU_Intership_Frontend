@@ -65,7 +65,9 @@
 @media screen and (max-width: 768px) {
 
     .table-of-contents {
+        overflow-y: unset;
         margin-top: 3rem;
+        margin-bottom: 3rem;
     }
 
     .table-of-contents__level {
