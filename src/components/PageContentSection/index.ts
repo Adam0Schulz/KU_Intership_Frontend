@@ -29,7 +29,7 @@ export default (data: SectionData[], imgDisplay: ImageDisplay, titleSpacing?: bo
         component.find('.detail-section-cont').first().before($('<div image-grid></div>'))
     }
 
-    cont.append(component)
+    cont.replaceWith(component)
     if (TOC) cont.append(sidebar)
 
     $('div[page-content-d]').replaceWith(cont);

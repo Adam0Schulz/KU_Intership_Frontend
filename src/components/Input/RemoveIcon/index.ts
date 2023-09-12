@@ -9,7 +9,7 @@ export default ()=> {
         const filterElement = $(this).parent().parent().parent();
         filterElement.remove();
         const newOptions =  filterOptions.getValue().map((option: InputProp)=> {
-            if (option.label === filterElement.attr('label')) {
+            if (option.label === filterElement.attr('label') || option.label === filterElement.find('input[value]').attr('value')) {
                 option.isActive = false
             }
             return option
