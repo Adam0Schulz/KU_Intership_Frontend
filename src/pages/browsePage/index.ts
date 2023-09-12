@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import components, { ActivePage } from "@js/components";
+import components, {ActivePage} from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
 import Pagination from '@components/Pagination';
-import FilterSidebar from '@components/FilterSidebar';
+import FilterSidebar, {InputType} from '@components/FilterSidebar';
 import BrowseGuide from '@components/BrowseGuide';
-import { mediaQuery } from "@utils";
+import {mediaQuery} from "@utils";
 import PageContentSection from "@components/PageContentSection";
 
 $(function () {
@@ -15,7 +15,7 @@ $(function () {
     components(
         {
             crumbsArray: [
-                { label: "Browse", link: "", isActive: true }
+                {label: "Browse", link: "", isActive: true}
             ],
             activePage: ActivePage.BROWSE
         }
@@ -27,6 +27,20 @@ $(function () {
         }
     ], 0, true)
     FilterSidebar({
+        inputProps: [
+            {
+                label: "Color",
+                type: InputType.TEXT,
+                isActive: false
+            }, {
+                label: "Shape",
+                type: InputType.SELECT,
+                isActive: false
+            }, {
+                label: "Seeds",
+                type: InputType.CHECKBOX,
+                isActive: false
+            }],
         infoComp: () => {
             BrowseGuide({
                 content: [
@@ -114,7 +128,7 @@ $(function () {
             })
         }
     })
-    Pagination({ numOfPages: 10 })
+    Pagination({numOfPages: 10})
     AlphabeticalFilter()
     ItemCardList(
         {
