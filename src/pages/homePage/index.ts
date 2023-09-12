@@ -6,9 +6,6 @@ import SearchSection from "@components/SearchSection";
 import InfoComp from "@components/InfoComp";
 import PageContentSection from "@components/PageContentSection";
 
-
-meta.then(res => console.log(res))
-
 $(async function () {
 
     $('div[main-content]').replaceWith(HTML);
@@ -37,7 +34,6 @@ $(async function () {
             body: "The key includes 317 varieties of apple, that either are of danish origin or have been widely grown in Denmark. The varieties are part of the collection of apple varieties at the Pometum in Høje Tåstrup, at the Faculty of Science at the University of Copenhagen. The collection is part of NordGen."
         }
     ], 0, true)
-    console.log(window.location.pathname);
 
 });
 

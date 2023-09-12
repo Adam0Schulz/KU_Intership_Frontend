@@ -9,7 +9,6 @@ export default () => {
         const label = $(element).attr("label")
         const imgUrl = $(element).attr("img-url")
         const id = $(element).attr("id")
-        console.log("checkbox id: ", id)
         const $html = $(HTML)
 
         if (imgUrl) {
@@ -24,8 +23,6 @@ export default () => {
         }
 
         $html.attr("id", id)
-        console.log("checkbox html: ", $html)
-        console.log("checkbox html id: ", $html.attr("id"))
 
         $(element).replaceWith($html)
     })

@@ -193,7 +193,7 @@ $(function () {
     //         }
     //     ]})
     mediaQuery(() => $("#browse-main__content .main-section-content").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")), 768)
-    mediaQuery(() => console.log($(".filter-bar__expandable").append($(".alpha-filter"))), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)
+    mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)
     $(window).resize(() => {
         mediaQuery(() => $("#browse-main__content .main-section-content").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")), 768)
         mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)

@@ -7,10 +7,15 @@ export default (options: string[])=> {
     options.forEach(option => {
         component.find('.dropdown-menu').append(`<li><a href="#">${option.toUpperCase()}</a></li>`);
     })
+
+    
     $('div[add-filter-button]').replaceWith(component);
-    $('#add-filter-comp').on('click', 'li a', (e)=> {
-        console.log(e.currentTarget)
-        console.log('clicked menu')
+    // $('#add-filter-comp ul').css("display", "block")
+    $('#add-filter-comp a').on('click', (e) => {
+        e.stopPropagation()
+        e.preventDefault()
+        console.log("hello")
     })
+    
 
 }
