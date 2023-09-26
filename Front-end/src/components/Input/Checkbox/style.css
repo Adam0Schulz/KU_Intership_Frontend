@@ -1,0 +1,35 @@
+.input-checkbox input[type="text"] {
+    user-select: none;
+    cursor: default;
+    font-weight: 600;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0.75em;
+}
+
+.input-checkbox input[type="text"]:focus {
+    box-shadow: none;
+    border-color: var(--COLOR-TEXT-GRAY);
+}
+
+.input-checkbox {
+    height: 100%; /*for the browse guide popup image options*/
+}
+
+.input-checkbox .img-cont {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .input-checkbox .img-cont {
+        height: 100% !important;
+    }
+}

@@ -1,0 +1,95 @@
+.item-card {
+    aspect-ratio: 1/1; /* maintains the ratio (usage due to parent having grid)*/
+    position: relative;
+    cursor: pointer;
+}
+
+.item-card:focus {
+    outline: #252525 1px dotted;
+}
+.item-card-list__heading{
+    font-weight: 800;
+
+}
+.item-card-list__heading .item-card--imageless {
+    cursor: default;
+    border-top: 1px solid var(--COLOR-TEXT-BLACK);
+    border-right: 1px solid var(--COLOR-TEXT-BLACK);
+    border-bottom: 1px solid var(--COLOR-TEXT-BLACK);
+}
+.item-card-list__heading .item-card--imageless p {
+    border-left: 1px var(--COLOR-TEXT-BLACK) solid;
+    cursor: default;
+}
+
+.item-card--imageless {
+    cursor: pointer;
+    aspect-ratio: unset;
+    width: 100%;
+    border-top: 1px solid var(--COLOR-DIVIDER);
+    /*border-right: 1px solid var(--COLOR-DIVIDER);*/
+    border-bottom: 1px solid var(--COLOR-DIVIDER);
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.2fr;
+}
+.item-card--imageless:hover {
+    font-weight: 800;
+    border-bottom: 2px solid var(--COLOR-TEXT-BLACK);
+}
+
+.item-card--imageless p, .item-card--imageless span {
+    padding-top: 0.8em;
+    padding-left: 1em;
+    padding-bottom: 0.8em;
+}
+
+.item-card__bg-img {
+    height: 100% !important;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.item-card::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.2s ease-out;
+}
+
+.item-card--imageless::after {
+    display: none;
+}
+
+.item-card:hover::after {
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+.item-card__text-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.44);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    z-index: 100;
+    color: white;
+}
+
+.item-card--imageless .item-card__text-overlay {
+    position: static;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+}
+
+.item-card__text-overlay h4 {}
+
+.item-card__text-overlay span {}
