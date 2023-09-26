@@ -10,5 +10,5 @@ export const getAll = async (): Promise<AxiosResponse<PometumSite, any>> => {
 }
 
 export const getMeta = async (): Promise<AxiosResponse<Metadata, any>> => {
-    return await api.get("/meta")
+    return await api.get("/apple")
 }
