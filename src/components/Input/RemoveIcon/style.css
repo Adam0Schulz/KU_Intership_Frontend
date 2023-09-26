@@ -1,9 +1,0 @@
-.remove-icon {
-    cursor: pointer;
-}
-.remove-icon:focus {
-    outline: #252525 dotted 1px;
-}
-.remove-icon:hover {
-    color: var(--COLOR-PRIMARY);
-}
