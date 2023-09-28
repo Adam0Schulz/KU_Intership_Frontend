@@ -1,15 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
-const DBApples_1 = require("./DB/DummyDBs/DBApples");
-const DBBornholm_1 = require("./DB/DummyDBs/DBBornholm");
-const app = (0, express_1.default)();
-const port = 5000;
-app.use(express_1.default.json());
+import express from 'express';
+import cors from "cors";
+import connection from "./DB/connection";
+import { createDummyApplesTable, populateAppleTable } from './DB/DummyDBs/DBApples';
+import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDBs/DBBornholm';
+
+
+const app = express()
+const port = 5000
+
+app.use(express.json())
+
 const apple = {
     "database": "Pometum Apple key",
     "pages": [
@@ -55,25 +55,35 @@ const apple = {
         }
     },
     "mainEntity": "Apple Species"
-};
-app.use((0, cors_1.default)({
+}
+
+app.use(cors({
     credentials: true,
     origin: true
 }));
+
 app.get('/apple', (_, res) => {
     res.send(apple);
-});
-(0, DBApples_1.createDummyApplesTable)();
-(0, DBApples_1.populateAppleTable)();
-(0, DBBornholm_1.createDummyBornholmTable)();
-(0, DBBornholm_1.populateBornholmTable)();
+})
+
+
+createDummyApplesTable()
+populateAppleTable()
+createDummyBornholmTable()
+populateBornholmTable()
+
+
+
 const test = async () => {
+    
     //console.log(rows);
-};
+}
 test();
+
 // async function checkLinkExistence(url: string) {
 //     try {
 //       const response = await fetch(url, { method: 'HEAD' });
+
 //       if (response.ok) {
 //         // Link exists (status code 200 OK)
 //         console.log('Link exists.');
@@ -86,28 +96,37 @@ test();
 //       console.error('Error checking link:', error);
 //     }
 //   }
+
 // // Example usage:
 // const urlToCheck = 'http://192.168.53.168:5000/apple';
 // checkLinkExistence(urlToCheck);
+
 // import net from 'net'
+
 // function isHostReachable(host: string, port: number) {
 //     return new Promise((resolve) => {
 //         const socket = new net.Socket();
+
 //         socket.setTimeout(1000); // Set a timeout for the connection attempt
+
 //         socket.on('connect', () => {
 //             socket.destroy(); // Close the socket if the connection is successful
 //             resolve(true); // Host is reachable
 //         });
+
 //         socket.on('error', (error: any) => {
 //             socket.destroy(); // Close the socket in case of an error
 //             resolve(false); // Host is not reachable or an error occurred
 //         });
+
 //         socket.connect(port, host);
 //     });
 // }
+
 // // Example usage:
 // const host = 'localhost';
 // const testPort = 3420; // MySQL default port
+
 // // isHostReachable(host, testPort)
 // //     .then((reachable) => {
 // //         if (reachable) {
@@ -119,5 +138,13 @@ test();
 // //     .catch((error) => {
 // //         console.error('Error occurred:', error);
 // //     });
-app.listen(port, () => console.log(`Running on port ${port}`));
-//# sourceMappingURL=index.js.map
+
+
+
+
+
+
+
+
+
+app.listen(port, () => console.log(`Running on port ${port}`))

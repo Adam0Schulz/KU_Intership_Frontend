@@ -1,21 +1,21 @@
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@dbConn/*": [
-        "src/DatabaseConnection/*"
-      ]
-    }
-  },
-  "include": [
-    "custom.d.ts",
-    "src/**/*.ts"
-  ]
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "outDir": "./dist",
+        "baseUrl": ".",
+        "paths": {
+            "@dbConn": [
+                "src/DB/connection.ts"
+            ]
+        }
+    },
+    "include": [
+        "custom.d.ts",
+        "src/**/*.ts"
+    ]
 }
