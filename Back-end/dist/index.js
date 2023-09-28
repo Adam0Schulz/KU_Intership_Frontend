@@ -5,9 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const connection_1 = __importDefault(require("./DatabaseConnection/connection"));
+const connection_1 = require("./DatabaseConnection/connection");
+const http_1 = __importDefault(require("http"));
 const app = (0, express_1.default)();
 const port = 5000;
+const server = http_1.default.createServer(app);
 app.use(express_1.default.json());
 const apple = {
     "database": "Pometum Apple key",
@@ -62,12 +64,6 @@ app.use((0, cors_1.default)({
 app.get('/apple', (_, res) => {
     res.send(apple);
 });
-const test = async () => {
-    const [rows, fields] = await (0, connection_1.default)().then(conn => {
-        return conn.execute("SELECT * FROM user;");
-    });
-    console.log(rows);
-};
-test();
-app.listen(port, () => console.log(`Running on port ${port}`));
+(0, connection_1.test)();
+server.listen(port, () => console.log(`Running on port ${port}`));
 //# sourceMappingURL=index.js.map

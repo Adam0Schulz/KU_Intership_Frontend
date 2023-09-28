@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from "cors";
-import connection from "./DatabaseConnection/connection";
+import {test} from "./DatabaseConnection/connection";
+import http from "http";
 
 const app = express()
 const port = 5000
+const server = http.createServer(app);
 
 app.use(express.json())
 
@@ -63,14 +65,8 @@ app.get('/apple', (_, res) => {
     res.send(apple);
 })
 
-const test = async () => {
-    const [rows, fields] = await connection().then(conn => {
-        return conn.execute("SELECT * FROM user;")
-    } )
-    console.log(rows);
-}
 test();
 
 
 
-app.listen(port, () => console.log(`Running on port ${port}`))
+server.listen(port, () => console.log(`Running on port ${port}`))

@@ -9,7 +9,8 @@ module.exports = {
         about: './src/pages/aboutPage/index.ts',
         browse: './src/pages/browsePage/index.ts',
         404: './src/pages/404Page/index.ts',
-        detail: './src/pages/detailPage/index.ts'
+        detail: './src/pages/detailPage/index.ts',
+        connect: './src/pages/00backendInterfacePages/connectDatabasePage/index.ts'
     },
     output: {
         filename: '[name].bundle.js',
@@ -27,6 +28,7 @@ module.exports = {
                 { from: /^\/about$/, to: '/about.html' },
                 { from: /^\/browse$/, to: '/browse.html' },
                 { from: /^\/detail$/, to: '/detail.html' },
+                { from: /^\/connect$/, to: '/connect.html' },
                 { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
             ]
         },
@@ -71,6 +73,11 @@ module.exports = {
             template: './src/templates/generalPageTemplate.html',
             filename: 'detail.html',
             chunks: ['detail']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/backendInterfacePageTemplate.html',
+            filename: 'connect.html',
+            chunks: ['connect']
         })
     ],
     module: {

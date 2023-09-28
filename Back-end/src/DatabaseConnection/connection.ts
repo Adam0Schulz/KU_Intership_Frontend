@@ -1,16 +1,59 @@
-import mysql from "mysql2/promise";
+import mysql, {RowDataPacket} from "mysql2/promise";
 import 'dotenv/config';
-import * as process from "process";
+import {controllerConnection} from "./dbSetup";
 
+interface MysqlConnectionData {
+    id?: number;
+    host?: string;
+    port?: number;
+    database?: string;
+    user?: string;
+    password?: string;
+}
 
-const createConnection = () => {
-    return mysql.createConnection({
-        host: process.env.DATABASE_HOST,
-        port: parseInt(process.env.DATABASE_PORT),
-        database: process.env.DATABASE_DB_NAME,
-        user: process.env.DATABASE_USERNAME,
-        password: process.env.DATABASE_PASSWORD
-    });
+const allConnectionData:MysqlConnectionData[] = [];
+const allConnections: mysql.Connection[] = [];
+
+export const controllerData = async () => {
+    try {
+        const conn = await controllerConnection;
+        const [rows, fields] = await conn.execute<RowDataPacket[]>(
+            'SELECT * FROM connection;'
+        );
+        if (rows.length > 0) {
+            rows.forEach((row)=> {
+                const mysqlConnectionData: MysqlConnectionData = {
+                    host: '',
+                    port: 0,
+                    database: '',
+                    user: '',
+                    password: '',
+                };
+                mysqlConnectionData.host = row.host;
+                mysqlConnectionData.port = row.port;
+                mysqlConnectionData.database = row.database_name;
+                mysqlConnectionData.user = row.username;
+                mysqlConnectionData.password = row.password;
+                allConnectionData.push(mysqlConnectionData);
+            })
+        }
+    } catch (err) {
+        console.error('Error executing query:', err);
+    }
 };
 
-export default createConnection;
+export const test = async () => {
+    await controllerData();
+    try {
+        for (const mysqlConn of allConnectionData) {
+            const conn = await mysql.createConnection(mysqlConn);
+            allConnections.push(conn);
+            await conn.ping()
+            console.log(`Database connected: ${mysqlConn.database} `)
+            const [rows, fields] = await conn.execute('SHOW TABLES;');
+            console.log(`${JSON.stringify(rows, null, 2)}`);
+        }
+    } catch (err) {
+        console.error('Error in test:', err);
+    }
+};
