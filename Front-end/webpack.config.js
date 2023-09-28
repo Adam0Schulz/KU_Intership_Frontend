@@ -19,7 +19,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: './dist',
+        static: '.Front-end/dist',
         historyApiFallback: {
             rewrites: [
                 { from: /^\/pometum\/home$/, to: '/home.html' },

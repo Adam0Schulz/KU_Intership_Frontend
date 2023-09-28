@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from "cors";
-import {test} from "./DB/connection";
+import {test, testCredentials} from "./DB/connection";
 import { createDummyApplesTable, populateAppleTable } from './DB/DummyDBs/DBApples';
 import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDBs/DBBornholm';
 import http from "http";
@@ -66,6 +66,18 @@ app.use(cors({
 app.get('/apple', (_, res) => {
     res.send(apple);
 })
+
+app.post('/testdb', (req, res) => {
+    console.log("hhh:" +JSON.stringify(req.body))
+    testCredentials(req.body)
+        .then(() => {
+            res.send({ "test": "test success" });
+        })
+        .catch(err => {
+            console.error(err);
+            res.send({ "test": "test fail" });
+        });
+});
 
 createDummyApplesTable()
 populateAppleTable()

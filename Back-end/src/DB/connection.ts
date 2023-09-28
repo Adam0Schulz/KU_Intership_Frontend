@@ -1,6 +1,7 @@
 import mysql, {RowDataPacket} from "mysql2/promise";
 import 'dotenv/config';
 import {controllerConnection} from "./dbSetup";
+import process from "process";
 
 interface MysqlConnectionData {
     id?: number;
@@ -9,6 +10,19 @@ interface MysqlConnectionData {
     database?: string;
     user?: string;
     password?: string;
+}
+ interface BasicCredentials {
+     database: string,
+     username: string,
+     password: string
+ }
+
+const baseConnData: MysqlConnectionData = {
+    host: 'localhost',
+    port: 3306,
+    database: 'ku_db',
+    user: 'root',
+    password: 'password'
 }
 
 const allConnectionData:MysqlConnectionData[] = [];
@@ -57,3 +71,19 @@ export const test = async () => {
         console.error('Error in test:', err);
     }
 };
+
+export const testCredentials = async (cred: BasicCredentials) => {
+    try {
+        const fullConnData: MysqlConnectionData = {
+            ...baseConnData,
+            database: cred.database,
+            user: cred.username,
+            password: cred.password
+        }
+        const conn = await mysql.createConnection(fullConnData)
+        await conn.ping()
+    }catch (err) {
+        console.log('Error in credentials:' + err);
+        throw err
+    }
+}
