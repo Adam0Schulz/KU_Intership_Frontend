@@ -1,0 +1,7 @@
+.central-container {
+    display: flex;
+    justify-content: center;
+}
+.central-container-content {
+    text-align: center;
+}
