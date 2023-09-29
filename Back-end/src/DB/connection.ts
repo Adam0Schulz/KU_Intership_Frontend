@@ -1,7 +1,6 @@
 import mysql, {RowDataPacket} from "mysql2/promise";
 import 'dotenv/config';
 import {controllerConnection} from "./dbSetup";
-import process from "process";
 
 interface MysqlConnectionData {
     id?: number;
@@ -11,21 +10,22 @@ interface MysqlConnectionData {
     user?: string;
     password?: string;
 }
- interface BasicCredentials {
-     database: string,
-     username: string,
-     password: string
- }
+
+interface BasicCredentials {
+    database: string,
+    username: string,
+    password: string
+}
 
 const baseConnData: MysqlConnectionData = {
     host: 'localhost',
     port: 3306,
-    database: 'ku_db',
-    user: 'root',
-    password: 'password'
+    database: '',
+    user: '',
+    password: ''
 }
 
-const allConnectionData:MysqlConnectionData[] = [];
+const allConnectionData: MysqlConnectionData[] = [];
 const allConnections: mysql.Connection[] = [];
 
 export const controllerData = async () => {
@@ -35,7 +35,7 @@ export const controllerData = async () => {
             'SELECT * FROM connection;'
         );
         if (rows.length > 0) {
-            rows.forEach((row)=> {
+            rows.forEach((row) => {
                 const mysqlConnectionData: MysqlConnectionData = {
                     host: '',
                     port: 0,
@@ -82,7 +82,30 @@ export const testCredentials = async (cred: BasicCredentials) => {
         }
         const conn = await mysql.createConnection(fullConnData)
         await conn.ping()
-    }catch (err) {
+        const cc = await controllerConnection;
+        const [rows, fields] = await cc.execute<RowDataPacket[]>(
+            `SELECT *
+             FROM connection
+             WHERE database_name = "${cred.database}"
+             LIMIT 1;`
+        );
+        if (rows.length > 0) {
+            return {dbConfig: `db: ${rows[0].database_name} already exists in controller db`};
+        } else {
+            const values = [];
+            const keys = Object.keys(fullConnData);
+            for (let i = 0; i < keys.length; i++) {
+                const key = keys[i];
+                values.push(fullConnData[key as keyof MysqlConnectionData]);
+            }
+            const [rowsNewInsert] = await cc.query<RowDataPacket[]>(
+                `INSERT INTO connection (host, port, database_name, username, password)
+                 VALUES (?,?,?,?,?)`, values
+            );
+            return {dbConfig: `db: ${cred.database} registered in controller db`};
+        }
+
+    } catch (err) {
         console.log('Error in credentials:' + err);
         throw err
     }

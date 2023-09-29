@@ -10,9 +10,9 @@ const dbSetup_1 = require("./dbSetup");
 const baseConnData = {
     host: 'localhost',
     port: 3306,
-    database: 'ku_db',
-    user: 'root',
-    password: 'password'
+    database: '',
+    user: '',
+    password: ''
 };
 const allConnectionData = [];
 const allConnections = [];
@@ -70,6 +70,25 @@ const testCredentials = async (cred) => {
         };
         const conn = await promise_1.default.createConnection(fullConnData);
         await conn.ping();
+        const cc = await dbSetup_1.controllerConnection;
+        const [rows, fields] = await cc.execute(`SELECT *
+             FROM connection
+             WHERE database_name = "${cred.database}"
+             LIMIT 1;`);
+        if (rows.length > 0) {
+            return { dbConfig: `db: ${rows[0].database_name} already exists in controller db` };
+        }
+        else {
+            const values = [];
+            const keys = Object.keys(fullConnData);
+            for (let i = 0; i < keys.length; i++) {
+                const key = keys[i];
+                values.push(fullConnData[key]);
+            }
+            const [rowsNewInsert] = await cc.query(`INSERT INTO connection (host, port, database_name, username, password)
+                 VALUES (?,?,?,?,?)`, values);
+            return { dbConfig: `db: ${cred.database} registered in controller db` };
+        }
     }
     catch (err) {
         console.log('Error in credentials:' + err);

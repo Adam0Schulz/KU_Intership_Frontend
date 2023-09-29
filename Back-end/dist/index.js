@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const connection_1 = require("./DB/connection");
-const DBApples_1 = require("./DB/DummyDBs/DBApples");
-const DBBornholm_1 = require("./DB/DummyDBs/DBBornholm");
 const http_1 = __importDefault(require("http"));
 const app = (0, express_1.default)();
 const port = 5000;
@@ -67,20 +65,21 @@ app.get('/apple', (_, res) => {
     res.send(apple);
 });
 app.post('/testdb', (req, res) => {
-    console.log("hhh:" + JSON.stringify(req.body));
     (0, connection_1.testCredentials)(req.body)
-        .then(() => {
-        res.send({ "test": "test success" });
+        .then((dbConfig) => {
+        console.log(JSON.stringify(dbConfig));
+        res.send(dbConfig);
     })
         .catch(err => {
         console.error(err);
-        res.send({ "test": "test fail" });
+        res.send({ "test": false });
     });
 });
-(0, DBApples_1.createDummyApplesTable)();
-(0, DBApples_1.populateAppleTable)();
-(0, DBBornholm_1.createDummyBornholmTable)();
-(0, DBBornholm_1.populateBornholmTable)();
-(0, connection_1.test)();
+// createDummyApplesTable()
+// populateAppleTable()
+// createDummyBornholmTable()
+// populateBornholmTable()
+//test();
+//setUp();
 server.listen(port, () => console.log(`Running on port ${port}`));
 //# sourceMappingURL=index.js.map

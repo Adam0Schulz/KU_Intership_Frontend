@@ -1,6 +1,5 @@
 <div class="main-page-content">
     <div class="col-md-8">
-        <div class="">
             <div class="central-container">
                 <div class="central-container-content">
                     <h1 id="page-heading"></h1>
@@ -8,19 +7,21 @@
                         <label for="url-i">
                             Database URL
                         </label>
-                        <input id="url-i" type="text">
+                        <input id="url-i" type="text" value="ku_db">
                         <label for="username-i">
                             Database USERNAME
                         </label>
-                        <input id="username-i" type="text">
+                        <input id="username-i" type="text" value="root">
                         <label for="password-i">
                             Database PASSWORD
                         </label>
-                        <input id="password-i" type="text">
+                        <input id="password-i" type="text" value="password">
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="central-container">
+                <button id="test-btn">TEST</button>
+            </div>
     </div>
     <div class="col-md-3">
         <div class="central-container">
@@ -38,7 +39,7 @@
             </div>
         </div>
         <div class="central-container">
-            <button id="next-btn">NEXT</button>
+            <button class="disabled-btn" id="next-btn">NEXT</button>
         </div>
     </div>
 </div>

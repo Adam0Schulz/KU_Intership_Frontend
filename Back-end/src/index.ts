@@ -4,6 +4,7 @@ import {test, testCredentials} from "./DB/connection";
 import { createDummyApplesTable, populateAppleTable } from './DB/DummyDBs/DBApples';
 import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDBs/DBBornholm';
 import http from "http";
+import {setUp} from "./DB/dbSetup";
 
 const app = express()
 const port = 5000
@@ -68,23 +69,25 @@ app.get('/apple', (_, res) => {
 })
 
 app.post('/testdb', (req, res) => {
-    console.log("hhh:" +JSON.stringify(req.body))
     testCredentials(req.body)
-        .then(() => {
-            res.send({ "test": "test success" });
+        .then((dbConfig) => {
+            console.log(JSON.stringify(dbConfig))
+            res.send(dbConfig);
         })
         .catch(err => {
             console.error(err);
-            res.send({ "test": "test fail" });
+            res.send({ "test": false });
         });
 });
 
-createDummyApplesTable()
-populateAppleTable()
-createDummyBornholmTable()
-populateBornholmTable()
+// createDummyApplesTable()
+// populateAppleTable()
+// createDummyBornholmTable()
+// populateBornholmTable()
 
-test();
+//test();
+
+//setUp();
 
 
 

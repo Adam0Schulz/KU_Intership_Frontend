@@ -3,24 +3,38 @@
     height: 100%;
     align-items: center;
 }
+
 .central-container {
     display: flex;
     justify-content: center;
 }
+
 .central-container-content {
     text-align: center;
 }
+
 .input-form {
     display: flex;
     flex-direction: column;
     text-align: left;
 }
+
 .input-form label {
     margin-top: 3em;
 }
-.central-container button{
+
+.central-container button {
     padding: 1em 3em;
     background-color: #4f4f4f;
     color: #d5d2d2;
     font-family: inherit;
+    cursor: pointer;
+}
+.disabled-btn {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+#test-btn {
+    margin-top: 3em;
 }

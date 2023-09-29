@@ -6,7 +6,7 @@ import axios from "axios";
 
 $(function () {
     const credentials = {
-        url: "",
+        database: "",
         username: "",
         password: ""
     }
@@ -15,13 +15,22 @@ $(function () {
     $('title').text("New Database Configuration");
     $("#page-heading").text("New Database Configuration");
 
-    $('#next-btn').on('click', ()=> {
+    $('#test-btn').on('click', async ()=> {
         const c2 = credentials;
-        c2.url = $('#url-i').val().toString();
+        c2.database = $('#url-i').val().toString();
         c2.username = $('#username-i').val().toString();
         c2.password = $('#password-i').val().toString();
-        //alert("credentials passed");
-        axios.post('http://localhost:5000/testdb', c2).then(res => console.log(res.data));
+        const response = await axios.post('http://localhost:5000/testdb', c2);
+        const result = response.data;
+        console.log(result);
+        if (result) {
+            $('#next-btn').removeClass('disabled-btn');
+            $('.input-form input').css({"border-color": "transparent","outline": "#08ca5d 2px solid"}).attr('disabled', "true");
+            $('#test-btn').addClass('disabled-btn');
+        }
+        else {
+            $('.input-form input').css({"border-color": "transparent","outline": "#dc060d 2px solid"});
+        }
 
 
     })
