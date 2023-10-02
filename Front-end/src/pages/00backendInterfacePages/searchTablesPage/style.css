@@ -1,0 +1,42 @@
+.main-page-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.central-container {
+    display: flex;
+    justify-content: center;
+}
+
+.central-container-content {
+    text-align: center;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-form label {
+    margin-top: 3em;
+}
+
+.central-container button {
+    height: 4em;
+    width: 8em;
+    background-color: #4f4f4f;
+    color: #d5d2d2;
+    font-family: inherit;
+    cursor: pointer;
+    margin: 0.5em;
+}
+.disabled-btn {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+#test-btn {
+    margin-top: 3em;
+}

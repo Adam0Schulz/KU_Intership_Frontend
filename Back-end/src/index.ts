@@ -1,10 +1,11 @@
 import express from 'express';
 import cors from "cors";
-import {test, testCredentials} from "./DB/connection";
+import {setUpDBConnections, testCredentials} from "./DB/connection";
 import { createDummyApplesTable, populateAppleTable } from './DB/DummyDBs/DBApples';
 import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDBs/DBBornholm';
 import http from "http";
 import {setUp} from "./DB/dbSetup";
+import {findDB, findTable} from "./DB/query";
 
 const app = express()
 const port = 5000
@@ -64,6 +65,8 @@ app.use(cors({
     origin: true
 }));
 
+setUpDBConnections().then(()=> console.log('DB connections are set'));
+
 app.get('/apple', (_, res) => {
     res.send(apple);
 })
@@ -79,6 +82,13 @@ app.post('/testdb', (req, res) => {
             res.send({ "dbConfig": false });
         });
 });
+
+app.get('/tables', async (req, res) => {
+    console.log(`params: ${JSON.stringify(req.query)}`);
+    const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
+    rows.forEach(row => console.log(` table: ${row.TABLE_NAME}`))
+    res.send({keyword: req.query.keyword})
+})
 
 // createDummyApplesTable()
 // populateAppleTable()

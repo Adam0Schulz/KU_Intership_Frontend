@@ -26,7 +26,7 @@ const baseConnData: MysqlConnectionData = {
 }
 
 const allConnectionData: MysqlConnectionData[] = [];
-const allConnections: mysql.Connection[] = [];
+export const allConnections: mysql.Connection[] = [];
 
 export const controllerData = async () => {
     try {
@@ -56,7 +56,7 @@ export const controllerData = async () => {
     }
 };
 
-export const test = async () => {
+export const setUpDBConnections = async () => {
     await controllerData();
     try {
         for (const mysqlConn of allConnectionData) {
@@ -68,7 +68,7 @@ export const test = async () => {
             console.log(`${JSON.stringify(rows, null, 2)}`);
         }
     } catch (err) {
-        console.error('Error in test:', err);
+        console.error('Error in DBConnections setup:', err);
     }
 };
 
@@ -90,7 +90,10 @@ export const testCredentials = async (cred: BasicCredentials) => {
              LIMIT 1;`
         );
         if (rows.length > 0) {
-            return {dbConfig: `db: ${rows[0].database_name} already exists in controller db`};
+            return {
+                dbName: rows[0].database_name,
+                dbConfig: `db: ${rows[0].database_name} already exists in controller db`
+            };
         } else {
             const values = [];
             const keys = Object.keys(fullConnData);
@@ -100,9 +103,12 @@ export const testCredentials = async (cred: BasicCredentials) => {
             }
             const [rowsNewInsert] = await cc.query<RowDataPacket[]>(
                 `INSERT INTO connection (host, port, database_name, username, password)
-                 VALUES (?,?,?,?,?)`, values
+                 VALUES (?, ?, ?, ?, ?)`, values
             );
-            return {dbConfig: `db: ${cred.database} registered in controller db`};
+            return {
+                dbName: cred.database,
+                dbConfig: `db: ${cred.database} registered in controller db`
+            };
         }
 
     } catch (err) {

@@ -1,7 +1,6 @@
 import mysql from "mysql2/promise";
 import process from "process";
 import 'dotenv/config';
- console.log("hello")
 export const controllerConnection = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT),

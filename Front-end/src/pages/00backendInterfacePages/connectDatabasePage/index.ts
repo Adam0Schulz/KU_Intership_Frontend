@@ -14,6 +14,7 @@ $(function () {
     $('main').replaceWith(HTML);
     $('title').text("New Database Configuration");
     $("#page-heading").text("New Database Configuration");
+    let db= "";
 
     $('#test-btn').on('click', async ()=> {
         const c2 = credentials;
@@ -27,12 +28,14 @@ $(function () {
             $('#next-btn').removeClass('disabled-btn');
             $('.input-form input').css({"border-color": "transparent","outline": "#08ca5d 2px solid"}).attr('disabled', "true");
             $('#test-btn').addClass('disabled-btn');
+            db = result.dbName;
         }
         else {
             $('.input-form input').css({"border-color": "transparent","outline": "#dc060d 2px solid"});
         }
-
-
+    })
+    $('#next-btn').on('click', ()=> {
+        window.location.href = `/tables?db=${db}`
     })
 
 });
