@@ -1,7 +1,7 @@
 import mysql from "mysql2/promise"
 import { populateTable } from "./populateDB";
 
-const conn = mysql.createConnection({
+export const conn = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT),
     database: process.env.DATABASE_DB_NAME,
@@ -24,7 +24,7 @@ export async function createDummyBornholmTable() {
             description3 VARCHAR(255)
           )
       `);
-        console.log(tableName + " table created");
+        //console.log(tableName + " table created");
     } catch (error) {
         console.error("Error creating " + tableName + " table:", error);
     }

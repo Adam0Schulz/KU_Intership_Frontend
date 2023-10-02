@@ -26,7 +26,7 @@ export async function populateTable(conn: Promise<mysql.Connection>,tableName: s
           await (await conn).execute(insertQuery, values);
         }
       }
-      console.log(`${tableName} table populated with real data`);
+      //console.log(`${tableName} table populated with real data`);
   
   
     } catch (error) {

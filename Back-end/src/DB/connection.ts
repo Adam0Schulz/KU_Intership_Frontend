@@ -51,7 +51,7 @@ export const test = async () => {
             await conn.ping()
             console.log(`Database connected: ${mysqlConn.database} `)
             const [rows, fields] = await conn.execute('SHOW TABLES;');
-            console.log(`${JSON.stringify(rows, null, 2)}`);
+            //console.log(`${JSON.stringify(rows, null, 2)}`);
         }
     } catch (err) {
         console.error('Error in test:', err);

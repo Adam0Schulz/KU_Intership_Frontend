@@ -21,7 +21,7 @@ async function createDummyApplesTable() {
           shape VARCHAR(255)
         )
       `);
-        console.log("Apples table created");
+        //console.log("Apples table created");
     }
     catch (error) {
         console.error("Error creating Apples table:", error);

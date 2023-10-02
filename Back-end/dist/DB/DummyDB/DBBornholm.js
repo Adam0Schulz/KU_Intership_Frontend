@@ -27,7 +27,7 @@ async function createDummyBornholmTable() {
             description3 VARCHAR(255)
           )
       `);
-        console.log(tableName + " table created");
+        //console.log(tableName + " table created");
     }
     catch (error) {
         console.error("Error creating " + tableName + " table:", error);

@@ -1,13 +1,6 @@
 import mysql from "mysql2/promise"
 import { populateTable } from "./populateDB";
-
-const conn = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    port: parseInt(process.env.DATABASE_PORT),
-    database: process.env.DATABASE_DB_NAME,
-    user: process.env.DATABASE_USERNAME,
-    password: process.env.DATABASE_PASSWORD
-});
+import conn from "./conn";
 
 
 // Function to create the "apples" table
@@ -25,7 +18,7 @@ export async function createDummyApplesTable() {
           shape VARCHAR(255)
         )
       `);
-        console.log("Apples table created");
+        //console.log("Apples table created");
     } catch (error) {
         console.error("Error creating Apples table:", error);
     }
