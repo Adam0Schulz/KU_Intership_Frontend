@@ -76,7 +76,7 @@ app.post('/testdb', (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            res.send({ "test": false });
+            res.send({ "dbConfig": false });
         });
 });
 

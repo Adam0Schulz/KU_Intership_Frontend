@@ -23,7 +23,7 @@ $(function () {
         const response = await axios.post('http://localhost:5000/testdb', c2);
         const result = response.data;
         console.log(result);
-        if (result) {
+        if (result.dbConfig) {
             $('#next-btn').removeClass('disabled-btn');
             $('.input-form input').css({"border-color": "transparent","outline": "#08ca5d 2px solid"}).attr('disabled', "true");
             $('#test-btn').addClass('disabled-btn');
