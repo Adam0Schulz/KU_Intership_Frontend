@@ -88,8 +88,12 @@ app.post('/testdb', (req, res) => {
 app.get('/tables', async (req, res) => {
     console.log(`params: ${JSON.stringify(req.query)}`);
     const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
-    rows.forEach(row => console.log(` table: ${row.TABLE_NAME}`))
-    res.send({keyword: req.query.keyword})
+    const results:string[] = [];
+    rows.forEach(row => {
+        console.log(` table: ${row.TABLE_NAME}`)
+        results.push(row.TABLE_NAME);
+    })
+    res.send(results);
 })
 
 // createDummyApplesTable()

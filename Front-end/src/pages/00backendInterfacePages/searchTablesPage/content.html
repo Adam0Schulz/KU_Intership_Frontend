@@ -1,19 +1,27 @@
 <div class="main-page-content">
     <div class="col-md-8">
-            <div class="central-container">
-                <div class="central-container-content">
-                    <h1 id="page-heading"></h1>
-                    <div class="input-form">
-                        <label for="search-i">
-                            Search tables
-                        </label>
-                        <input id="search-i" type="text" placeholder="search here">
+        <div>
+            <div class="central-container-content">
+                <h1 id="page-heading"></h1>
+                <div class="input-form">
+                    <label for="search-i">
+                        Search tables
+                    </label>
+                    <div id="search-field-group">
+                        <input id="search-i" type="text">
+                        <button id="search-btn">SEARCH</button>
+                    </div>
+                </div>
+                <div class="offset-container">
+                    <div class="offset-container-child" id="occ-1">
+                        <h1>Search results:</h1>
+                    </div>
+                    <div class="offset-container-child" id="occ-2">
+                        <h1>Selected tables:</h1>
                     </div>
                 </div>
             </div>
-            <div class="central-container">
-                <button id="search-btn">SEARCH</button>
-            </div>
+        </div>
     </div>
     <div class="col-md-3">
         <div class="central-container">
@@ -31,8 +39,8 @@
             </div>
         </div>
         <div class="central-container">
-            <button class="disabled-btn" id="next-btn">NEXT</button>
-            <button class="disabled-btn" id="previous-btn">PREVIOUS</button>
+            <button id="previous-btn">PREVIOUS</button>
+            <button id="next-btn">NEXT</button>
         </div>
     </div>
 </div>
