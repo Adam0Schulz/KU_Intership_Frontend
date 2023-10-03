@@ -10,7 +10,8 @@ module.exports = {
         browse: './src/pages/browsePage/index.ts',
         404: './src/pages/404Page/index.ts',
         detail: './src/pages/detailPage/index.ts',
-        connect: './src/pages/00backendInterfacePages/connectDatabasePage/index.ts'
+        connect: './src/pages/00backendInterfacePages/connectDatabasePage/index.ts',
+        tables: './src/pages/00backendInterfacePages/searchTablesPage/index.ts'
     },
     output: {
         filename: '[name].bundle.js',
@@ -19,7 +20,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        static: './dist',
+        static: '.Front-end/dist',
         historyApiFallback: {
             rewrites: [
                 { from: /^\/pometum\/home$/, to: '/home.html' },
@@ -29,6 +30,7 @@ module.exports = {
                 { from: /^\/browse$/, to: '/browse.html' },
                 { from: /^\/detail$/, to: '/detail.html' },
                 { from: /^\/connect$/, to: '/connect.html' },
+                { from: /^\/tables$/, to: '/tables.html' },
                 { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
             ]
         },
@@ -78,6 +80,11 @@ module.exports = {
             template: './src/templates/backendInterfacePageTemplate.html',
             filename: 'connect.html',
             chunks: ['connect']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/backendInterfacePageTemplate.html',
+            filename: 'tables.html',
+            chunks: ['tables']
         })
     ],
     module: {

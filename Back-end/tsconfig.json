@@ -9,8 +9,8 @@
         "outDir": "./dist",
         "baseUrl": ".",
         "paths": {
-            "@dbConn": [
-                "src/DB/connection.ts"
+            "@DB": [
+                "src/DB"
             ]
         }
     },

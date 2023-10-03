@@ -1,11 +1,13 @@
 import express from 'express';
 import cors from "cors";
-import { test } from "./DB/connection";
+import { setUpDBConnections, testCredentials } from "./DB/connection";
 import { createDummyApplesTable, populateAppleTable } from './DB/DummyDB/DBApples';
 import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDB/DBBornholm';
 import { connectAndGetAllTables } from './DB/DBmapping';
 import dummyConn from './DB/DummyDB/conn';
 import http from "http";
+import {setUp} from "./DB/dbSetup";
+import {findDB, findTable} from "./DB/query";
 
 const app = express()
 const port = 5000
@@ -65,8 +67,29 @@ app.use(cors({
     origin: true
 }));
 
+setUpDBConnections().then(()=> console.log('DB connections are set'));
+
 app.get('/apple', (_, res) => {
     res.send(apple);
+})
+
+app.post('/testdb', (req, res) => {
+    testCredentials(req.body)
+        .then((dbConfig) => {
+            console.log(JSON.stringify(dbConfig))
+            res.send(dbConfig);
+        })
+        .catch(err => {
+            console.error(err);
+            res.send({ "dbConfig": false });
+        });
+});
+
+app.get('/tables', async (req, res) => {
+    console.log(`params: ${JSON.stringify(req.query)}`);
+    const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
+    rows.forEach(row => console.log(` table: ${row.TABLE_NAME}`))
+    res.send({keyword: req.query.keyword})
 })
 
 // createDummyApplesTable()
@@ -74,38 +97,9 @@ app.get('/apple', (_, res) => {
 // createDummyBornholmTable()
 // populateBornholmTable()
 
+//test();
 
-async function testtest() {
-    try {
-        connectAndGetAllTables(await dummyConn).then(res => console.log("-- tables", JSON.stringify(res)))
-    } catch (error) {
-        console.log("oops something went wrong")
-    }
-}
-testtest()
-
-// Example SQL DDL string
-// const sqlDDL = `
-// CREATE TABLE employees (
-//   id INT PRIMARY KEY,
-//   department_id INT,
-//   FOREIGN KEY (department_id) REFERENCES departments(id)
-// );
-
-// CREATE TABLE departments (
-//   id INT PRIMARY KEY,
-//   name VARCHAR(255)
-// );
-
-// CREATE TABLE projects (
-//   id INT PRIMARY KEY,
-//   department_id INT,
-//   FOREIGN KEY (department_id) REFERENCES departments(id)
-// );
-// `;
-
-
-test();
+//setUp();
 
 
 
