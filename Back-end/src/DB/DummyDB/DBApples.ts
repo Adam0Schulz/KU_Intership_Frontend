@@ -4,10 +4,10 @@ import conn from "./conn";
 
 
 // Function to create the "apples" table
-export async function createDummyApplesTable() {
+export async function createDummyAppleTable() {
     try {
         const [rows, fields] = await (await conn).execute(`
-        CREATE TABLE IF NOT EXISTS apples (
+        CREATE TABLE IF NOT EXISTS apple (
           id INT AUTO_INCREMENT PRIMARY KEY,
           danish_name VARCHAR(255),
           latin_name VARCHAR(255),
@@ -20,7 +20,7 @@ export async function createDummyApplesTable() {
       `);
         //console.log("Apples table created");
     } catch (error) {
-        console.error("Error creating Apples table:", error);
+        console.error("Error creating Apple table:", error);
     }
 }
 
@@ -28,7 +28,7 @@ export async function createDummyApplesTable() {
 export const populateAppleTable = () => {
     populateTable(
         conn,
-        "apples",
+        "apple",
         [
             {
                 danish_name: "Granny Smith",

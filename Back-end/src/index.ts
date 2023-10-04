@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from "cors";
 import { setUpDBConnections, testCredentials } from "./DB/connection";
-import { createDummyApplesTable, populateAppleTable } from './DB/DummyDB/DBApples';
+import { createDummyAppleTable, populateAppleTable } from './DB/DummyDB/DBApples';
 import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDB/DBBornholm';
 import { connectAndGetAllTables } from './DB/DBmapping';
 import dummyConn from './DB/DummyDB/conn';
