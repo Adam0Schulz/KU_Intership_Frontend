@@ -1,0 +1,10 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 6fr;
+}
+
+.table_cont {
+    margin: 3em;
+    max-width: 70vw;
+    overflow-x: scroll;
+}

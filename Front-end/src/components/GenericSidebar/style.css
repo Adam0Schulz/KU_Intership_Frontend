@@ -1,0 +1,21 @@
+.generic-sidebar {
+    background-color: var(--COLOR-BACKGROUND2);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: 1px solid black;
+}
+
+.generic-sidebar ul {
+    list-style: none;
+    margin-top: 2em;
+}
+
+.generic-sidebar li {
+    padding: 0.5em;
+}
+
+.generic-sidebar li:not(:has(input)):hover {
+    background-color: var(--COLOR-BACKGROUND3);
+    cursor: pointer;
+}

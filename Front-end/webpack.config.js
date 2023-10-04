@@ -11,7 +11,8 @@ module.exports = {
         404: './src/pages/404Page/index.ts',
         detail: './src/pages/detailPage/index.ts',
         connect: './src/pages/00backendInterfacePages/connectDatabasePage/index.ts',
-        tables: './src/pages/00backendInterfacePages/searchTablesPage/index.ts'
+        tables: './src/pages/00backendInterfacePages/searchTablesPage/index.ts',
+        tableComposition: './src/pages/00backendInterfacePages/tableComposition/index.ts'
     },
     output: {
         filename: '[name].bundle.js',
@@ -31,6 +32,7 @@ module.exports = {
                 { from: /^\/detail$/, to: '/detail.html' },
                 { from: /^\/connect$/, to: '/connect.html' },
                 { from: /^\/tables$/, to: '/tables.html' },
+                { from: /^\/table-comp$/, to: '/tableComposition.html' },
                 { from: /./, to: '/404.html' } // Redirects unmatched paths to a 404 page
             ]
         },
@@ -85,6 +87,11 @@ module.exports = {
             template: './src/templates/backendInterfacePageTemplate.html',
             filename: 'tables.html',
             chunks: ['tables']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/templates/backendInterfacePageTemplate.html',
+            filename: 'tableComposition.html',
+            chunks: ['tableComposition']
         })
     ],
     module: {

@@ -1,0 +1,7 @@
+.table_component {
+    border: 1px solid var(--COLOR-DIVIDER);
+}
+
+.table_component thead tr th {
+    min-width: 20ch;
+}
