@@ -15,7 +15,7 @@ const server = http.createServer(app);
 
 app.use(express.json())
 
-const apple = {
+const apples = {
     "database": "Pometum Apple key",
     "pages": [
         {
@@ -69,8 +69,8 @@ app.use(cors({
 
 setUpDBConnections().then(()=> console.log('DB connections are set'));
 
-app.get('/apple', (_, res) => {
-    res.send(apple);
+app.get('/apples', (_, res) => {
+    res.send(apples);
 })
 
 app.post('/testdb', (req, res) => {
@@ -94,6 +94,11 @@ app.get('/tables', async (req, res) => {
         results.push(row.TABLE_NAME);
     })
     res.send(results);
+});
+
+app.post('/tables/selected', (req, res)=> {
+    console.log(`selectedTables: ${req.body.selectedTables}`);
+    res.send({test: 'success'});
 })
 
 // createDummyApplesTable()

@@ -5,11 +5,11 @@ import {api} from "@js/api/axios";
 
 
 $(function () {
-
     $('main').replaceWith(HTML);
     const db = new URLSearchParams(window.location.search).get('db')
     $('title').text(`Tables of ${db}`);
     $("#page-heading").text(`Tables of ${db}`);
+    let selectedTables:string[] = [];
 
     $('#search-btn').on('click', async ()=>{
         $('.cb-container').remove();
@@ -21,24 +21,31 @@ $(function () {
             }
         });
         const result = response.data
-        console.log(JSON.stringify(result));
         result.forEach((res:string)=> {
-            $('#occ-1').append(`<div class="cb-container"><label for="checkbox-${res}">${res}</label><input type="checkbox" id="checkbox-${res}"></div>`)
+            $('#occc-1').append(`<div class="cb-container">
+                                    <input type="checkbox" id="checkbox-${res}">
+                                    <label for="checkbox-${res}">${res}</label>
+                                </div>`);
+        })
+        $('input[type="checkbox"]').on('change', function () {
+            const label = $(`label[for="${this.id}"]`).text();
+
+            if ($(this).is(":checked")) {
+                selectedTables.push(label);
+                $('#occc-2-l').append(`<li sId="${this.id}">${label}</li>`);
+            } else {
+                $(`li[sId="${this.id}"`).remove();
+                selectedTables = selectedTables.filter(table=> {
+                    return table !== label
+                });
+            }
         })
     })
 
-
-    $('input[type="checkbox"]').on('change', function () {
-        console.log("hh")
-        if ($(this).is(":checked")) {
-
-            console.log(`checked: ${this.id}`)
-
-        } else {
-
-            console.log(`unchecked: ${this.id}`)
-
-        }
+    $('#next-btn').on('click', async ()=> {
+        const response = await api.post('/tables/selected', {selectedTables: selectedTables});
+        const result = response.data;
+        console.log(`tables res: ${JSON.stringify(result)}`);
     })
 
 
