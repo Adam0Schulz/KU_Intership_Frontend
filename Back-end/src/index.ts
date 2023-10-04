@@ -67,7 +67,7 @@ app.use(cors({
     origin: true
 }));
 
-setUpDBConnections().then(()=> console.log('DB connections are set'));
+setUpDBConnections().then(()=> console.log('DB standby'));
 
 app.get('/apples', (_, res) => {
     res.send(apples);
@@ -86,11 +86,10 @@ app.post('/testdb', (req, res) => {
 });
 
 app.get('/tables', async (req, res) => {
-    console.log(`params: ${JSON.stringify(req.query)}`);
     const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
     const results:string[] = [];
     rows.forEach(row => {
-        console.log(` table: ${row.TABLE_NAME}`)
+        //console.log(` table: ${row.TABLE_NAME}`)
         results.push(row.TABLE_NAME);
     })
     res.send(results);
