@@ -43,9 +43,10 @@ $(function () {
     })
 
     $('#next-btn').on('click', async ()=> {
-        const response = await api.post('/tables/selected', {selectedTables: selectedTables});
-        const result = response.data;
-        console.log(`tables res: ${JSON.stringify(result)}`);
+        api.post('/tables/selected', {selectedTables: selectedTables})
+            .then(result=> console.log(`tables res: ${JSON.stringify(result.data)}`))
+            .then(()=> window.location.href="/table-comp")
+            .catch(error=> console.error(error));
     })
 
 
