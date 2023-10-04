@@ -63,7 +63,7 @@ export const setUpDBConnections = async () => {
             const conn = await mysql.createConnection(mysqlConn);
             allConnections.push(conn);
             await conn.ping()
-            console.log(`Database connected: ${mysqlConn.database} `)
+            //console.log(`Database connected: ${mysqlConn.database} `)
             const [rows, fields] = await conn.execute('SHOW TABLES;');
             //console.log(`${JSON.stringify(rows, null, 2)}`);
         }

@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from "cors";
 import { setUpDBConnections, testCredentials } from "./DB/connection";
-import { createDummyApplesTable, populateAppleTable } from './DB/DummyDB/DBApples';
+import { createDummyAppleTable, populateAppleTable } from './DB/DummyDB/DBApples';
 import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDB/DBBornholm';
 import { connectAndGetAllTables } from './DB/DBmapping';
 import dummyConn from './DB/DummyDB/conn';
@@ -15,7 +15,7 @@ const server = http.createServer(app);
 
 app.use(express.json())
 
-const apple = {
+const apples = {
     "database": "Pometum Apple key",
     "pages": [
         {
@@ -67,10 +67,10 @@ app.use(cors({
     origin: true
 }));
 
-setUpDBConnections().then(()=> console.log('DB connections are set'));
+setUpDBConnections().then(()=> console.log('DB standby'));
 
-app.get('/apple', (_, res) => {
-    res.send(apple);
+app.get('/apples', (_, res) => {
+    res.send(apples);
 })
 
 app.post('/testdb', (req, res) => {
@@ -86,10 +86,18 @@ app.post('/testdb', (req, res) => {
 });
 
 app.get('/tables', async (req, res) => {
-    console.log(`params: ${JSON.stringify(req.query)}`);
     const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
-    rows.forEach(row => console.log(` table: ${row.TABLE_NAME}`))
-    res.send({keyword: req.query.keyword})
+    const results:string[] = [];
+    rows.forEach(row => {
+        //console.log(` table: ${row.TABLE_NAME}`)
+        results.push(row.TABLE_NAME);
+    })
+    res.send(results);
+});
+
+app.post('/tables/selected', (req, res)=> {
+    console.log(`selectedTables: ${req.body.selectedTables}`);
+    res.send({test: 'success'});
 })
 
 // createDummyApplesTable()

@@ -1,10 +1,10 @@
 .main-page-content {
+    margin-top: 4em;
     display: flex;
     height: 100%;
-    align-items: center;
 }
 
-.central-container {
+.central-container  {
     display: flex;
     justify-content: center;
 }
@@ -17,6 +17,8 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 50%;
+    margin: auto;
 }
 
 .input-form label {
@@ -36,7 +38,54 @@
     pointer-events: none;
     opacity: 0.3;
 }
+#search-btn{
+    height: auto;
+    margin: 0 0 0 0.5em;
+    width: 8em;
+    background-color: #4f4f4f;
+    color: #d5d2d2;
+    font-family: inherit;
+    cursor: pointer;
+}
 
-#test-btn {
-    margin-top: 3em;
+#next-btn {
+    background-color: rgba(38, 38, 151, 0.83);
+}
+#search-i {
+flex-grow: 1;
+}
+
+.offset-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+}
+.offset-container-child {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.1em 2em 1em 2em;
+}
+#search-field-group {
+    display: flex;
+    width: 100%;
+}
+input[type=checkbox] {
+    margin-right: 1em;
+}
+.cb-container {
+    margin-top: 1em;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+#occ-1 {
+    background-color: rgba(95, 144, 160, 0.51);
+}
+#occ-2 {
+    background-color: rgba(72, 108, 120, 0.61);
+}
+
+#occc-1, #occc-2 {
+    text-align: left;
 }
