@@ -30,7 +30,7 @@ export const allConnections: mysql.Connection[] = [];
 
 export const controllerData = async () => {
     try {
-        const conn = await controllerConnection;
+        const conn = await controllerConnection();
         const [rows, fields] = await conn.execute<RowDataPacket[]>(
             'SELECT * FROM connection;'
         );
@@ -82,7 +82,7 @@ export const testCredentials = async (cred: BasicCredentials) => {
         }
         const conn = await mysql.createConnection(fullConnData)
         await conn.ping()
-        const cc = await controllerConnection;
+        const cc = await controllerConnection();
         const [rows, fields] = await cc.execute<RowDataPacket[]>(
             `SELECT *
              FROM connection

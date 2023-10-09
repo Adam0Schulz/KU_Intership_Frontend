@@ -1,13 +1,19 @@
 import express from 'express';
 import cors from "cors";
-import { setUpDBConnections, testCredentials } from "./DB/connection";
-import { createDummyAppleTable, populateAppleTable } from './DB/DummyDB/DBApples';
-import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDB/DBBornholm';
-import { connectAndGetAllTables } from './DB/DBmapping';
+import {setUpDBConnections, testCredentials} from "./DB/connection";
+import {createDummyAppleTable, populateAppleTable} from './DB/DummyDB/DBApples';
+import {createDummyBornholmTable, populateBornholmTable} from './DB/DummyDB/DBBornholm';
+import {connectAndGetAllTables} from './DB/DBmapping';
 import dummyConn from './DB/DummyDB/conn';
 import http from "http";
-import {setUp} from "./DB/dbSetup";
-import {findDB, findTable} from "./DB/query";
+import {controllerConnection, setUp} from "./DB/dbSetup";
+import {
+    createSelectedTable, deleteSelectedTableById,
+    findDB,
+    findTable,
+    getConnectionId,
+    getSelectedTableByNameAndConnectionId, getSelectedTablesByConnectionId
+} from "./DB/query";
 
 const app = express()
 const port = 5000
@@ -67,7 +73,7 @@ app.use(cors({
     origin: true
 }));
 
-setUpDBConnections().then(()=> console.log('DB standby'));
+setUpDBConnections().then(() => console.log('DB standby'));
 
 app.get('/apples', (_, res) => {
     res.send(apples);
@@ -81,22 +87,48 @@ app.post('/testdb', (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            res.send({ "dbConfig": false });
+            res.send({"dbConfig": false});
         });
 });
 
 app.get('/tables', async (req, res) => {
-    const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
-    const results:string[] = [];
-    rows.forEach(row => {
-        //console.log(` table: ${row.TABLE_NAME}`)
-        results.push(row.TABLE_NAME);
-    })
+    const keyword = req.query.keyword
+    const db = req.query.db
+    const connectionId = await getConnectionId(db as string);
+    const rows = await findTable(findDB(db as string), keyword as string);
+    const results: { name: string, isSelected: boolean }[] = [];
+    for (const row of rows) {
+        results.push({name: row.TABLE_NAME,
+            isSelected: !!(await getSelectedTableByNameAndConnectionId(row.TABLE_NAME, connectionId)) });
+    }
     res.send(results);
 });
 
-app.post('/tables/selected', (req, res)=> {
-    console.log(`selectedTables: ${req.body.selectedTables}`);
+app.post('/tables/selected', async (req, res) => {
+    const tables = req.body.selectedTables
+    const db = req.body.db
+    console.log(`selectedTables: ${tables}`);
+    const connectionId = await getConnectionId(db);
+    console.log(`connectionId: ${connectionId}`);
+    let selectedTables = await getSelectedTablesByConnectionId(connectionId);
+
+    for (const table of tables) {
+        const selectedTable = selectedTables.find(row => row.table_name === table);
+        if (selectedTable) {
+            selectedTables = selectedTables.filter(t => t !== selectedTable);
+            console.log(`table already selected with id: ${selectedTable.id}`);
+        } else {
+            const newSelectedTable = await createSelectedTable(connectionId, table);
+            // @ts-ignore
+            console.log(`New table selected: ${newSelectedTable.insertId}`);
+        }
+    }
+    console.log(`deleted: ${JSON.stringify(selectedTables, null, 2)}`)
+    for (const t of selectedTables) {
+        await deleteSelectedTableById(t.id);
+    }
+
+
     res.send({test: 'success'});
 })
 
@@ -108,7 +140,6 @@ app.post('/tables/selected', (req, res)=> {
 //test();
 
 //setUp();
-
 
 
 server.listen(port, () => console.log(`Running on port ${port}`))

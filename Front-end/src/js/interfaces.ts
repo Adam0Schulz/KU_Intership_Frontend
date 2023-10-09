@@ -139,3 +139,9 @@ export interface HandritSite {
     institutions: Institution[],
     sagas: Saga[]
 }
+
+export interface Table {
+    name: string,
+    isSelected?: boolean,
+    isCore?: boolean
+}
