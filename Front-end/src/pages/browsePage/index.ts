@@ -1,12 +1,12 @@
 import $ from 'jquery';
-import components, {ActivePage} from "@js/components";
+import components, { ActivePage } from "@js/components";
 import HTML from './content.html';
 import ItemCardList from '@components/ItemCardList';
 import AlphabeticalFilter from '@components/AlphabeticalFilter';
 import Pagination from '@components/Pagination';
-import FilterSidebar, {InputType} from '@components/FilterSidebar';
+import FilterSidebar, { InputType } from '@components/FilterSidebar';
 import BrowseGuide from '@components/BrowseGuide';
-import {mediaQuery} from "@utils";
+import { mediaQuery } from "@utils";
 import PageContentSection from "@components/PageContentSection";
 
 $(function () {
@@ -15,7 +15,7 @@ $(function () {
     components(
         {
             crumbsArray: [
-                {label: "Browse", link: "", isActive: true}
+                { label: "Browse", link: "", isActive: true }
             ],
             activePage: ActivePage.BROWSE
         }
@@ -128,7 +128,7 @@ $(function () {
             })
         }
     })
-    Pagination({numOfPages: 10})
+    Pagination({ numOfPages: 10 })
     AlphabeticalFilter()
     ItemCardList(
         {
@@ -207,10 +207,10 @@ $(function () {
     //         }
     //     ]})
     mediaQuery(() => $("#browse-main__content .main-section-content").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")), 768)
-    mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)
+    //mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)
     $(window).resize(() => {
         mediaQuery(() => $("#browse-main__content .main-section-content").after($(".filter-bar")), () => $("#browse-main__filter-sidebar").append($(".filter-bar")), 768)
-        mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)
+        //mediaQuery(() => $(".filter-bar__expandable").append($(".alpha-filter")), () => $("#browse-main__content .main-section-content").after($(".alpha-filter")), 768)
     });
 });
 

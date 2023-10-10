@@ -14,6 +14,7 @@ export enum ImageDisplay {
 // TOC stands for table of contents
 export default (data: SectionData[], imgDisplay: ImageDisplay, titleSpacing?: boolean, TOC?: boolean) => {
     const cont = $('<div></div>')
+    cont.css("display", "inline-block").css("width", "100%")
     const sidebar = $('<div class="col-sm-12 col-md-4 sections-sidebar"><div table-of-contents></div></div>')
     const component = $(`<div class="${TOC ? 'col-md-8' : ''} col-sm-12 main-section-content"></div>`);
 
