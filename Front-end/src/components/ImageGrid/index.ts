@@ -6,7 +6,8 @@ import {ImageDisplay} from "@components/PageContentSection";
 
 export const imageElements: HTMLImageElement[] = [];
 let x = Math.floor(Math.random() * 8) + 1;
-//const x = 3;
+//fixed amount of images
+x = 5;
 for (let i = 0; i < x; i++) {
     const img = new Image();
     img.alt = `img${i}`;
