@@ -2,6 +2,7 @@ import Table, { getAttrNames } from "@components/Table";
 import HTML from "./content.html"
 import "./style.css"
 import GenericSidebar from "@components/GenericSidebar";
+import { api } from "@js/api/axios";
 
 const data = [
     {
@@ -97,13 +98,27 @@ const data = [
 //     }
 // ]
 
-$(function () {
+$(async function () {
     $('main').replaceWith(HTML)
 
-    initStuff([])
+
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+
+    const dbName = params.get('db');
+
+    const response = await api.get("/tables/selected", {
+        params: {
+            db: dbName
+        }
+    })
 
 
-    function addEventListenerToCheckboxes() {
+
+    console.log(response.data)
+
+    initStuff([], [], "blank")
+    function addEventListenerToCheckboxes(data: Object[], tableName: string) {
         $(`input[type='checkbox'][attr-select]`).on("change", (e) => {
             const checkboxPair = $(`input[type='checkbox'][attr-select]`).filter((_, item) => $(item).parent().text() == $(e.currentTarget).parent().text())
             if ($(e.currentTarget).is(":checked")) {
@@ -117,21 +132,27 @@ $(function () {
                 .parent()
                 .map((_, item) => $(item).text())
                 .toArray())))
-            initStuff(attrNames)
+            initStuff(attrNames, data, tableName)
         })
     }
 
 
-    GenericSidebar({ id: "big-side", list: ["table1", "table2", "table3"] })
+    GenericSidebar({
+        id: "big-side", list: response.data, onClick: async (tableName) => {
+            const data = await api.get(`/tables/${tableName}/example`, { params: { db: dbName } }).then(res => res.data)
+            initStuff([], data, tableName)
+        }
+    })
 
 
 
 
-    function initStuff(attrNames: string[]) {
+    function initStuff(attrNames: string[], data: Object[], tableName: string) {
+        $(".big_div h1 span").text(tableName)
         Table({ id: "table1", objects: data, checked: attrNames })
         Table({ id: "table2", objects: filterObjectsByAttributes(data, attrNames) })
         GenericSidebar({ id: "small-side", list: getAttrNames(data[0]), checked: attrNames })
-        addEventListenerToCheckboxes()
+        addEventListenerToCheckboxes(data, tableName)
     }
 
 

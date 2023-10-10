@@ -39,6 +39,7 @@ export default (props: Props) => {
 }
 
 export function getAttrNames(object: Object) {
+    if(object === undefined) return []
     return Object.keys(object)
 }
 

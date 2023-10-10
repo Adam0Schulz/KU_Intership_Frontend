@@ -6,8 +6,9 @@ import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDB/DB
 import { connectAndGetAllTables } from './DB/DBmapping';
 import dummyConn from './DB/DummyDB/conn';
 import http from "http";
-import {setUp} from "./DB/dbSetup";
-import {findDB, findTable} from "./DB/query";
+import { setUp } from "./DB/dbSetup";
+import { findDB, findTable, getExampleEntries, getSelectedTables } from "./DB/query";
+import { RowDataPacket } from 'mysql2';
 
 const app = express()
 const port = 5000
@@ -67,7 +68,7 @@ app.use(cors({
     origin: true
 }));
 
-setUpDBConnections().then(()=> console.log('DB standby'));
+setUpDBConnections().then(() => console.log('DB standby'));
 
 app.get('/apples', (_, res) => {
     res.send(apples);
@@ -87,7 +88,7 @@ app.post('/testdb', (req, res) => {
 
 app.get('/tables', async (req, res) => {
     const rows = await findTable(findDB(req.query.db as string), req.query.keyword as string);
-    const results:string[] = [];
+    const results: string[] = [];
     rows.forEach(row => {
         //console.log(` table: ${row.TABLE_NAME}`)
         results.push(row.TABLE_NAME);
@@ -95,9 +96,29 @@ app.get('/tables', async (req, res) => {
     res.send(results);
 });
 
-app.post('/tables/selected', (req, res)=> {
+app.get("/tables/selected", async (req, res) => {
+    const rows = await getSelectedTables(req.query.db as string)
+    const results: RowDataPacket[] = []
+    rows.forEach(row => {
+        //console.log(` table: ${row.TABLE_NAME}`)
+        results.push(row.table_name);
+    })
+    res.send(results)
+})
+
+app.get("/tables/:tableName/example", async (req, res) => {
+    const rows = await getExampleEntries(findDB(req.query.db as string), req.params.tableName as string);
+    const results: RowDataPacket[] = []
+    rows.forEach(row => {
+        //console.log(` table: ${row.TABLE_NAME}`)
+        results.push(row);
+    })
+    res.send(results)
+})
+
+app.post('/tables/selected', (req, res) => {
     console.log(`selectedTables: ${req.body.selectedTables}`);
-    res.send({test: 'success'});
+    res.send({ test: 'success' });
 })
 
 // createDummyApplesTable()
