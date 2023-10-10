@@ -1,6 +1,7 @@
 import mysql, { RowDataPacket } from "mysql2/promise";
 import 'dotenv/config';
 import { controllerConnection } from "./dbSetup";
+import process from "process";
 
 interface MysqlConnectionData {
     id?: number;
@@ -18,8 +19,8 @@ interface BasicCredentials {
 }
 
 const baseConnData: MysqlConnectionData = {
-    host: 'localhost',
-    port: 3420,
+    host: process.env.DATABASE_HOST,
+    port: parseInt(process.env.DATABASE_PORT),
     database: '',
     user: '',
     password: ''

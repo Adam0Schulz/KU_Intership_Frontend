@@ -69,11 +69,11 @@ export const deleteSelectedTableById = async (id: number) => {
 }
 
 export const getSelectedTables = async (db: string) => {
-    const [rows, fields] = await (await controllerConnection).execute<RowDataPacket[]>(`
+    const [rows, fields] = await (await controllerConnection()).execute<RowDataPacket[]>(`
     SELECT selected_table.table_name
     FROM selected_table
     JOIN connection ON selected_table.connection_id = connection.id
-    WHERE connection.database_name = 'dummy';
+    WHERE connection.database_name = '${db}';
     `)
     return rows;
 }

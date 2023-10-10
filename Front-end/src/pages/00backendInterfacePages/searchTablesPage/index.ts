@@ -78,7 +78,7 @@ $(async function () {
             db: db
         })
             .then(result => console.log(`tables res: ${JSON.stringify(result.data)}`))
-            // .then(() => window.location.href = "/table-comp")
+            .then(() => window.location.href = `/table-comp?db=${db}`)
             .catch(error => console.error(error));
     })
 

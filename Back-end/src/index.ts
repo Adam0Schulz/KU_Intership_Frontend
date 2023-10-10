@@ -132,6 +132,8 @@ app.post('/tables/selected', async (req, res) => {
 
 
     res.send({test: 'success'});
+});
+
 app.get("/tables/selected", async (req, res) => {
     const rows = await getSelectedTables(req.query.db as string)
     const results: RowDataPacket[] = []
@@ -152,7 +154,7 @@ app.get("/tables/:tableName/example", async (req, res) => {
     res.send(results)
 })
 
-// createDummyApplesTable()
+// createDummyAppleTable()
 // populateAppleTable()
 // createDummyBornholmTable()
 // populateBornholmTable()
@@ -163,4 +165,4 @@ app.get("/tables/:tableName/example", async (req, res) => {
 
 
 
-server.listen(port, () => console.log(`Running on port ${port}`))
+server.listen(port, () => console.log(`Running on port ${port}`));
