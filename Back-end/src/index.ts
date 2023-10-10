@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from "cors";
-import {setUpDBConnections, testCredentials} from "./DB/connection";
-import {createDummyAppleTable, populateAppleTable} from './DB/DummyDB/DBApples';
-import {createDummyBornholmTable, populateBornholmTable} from './DB/DummyDB/DBBornholm';
-import {connectAndGetAllTables} from './DB/DBmapping';
+import { setUpDBConnections, testCredentials } from "./DB/connection";
+import { createDummyAppleTable, populateAppleTable } from './DB/DummyDB/DBApples';
+import { createDummyBornholmTable, populateBornholmTable } from './DB/DummyDB/DBBornholm';
+import { connectAndGetAllTables } from './DB/DBmapping';
 import dummyConn from './DB/DummyDB/conn';
 import http from "http";
 import {controllerConnection, setUp} from "./DB/dbSetup";
@@ -12,8 +12,10 @@ import {
     findDB,
     findTable,
     getConnectionId,
-    getSelectedTableByNameAndConnectionId, getSelectedTablesByConnectionId
+    getSelectedTableByNameAndConnectionId, getSelectedTablesByConnectionId,
+    getExampleEntries, getSelectedTables
 } from "./DB/query";
+import { RowDataPacket } from 'mysql2';
 
 const app = express()
 const port = 5000
@@ -73,7 +75,7 @@ app.use(cors({
     origin: true
 }));
 
-setUpDBConnections().then(() => console.log('DB standby'));
+setUpDBConnections().then(()=> console.log('DB standby'));
 
 app.get('/apples', (_, res) => {
     res.send(apples);
@@ -87,7 +89,7 @@ app.post('/testdb', (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            res.send({"dbConfig": false});
+            res.send({ "dbConfig": false });
         });
 });
 
@@ -130,6 +132,24 @@ app.post('/tables/selected', async (req, res) => {
 
 
     res.send({test: 'success'});
+app.get("/tables/selected", async (req, res) => {
+    const rows = await getSelectedTables(req.query.db as string)
+    const results: RowDataPacket[] = []
+    rows.forEach(row => {
+        //console.log(` table: ${row.TABLE_NAME}`)
+        results.push(row.table_name);
+    })
+    res.send(results)
+})
+
+app.get("/tables/:tableName/example", async (req, res) => {
+    const rows = await getExampleEntries(findDB(req.query.db as string), req.params.tableName as string);
+    const results: RowDataPacket[] = []
+    rows.forEach(row => {
+        //console.log(` table: ${row.TABLE_NAME}`)
+        results.push(row);
+    })
+    res.send(results)
 })
 
 // createDummyApplesTable()
@@ -140,6 +160,7 @@ app.post('/tables/selected', async (req, res) => {
 //test();
 
 //setUp();
+
 
 
 server.listen(port, () => console.log(`Running on port ${port}`))

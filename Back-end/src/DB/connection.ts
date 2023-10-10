@@ -1,6 +1,6 @@
-import mysql, {RowDataPacket} from "mysql2/promise";
+import mysql, { RowDataPacket } from "mysql2/promise";
 import 'dotenv/config';
-import {controllerConnection} from "./dbSetup";
+import { controllerConnection } from "./dbSetup";
 
 interface MysqlConnectionData {
     id?: number;
@@ -19,7 +19,7 @@ interface BasicCredentials {
 
 const baseConnData: MysqlConnectionData = {
     host: 'localhost',
-    port: 3306,
+    port: 3420,
     database: '',
     user: '',
     password: ''

@@ -4,7 +4,16 @@ main {
 }
 
 .table_cont {
-    margin: 3em;
+    margin: 3rem;
     max-width: 70vw;
     overflow-x: scroll;
+}
+
+.big_div h1 span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.big_div h1 {
+    margin-left: 3rem;
 }
